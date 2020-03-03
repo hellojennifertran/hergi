@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, except :index
+  before_action :find_post, except: [:index, :new, :create]
 
   def index
     @posts = Post.all
@@ -13,8 +13,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to post_path(@post)
+    @post.user = current_user
+    if @post.save!
+      redirect_to posts_path
     else
       render :new
     end
