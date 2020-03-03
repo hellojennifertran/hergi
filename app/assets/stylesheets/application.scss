@@ -11,3 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.active {
+  color: orange !important;
+  border-right: 1px solid black !important;
+}
