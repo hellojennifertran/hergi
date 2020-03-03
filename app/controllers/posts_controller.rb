@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   before_action :find_post, except: [:index, :new, :create]
 
   def index
-    @posts = Post.all
+    # @posts = Post.all.reverse
+    @posts = Post.order(created_at: :desc)
+    @post = Post.new
   end
 
   # def show; end
@@ -17,7 +19,7 @@ class PostsController < ApplicationController
     if @post.save!
       redirect_to posts_path
     else
-      render :new
+      render 'posts'
     end
   end
 
