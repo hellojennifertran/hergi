@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
 gem 'turbolinks_render'
+gem 'active_link_to', '~> 1.0', '>= 1.0.5'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'

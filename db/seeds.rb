@@ -9,7 +9,8 @@
 user = User.create!(
   first_name: 'Jennifer',
   last_name: 'Tran',
-  email: 'jennifer@gmail.com'
+  email: 'jennifert@gmail.com',
+  password: 'jjjjjj'
   )
 goal = Goal.create!(
   name: 'This is my goal',
