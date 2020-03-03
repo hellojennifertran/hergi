@@ -1,6 +1,10 @@
-<% @posts.each do |post| %>
-  <%= post.title %>
-  <%= post.description %>
-  <%= post.date %>
-  <%= post.user_id %>
-<% end %>
+<ul>
+  <li>
+    <% @posts.each do |post| %>
+      <p><%= post.title %></p>
+      <p><%= post.description %></p>
+      <p><%= post.date %></p>
+      <p><%= post.user_id %></p>
+    <% end %>
+  </li>
+</ul>
