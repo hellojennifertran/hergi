@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     root to: 'pages#home'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+
   get '/goals', to: 'goals#index'
   post '/goals', to: 'goals#create'
   get '/goals/new', to: 'goals#new', as: :new_goal
@@ -22,9 +22,5 @@ Rails.application.routes.draw do
   # delete 'goals/:id', to: 'goals#destroy'
 
   resources :posts
-  
-  resources :categories do
-    resources :goals, only: [:new, :create, :delete]
-  end
 end
 
