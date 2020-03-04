@@ -7,7 +7,7 @@
       <% @goals.each do |g| %>
         <div class="card-product">
           <% if g.photo.attached? %>
-            <%= cl_image_tag g.photos.first.key %>
+            <%= cl_image_tag g.photo.first.key %>
           <% else %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <%# end %>
