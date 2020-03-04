@@ -3,7 +3,7 @@
   <%= active_link_to "<i class='fas fa-search-location'></i>Discover".html_safe, root_path, active: :exact %>
   <%= active_link_to "<i class='fas fa-plus'></i> ".html_safe, new_goal_path, active: :exact %>
   <%= active_link_to "<i class='fas fa-lightbulb'></i>Inspire".html_safe, posts_path, active: :exact %>
-  <%= active_link_to "<i class='fas fa-user'></i>Profile".html_safe, root_path, active: :exact %>
+  <%= active_link_to "<i class='fas fa-user'></i>Profile".html_safe, profile_path(current_user), active: :exact %>
 </div>
 
 

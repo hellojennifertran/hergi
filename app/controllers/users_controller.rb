@@ -5,11 +5,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    if (user.id == current_user)
-      # display current user details
-      @goals = Goals.where(user: current_user)
-    else
-      @goals = Goals.where(user: params[:id])
-    end
+    @user = User.find(params[:id])
+    @goals = Goal.where(user: @user)
   end
 end

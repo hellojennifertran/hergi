@@ -11,9 +11,10 @@
 <div>
   <div class="profile-banner">
     <%# image-tag %>
+    <%= image_tag "avatar", class: "profile-avatar" %>
     <h3><%= @user.first_name %><%= @user.last_name %></h3>
     <%# calculate progression %>
-    <p>Congratulations! You are <%= ((@health_goal + @exploration_goal + @relationship_goal)) %></p>
+    <%# <p>Congratulations! You are <%= ((@health_goal + @exploration_goal + @relationship_goal)) %>
     <%# user-description %>
     
     <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
@@ -24,11 +25,16 @@
       <% @goals.each do |goal| %>
       <%# if image show, else display: none %>
       <%# Goal.date %>
-        <%= goal.date %>
-      <%# goal.title %>
-        <%= goal.category %>
-      <%# goal.note %>
-        <%= goal.note %>
+        <div class="goal-details">
+          <div class="goal-user-details">
+            <p><%= @user.first_name %><%= @user.last_name %></p>
+          </div>
+          <p class="goal-info"><%= goal.date.strftime("%d/%B/%Y") %></p>
+          <%# goal.title %>
+          <p class="goal-info"><%= goal.category %></p>
+          <%# goal.note %>
+          <p class="goal-info"><%= goal.note %></p>
+        </div>
       <% end  %>
     </div>
   </div>

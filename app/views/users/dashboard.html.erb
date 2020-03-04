@@ -6,19 +6,19 @@
     <% if @goals.length >= 1 %>
       <% @goals.each do |g| %>
         <div class="card-product-rented">
-          <% if g.photos.attached? %>
-            <%= cl_image_tag g.photos.first.key %>
-          <% else %>
+          <%# if g.photos.attached? %>
+            <%#= cl_image_tag g.photos.first.key %>
+          <%# else %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <% end %>
+          <%# end %>
           <div class="card-product-infos">
               <div class="description">
                 <small><%= g.date %></small>
                 <h2><%= g.category %></h2>
-                <h3><%= g.catgory_type %></h3>
+                <h3><%= g.category_type %></h3>
                 <p><%= g.note %></p>
               </div>
-              <h3><%= g.price_per_day %> £ </h3>
+              <h3><%#= g.price_per_day %> £ </h3>
           </div>
         </div>
       <% end %>
