@@ -2,18 +2,26 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hergi | Get inspired.</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-
-    <%= javascript_pack_tag 'application' %>
+    <div data-role="page">
+      <div role="main" class="ui-content">
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      </div>
+      <div data-role="footer">
+        <%= render 'shared/navbar' %>
+      </div>
+      <%= javascript_pack_tag 'application' %>
+    </div>
   </body>
 </html>
