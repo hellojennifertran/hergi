@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_142228) do
+ActiveRecord::Schema.define(version: 2020_03_04_160752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_142228) do
     t.string "category"
     t.text "note"
     t.string "category_type"
+    t.boolean "private", default: false
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 

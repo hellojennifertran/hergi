@@ -1,0 +1,29 @@
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 32px 0;
+}
+
+.profile-banner {
+  height: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #7dc3b7;
+  border-bottom: solid 1px #605855;
+}
+
+.profile-body {
+  padding: 30px 10px;
+}
+
+.goal-details {
+  border: 1px solid #605855;
+  .goal-info {
+    margin-top: 16px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
