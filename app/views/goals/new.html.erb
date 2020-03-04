@@ -1,6 +1,6 @@
 <div class="container">
 	<h2><%= params[:category] %></h2>
-	<% c_type = '' %>
+	<% c_type = nil %>
 	<% @category_type.select do |cat| %>
 <% c_type = cat[:category_type] if cat[:category] == params[:category] %>
 <% end %>
