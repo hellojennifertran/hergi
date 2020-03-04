@@ -1,12 +1,12 @@
 class GoalsController < ApplicationController
   def index
-    @goals = Goal.all
   end
 
   def create
     @goal = Goal.new(goal_params)
+    @goal.user = current_user
     if @goal.save
-      redirect_to goal_path(@goal.id)
+      ""
     else
       render :new
     end
@@ -14,6 +14,7 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
+    @category_type = Goal::CATEGORIES
   end
 
   def update

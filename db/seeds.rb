@@ -9,9 +9,12 @@
 user = User.create!(
   first_name: 'Jennifer',
   last_name: 'Tran',
-  email: 'jennifert@gmail.com',
+  email: 'jennifert4@gmail.com',
   password: 'jjjjjj'
   )
 goal = Goal.create!(
-  name: 'This is my goal',
+  user_id: User.last.id,
+  category: '',
+  category_type: '',
+  note: 'This is my goal',
   )
