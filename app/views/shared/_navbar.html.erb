@@ -6,4 +6,9 @@
   <%= active_link_to "<i class='fas fa-user'></i>Profile".html_safe, root_path, active: :exact %>
 </div>
 
+<div class="container">
+  <% Goal::CATEGORIES.each do |category| %>
+  <%= active_link_to category[:category], new_goal_path(category: category[:category]) %>
+  <% end %>
+</div>
 
