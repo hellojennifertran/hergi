@@ -5,10 +5,10 @@
     <%= link_to "Add New Goal", new_goal_path%>
     <% if @goals.length >= 1 %>
       <% @goals.each do |g| %>
-        <div class="card-product-rented">
-          <%# if g.photos.attached? %>
-            <%#= cl_image_tag g.photos.first.key %>
-          <%# else %>
+        <div class="card-product">
+          <% if g.photo.attached? %>
+            <%= cl_image_tag g.photos.first.key %>
+          <% else %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <%# end %>
           <div class="card-product-infos">
@@ -23,5 +23,4 @@
       <% end %>
     <% end %>
   </div>
-  <p><%= link_to "Return to dashboard", root_path%></p>
 </div>
