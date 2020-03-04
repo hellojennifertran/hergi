@@ -1,1 +1,7 @@
-hiii new
+<%= simple_form_for @goal do |f| %>
+  <%= f.input :note, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
+  <%= f.input :date, hint: 'No special characters.' %>
+  <%= f.input :category, as: :hidden, input_html: {value: 'health'} %>
+  <%= f.input :category_type, placeholder: 'user@domain.com' %>
+  <%= f.button :submit %>
+<% end %>
