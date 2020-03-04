@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_165420) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "category_type"
     t.string "category"
     t.text "note"
     t.index ["user_id"], name: "index_goals_on_user_id"

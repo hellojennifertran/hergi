@@ -1,0 +1,35 @@
+<%# header - avatar, 
+    settings button (log out, edit monthly goals, ),
+    profile description, editable with turbolinks
+    monthly goal progression - "Congrats you're 10% of the way through your goals this month"
+
+    body - HER doughnut chart breakdown - by current month,
+    total goal points accumulated,
+    swipe to see achievements log
+%>
+
+<div>
+  <div class="profile-banner">
+    <%# image-tag %>
+    <h3><%= @user.first_name %><%= @user.last_name %></h3>
+    <%# calculate progression %>
+    <p>Congratulations! You are <%= ((@health_goal + @exploration_goal + @relationship_goal)) %></p>
+    <%# user-description %>
+    
+    <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
+  </div>
+  <div class="profile-body">
+    <div class="profile-progression-achievements">
+      <%# goals list %>
+      <% @goals.each do |goal| %>
+      <%# if image show, else display: none %>
+      <%# Goal.date %>
+        <%= goal.date %>
+      <%# goal.title %>
+        <%= goal.category %>
+      <%# goal.note %>
+        <%= goal.note %>
+      <% end  %>
+    </div>
+  </div>
+</div>
