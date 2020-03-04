@@ -11,9 +11,10 @@
 <div>
   <div class="profile-banner">
     <%# image-tag %>
+    <%= image_tag "avatar", class: "profile-avatar" %>
     <h3><%= @user.first_name %><%= @user.last_name %></h3>
     <%# calculate progression %>
-    <p>Congratulations! You are <%= ((@health_goal + @exploration_goal + @relationship_goal)) %></p>
+    <%# <p>Congratulations! You are <%= ((@health_goal + @exploration_goal + @relationship_goal)) %>
     <%# user-description %>
     
     <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
@@ -21,15 +22,25 @@
   <div class="profile-body">
     <div class="profile-progression-achievements">
       <%# goals list %>
-      <% @goals.each do |goal| %>
-      <%# if image show, else display: none %>
-      <%# Goal.date %>
-        <%= goal.date %>
-      <%# goal.title %>
-        <%= goal.category %>
-      <%# goal.note %>
-        <%= goal.note %>
-      <% end  %>
+      <%= simple_form_for :privatize_all, url: privatize_all_goals_path, method: :patch do |f| %>
+        <% @goals.each do |goal| %>
+          <div class="goal-details">
+            <div class="goal-user-details">
+              <div class="goal-user-name">
+                <p><%= @user.first_name %><%= @user.last_name %></p>
+              </div>
+              <p class="goal-info"><%= goal.date.strftime("%d/%B/%Y") %></p>
+              <%# goal.title %>
+              <p class="goal-info"><%= goal.category %></p>
+              <%# goal.note %>
+              <p class="goal-info"><%= goal.note %></p>
+            </div>
+            <div class="goal-privatize">
+              <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

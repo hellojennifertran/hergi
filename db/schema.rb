@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_03_04_173348) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_173348) do
     t.string "category"
     t.text "note"
     t.string "category_type"
+    t.boolean "private", default: false
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
