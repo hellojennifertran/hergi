@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-    root to: 'pages#home'
+    root to: 'users#dashboard'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  get "dashboard", to: "users#dashboard", as: :dashboard
   get '/goals', to: 'goals#index'
   post '/goals', to: 'goals#create'
   get '/goals/new', to: 'goals#new', as: :new_goal
