@@ -14,7 +14,7 @@
     <%= image_tag "avatar", class: "profile-avatar" %>
     <h3><%= @user.first_name %><%= @user.last_name %></h3>
     <%# calculate progression %>
-    <%# <p>Congratulations! You are <%= ((@health_goal + @exploration_goal + @relationship_goal)) %>
+    <%# <p>Congratulations! You are <%= (@user.health_goal + @user.exploration_goal + @user.relationship_goal) </p> %>
     <%# user-description %>
     
     <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
@@ -40,6 +40,7 @@
             </div>
           </div>
         <% end %>
+        <%= f.button :submit, "Hide Posts", class: "btn btn-primary"%>
       <% end %>
     </div>
   </div>
