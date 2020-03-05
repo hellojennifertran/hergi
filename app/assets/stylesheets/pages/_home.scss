@@ -1,24 +1,40 @@
 // Specific CSS for your home-page
 .homepage-carousel {
   position: relative;
+  height: 74vh;
+  overflow: 100%;
 }
-.homepage-info {
+.carousel-inner {
+  height: 74vh;
+}
+.homepage-info h2 {
   position: absolute;
-  bottom: 1px;
+  bottom: 130px;
   left: 10px;
   color: white;
+}
+.homepage-info p {
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+  color: white;
+  width: 200px;
 }
 .title-hergi {
   position: absolute;
   left: 120px;
   color: white;
-  top: 8px;
+  top: 9px;
 }
-
 .sign-in-up {
   margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .btn-homepage {
-  font-size: 13px
+  font-size: 13px;
+}
+.flex-container {
+  display: flex;
+  text-align: center;
 }
