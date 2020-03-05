@@ -8,43 +8,41 @@
     swipe to see achievements log
 %>
 
-<div>
-  <div class="profile-banner">
-    <%# image-tag %>
-    <%= image_tag "avatar", class: "profile-avatar" %>
-    <h3><%= @user.first_name %><%= @user.last_name %></h3>
-    <%# calculate progression %>
-    <%# <p>Congratulations! You are <%= (@user.health_goal + @user.exploration_goal + @user.relationship_goal) </p> %>
-    <%# user-description %>
-    
-    <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-  </div>
-  <div class="profile-body">
-    <div class="profile-progression-achievements">
-      <%# goals list %>
-      <%= simple_form_for :privatize_all, url: privatize_all_goals_path, method: :patch do |f| %>
-        <% @goals.each do |goal| %>
-          <div class="goal-details">
-            <div class="goal-user-details">
-              <div class="goal-user-name">
-                <% link_to profile_path(@user) do %>
-                  <p><%= @user.first_name %><%= @user.last_name %></p>
-                <% end %>
-              </div>
-              <%# goal.title %>
-              <p class="goal-info category"><%= goal.category %></p>
-              <%# goal.note %>
-              <p class="goal-info date"><%= goal.date.strftime("%d/%B/%Y") %></p>
-              <p class="goal-info note"><%= goal.note %></p>
+<div class="profile-banner">
+  <%# image-tag %>
+  <%= image_tag "avatar", class: "profile-avatar" %>
+  <h3><%= @user.first_name %><%= @user.last_name %></h3>
+  <%# calculate progression %>
+  <%# <p>Congratulations! You are <%= (@user.health_goal + @user.exploration_goal + @user.relationship_goal) </p> %>
+  <%# user-description %>
+  
+  <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+</div>
+<div class="profile-body">
+  <div class="profile-progression-achievements">
+    <%# goals list %>
+    <%= simple_form_for :privatize_all, url: privatize_all_goals_path, method: :patch do |f| %>
+      <% @goals.each do |goal| %>
+        <div class="goal-details">
+          <div class="goal-user-details">
+            <div class="goal-user-name">
+              <% link_to profile_path(@user) do %>
+                <p><%= @user.first_name %><%= @user.last_name %></p>
+              <% end %>
             </div>
-            <div class="goal-privatize">
-              <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
-            </div>
+            <%# goal.title %>
+            <p class="goal-info category"><%= goal.category %></p>
+            <%# goal.note %>
+            <p class="goal-info date"><%= goal.date.strftime("%d/%B/%Y") %></p>
+            <p class="goal-info note"><%= goal.note %></p>
           </div>
-        <% end %>
-        <%= f.button :submit, "Hide Posts", class: "btn btn-primary"%>
+          <div class="goal-privatize">
+            <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
+          </div>
+        </div>
       <% end %>
-    </div>
+      <%= f.button :submit, "Hide Posts", class: "btn btn-primary"%>
+    <% end %>
   </div>
 </div>

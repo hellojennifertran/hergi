@@ -1,16 +1,14 @@
-<div class="container">
-	<h2><%= params[:category] %></h2>
-	<% c_type = nil %>
-	<% @category_type.select do |cat| %>
+<h2><%= params[:category] %></h2>
+<% c_type = nil %>
+<% @category_type.select do |cat| %>
 <% c_type = cat[:category_type] if cat[:category] == params[:category] %>
 <% end %>
 
-
+<div id="goal-form">
 <%= simple_form_for @goal do |f| %>
-  <%= f.input :note, label: 'Note:', hint: 'What did you accomplish?', error: 'Username is mandatory, please specify one' %>
+  <%= f.input :category_type, label: 'Activity:', collection: c_type %>
+  <%= f.input :note, label: 'Note:', hint: 'What did you accomplish?' %>
   <%= f.input :date, label: 'Date:', hint: 'Enter the date you completed this goal' %>
-  <%= f.input :category_type, label: 'Category:', collection: c_type %>
   <%= f.button :submit %>
 <% end %>
-
 </div>
