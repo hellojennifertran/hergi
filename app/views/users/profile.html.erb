@@ -55,10 +55,18 @@
             <div class="goal-privatize">
               <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
             </div>
+            <%# goal.title %>
+            <p class="goal-info category"><%= goal.category %></p>
+            <%# goal.note %>
+            <p class="goal-info date"><%= goal.date.strftime("%d/%B/%Y") %></p>
+            <p class="goal-info note"><%= goal.note %></p>
           </div>
-        <% end %>
-        <%= f.button :submit, "Hide Posts", class: "btn btn-primary"%>
+          <div class="goal-privatize">
+            <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
+          </div>
+        </div>
       <% end %>
-    </div>
+      <%= f.button :submit, "Hide Posts", class: "btn btn-primary"%>
+    <% end %>
   </div>
 </div>
