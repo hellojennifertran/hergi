@@ -13,6 +13,7 @@
   align-items: center;
   background-color: #7dc3b7;
   border-bottom: solid 1px #605855;
+  position: relative;
 }
 
 .profile-body {
@@ -28,6 +29,22 @@
   }
 }
 
-.simple_form.edit_user {
-  display: none;
+.profile-note {
+  height: 30px;
+  width: 100%;
+}
+
+.parent-note {
+  position: relative;
+  .description-form {
+
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  .dropdown-menu {
+  }
 }
