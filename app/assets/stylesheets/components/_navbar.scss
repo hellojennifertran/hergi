@@ -1,20 +1,65 @@
-.my-navbar {
+.navbar {
   display: flex;
-  background: lightgrey;
-  overflow: hidden;
+  justify-content: space-around;
   position: fixed;
+  background-color: #333;
   bottom: 0;
   width: 100%;
   padding: 0px;
 }
 
-.my-navbar a {
-  flex: 0 1 20%;
-  display: block;
-  color: black;
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
   text-align: center;
-  padding: 13px;
+  padding: 14px 16px;
   text-decoration: none;
-  font-size: 13px;
-  border-right: 0.5px solid;
+  border-right: none!important;
+}
+
+.dropup {
+  float: left;
+}
+
+.dropup .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropup:hover .dropbtn {
+  background-color: #3c3c3c;
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  bottom: 50px;
+}
+
+.dropup-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropup-content a:hover {
+  background-color: #ddd;
+}
+
+.dropup:hover .dropup-content {
+  display: block;
 }
