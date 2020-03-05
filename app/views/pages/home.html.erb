@@ -1,5 +1,30 @@
-<div class="container mt-5">
-    <h2>Hergi</h2>
+<div class="container">
+  <div class="homepage-carousel">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag "image1.jpeg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "image2.jpeg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "image3.jpeg" %>
+        </div>
+      </div>
+    </div>
+    <div class ="title-hergi">
+      <h1>Hergi</h1>
+    </div>
+    <div class="homepage-info">
+      <h2>Hello there!</h2>
+        <p>You are a few steps away from starting your journey of self-development</p>
+    </div>
+  </div>
+  <div class="sign-in-up">
+      <button type="button" class="btn btn-primary btn-lg btn-block btn-homepage">Continue with Facebook</button>
+      <button type="button" class="btn btn-light btn-lg btn-block btn-homepage">Continue with Google</button>
+      <button type="button" class="btn btn-light btn-lg btn-block btn-homepage">Sign Up with Email</button>
       <%= link_to "sign up", new_user_registration_path%>
       <br><br><p>Already have an account?</p>
       <%= link_to "Log in", user_session_path%>
