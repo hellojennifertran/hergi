@@ -8,7 +8,7 @@
 
 <div class="container">
   <% Goal::CATEGORIES.each do |category| %>
-  <%= active_link_to category[:category], new_goal_path(category: category[:category]) %>
+    <%= active_link_to category[:category], new_goal_path(category: category[:category]) %>
   <% end %>
 </div>
 

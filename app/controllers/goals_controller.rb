@@ -22,6 +22,7 @@ class GoalsController < ApplicationController
   end
 
   def privatize_all
+    binding.pry
     private_goals = params[:privatize_goals][:goal_ids].map{ |id| Goal.find(id) }
     private_goals.each { |goal| goal.update(private: true) }
     public_goals = current_user.goals - private_goals

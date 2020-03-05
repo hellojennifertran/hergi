@@ -18,6 +18,7 @@
     <%# user-description %>
     
     <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
   </div>
   <div class="profile-body">
     <div class="profile-progression-achievements">
@@ -27,13 +28,15 @@
           <div class="goal-details">
             <div class="goal-user-details">
               <div class="goal-user-name">
-                <p><%= @user.first_name %><%= @user.last_name %></p>
+                <% link_to profile_path(@user) do %>
+                  <p><%= @user.first_name %><%= @user.last_name %></p>
+                <% end %>
               </div>
-              <p class="goal-info"><%= goal.date.strftime("%d/%B/%Y") %></p>
               <%# goal.title %>
-              <p class="goal-info"><%= goal.category %></p>
+              <p class="goal-info category"><%= goal.category %></p>
               <%# goal.note %>
-              <p class="goal-info"><%= goal.note %></p>
+              <p class="goal-info date"><%= goal.date.strftime("%d/%B/%Y") %></p>
+              <p class="goal-info note"><%= goal.note %></p>
             </div>
             <div class="goal-privatize">
               <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
