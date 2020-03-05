@@ -1,4 +1,4 @@
-<div class="my-navbar">
+ <div class="my-navbar">
   <%= active_link_to "<i class='fas fa-home'></i>Home".html_safe, root_path, active: :exact %>
   <%= active_link_to "<i class='fas fa-search-location'></i>Discover".html_safe, root_path, active: :exact %>
   <%= active_link_to "<i class='fas fa-plus'></i> ".html_safe, new_goal_path, active: :exact %>
@@ -11,4 +11,3 @@
     <%= active_link_to category[:category], new_goal_path(category: category[:category]) %>
   <% end %>
 </div>
-
