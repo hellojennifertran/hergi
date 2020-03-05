@@ -1,10 +1,11 @@
 class GoalsController < ApplicationController
   def index
+    @goals = Goal.all.include(:users)
   end
 
   def create
     @goal = Goal.new(goal_params)
-    @goal.user = current_user
+    @user = User.find(params[:user_id])
     if @goal.save
       redirect_to root_path
     else
@@ -18,7 +19,12 @@ class GoalsController < ApplicationController
   end
 
   def update
-    @goal.update(goal_params)
+    if @goal.update(goal_params)
+      redirect_to profile_path(@user)
+    else
+      render 'profile/:id'
+    end
+
   end
 
   def privatize_all

@@ -1,28 +1,6 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Create a Post
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Share your story.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render "form", post: @post, remote: true %>
-      </div>
-    </div>
-  </div>
-</div>
-
 <% @posts.each do |post| %>
 
-  <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="exampleModalCenter2-<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -56,8 +34,8 @@
           <i class="fas fa-ellipsis-v"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'></i>".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2" } %> Edit</a>
-          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, post_path(post), method: :delete %> Delete</a>
+          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'> Edit</i>".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></a>
+          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'> Delete</i>".html_safe, post_path(post), method: :delete %></a>
         </div>
       </div>
     </div>

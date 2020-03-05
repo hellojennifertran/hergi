@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-    @post = Post.update(post_params)
+    @post.update(post_params)
     redirect_to posts_path
   end
 
