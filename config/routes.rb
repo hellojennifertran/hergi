@@ -13,9 +13,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'dashboard', to: 'users#dashboard', as: :dashboard
   get 'profile/:id', to: 'users#profile', as: :profile
-  get '/goals', to: 'goals#index'
-  post '/goals', to: 'goals#create'
-  get '/goals/new', to: 'goals#new', as: :new_goal
+  get 'update/:id', to: 'users#update', as: :update
+  
   resources :goals, only: [:index, :create, :new] do
     collection do
       patch :privatize_all

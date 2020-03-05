@@ -8,17 +8,31 @@
     swipe to see achievements log
 %>
 
+<script>
+  const description = document.querySelector(".profile-note");
+  const descriptionForm = document.querySelector(".description-form invisible");
+  description.addEventListener("touchend", (e) => {
+    descriptionForm.classList.toggle("invisible")
+  })
+</script>
+
 <div>
   <div class="profile-banner">
-    <%# image-tag %>
     <%= image_tag "avatar", class: "profile-avatar" %>
     <h3><%= @user.first_name %><%= @user.last_name %></h3>
     <%# calculate progression %>
     <%# <p>Congratulations! You are <%= (@user.health_goal + @user.exploration_goal + @user.relationship_goal) </p> %>
     <%# user-description %>
     
+    <%# image-tag %>
     <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <% if @user == current_user %>
+      <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: true, class: "description-form invisible" do |f|%>
+        <%= f.input :note, placeholder: "Add a note", label: false %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
+    <p class="profile-note"> <%= @user.note %></p>
   </div>
   <div class="profile-body">
     <div class="profile-progression-achievements">
