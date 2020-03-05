@@ -7,17 +7,19 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <div class="container pt-4" style="min-height: calc(100vh - 76px);">
+    <div class="container pt-4">
       <%= yield %>
     </div>
-    <div class="nav">
-      <div style="height: 76px;"></div>
-      <%= render 'shared/navbar' %>
-    </div>
+    <% unless params[:controller] == 'pages' && params[:action] == 'home' %>
+      <div class="nav">
+        <%= render 'shared/navbar' %>
+      </div>
+    <% end %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
