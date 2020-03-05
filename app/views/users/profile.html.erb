@@ -7,32 +7,26 @@
     total goal points accumulated,
     swipe to see achievements log
 %>
-
-<script>
-  const description = document.querySelector(".profile-note");
-  const descriptionForm = document.querySelector(".description-form invisible");
-  description.addEventListener("touchend", (e) => {
-    descriptionForm.classList.toggle("invisible")
-  })
-</script>
-
 <div>
   <div class="profile-banner">
     <%= image_tag "avatar", class: "profile-avatar" %>
     <h3><%= @user.first_name %><%= @user.last_name %></h3>
     <%# calculate progression %>
     <%# <p>Congratulations! You are <%= (@user.health_goal + @user.exploration_goal + @user.relationship_goal) </p> %>
-    <%# user-description %>
-
-    <%# image-tag %>
     <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
-    <% if @user == current_user %>
-      <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: true, class: "description-form invisible" do |f|%>
-        <%= f.input :note, placeholder: "Add a note", label: false %>
-        <%= f.submit %>
-      <% end %>
-    <% end %>
-    <p class="profile-note"> <%= @user.note %></p>
+    
+    <%# user-description %>
+    <div class="parent-note">
+      <div class='description-form invisible-form'>
+        <% if @user == current_user %>
+          <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: true do |f|%>
+            <%= f.input :note, placeholder: "Add a note", label: false %>
+            <%= f.submit %>
+          <% end %>
+        <% end %>
+      </div>
+      <p class="profile-note"> <%= @user.note %></p>
+    </div>
   </div>
   <div class="profile-body">
     <div class="profile-progression-achievements">
@@ -42,7 +36,7 @@
           <div class="goal-details">
             <div class="goal-user-details">
               <div class="goal-user-name">
-                <% link_to profile_path(@user) do %>
+                <%= link_to profile_path [@goal, @user] do %>
                   <p><%= @user.first_name %><%= @user.last_name %></p>
                 <% end %>
               </div>
@@ -55,16 +49,7 @@
             <div class="goal-privatize">
               <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
             </div>
-            <%# goal.title %>
-            <p class="goal-info category"><%= goal.category %></p>
-            <%# goal.note %>
-            <p class="goal-info date"><%= goal.date.strftime("%d/%B/%Y") %></p>
-            <p class="goal-info note"><%= goal.note %></p>
           </div>
-          <div class="goal-privatize">
-            <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
-          </div>
-        </div>
       <% end %>
       <%= f.button :submit, "Hide Posts", class: "btn btn-primary"%>
     <% end %>
