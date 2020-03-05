@@ -5,14 +5,17 @@ class Goal < ApplicationRecord
   CATEGORIES = [
     {
       category: 'Health',
+      icon: '<i class="fas fa-heartbeat"></i>',
       category_type: %w[sport healthyfood running]
     },
     {
       category: 'Exploration',
+      icon: '<i class="fas fa-binoculars"></i>',
       category_type: %w[dancing climbing swimming]
     },
     {
-      category: 'Relationships',
+      category: 'Relationship',
+      icon: '<i class="fas fa-users"></i>',
       category_type: %w[friends family dating social]
     }
   ]
