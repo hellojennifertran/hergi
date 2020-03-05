@@ -20,12 +20,17 @@
         <p>You are a few steps away from starting your journey of self-development</p>
     </div>
   </div>
-  <div class="sign-in-up">
-      <button type="button" class="btn btn-primary btn-lg btn-block btn-homepage" id="fb"><i class="fab fa-facebook-f"></i> Continue with Facebook</button>
-      <button type="button" class="btn btn-light btn-lg btn-block btn-homepage" id="google"><i class="fab fa-google"></i> Continue with Google</button>
-      <%# <%= link_to "<i class="far fa-envelope"></i>Sign Up with Email".html_safe, new_user_registration_path, class: "btn btn-light btn-lg btn-block btn-homepage"  %> %>
+  <div class="container">
+    <div class="sign-in-up">
+      <button type="button" class="btn btn-primary btn-lg btn-block btn-homepage d-flex justify-content-between"><i class="fab fa-facebook-f"></i> <div>Continue with Facebook</div><div></div></button>
+      <button type="button" class="btn btn-light btn-lg btn-block btn-homepage d-flex justify-content-between"><i class="fab fa-google"></i> <div>Continue with Google</div><div></div></button>
+      <%= link_to new_user_registration_path, class: "btn btn-light btn-lg btn-block btn-homepage d-flex justify-content-between" do %>
+        <i class="far fa-envelope"></i><div>Sign Up with Email</div>  <div></div>
+      <% end %>
+
     </div>
       <center><small>Already have an account? <span><%= link_to "Log in", user_session_path%></span></small></center>
+  </div>
   </div>
 
 
