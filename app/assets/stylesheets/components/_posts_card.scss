@@ -12,6 +12,8 @@
     display: flex;
     align-items: center;
     height: 88px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 
     .user-avatar {
       width: 50px;
@@ -64,10 +66,22 @@
     object-position: center;
    }
  }
+
 }
 
 p {
   font-size: 15px;
   margin-bottom: 0px;
   color: black;
+}
+
+a {
+  color: black;
+}
+
+.show-page-card {
+  height: auto;
+ .post-content {
+  margin: 10px;
+ }
 }
