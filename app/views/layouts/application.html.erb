@@ -12,11 +12,11 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <div class="container pt-4">
+    <% if params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= yield %>
-    </div>
-    <% unless params[:controller] == 'pages' && params[:action] == 'home' %>
-      <div class="nav">
+    <% else %>
+      <div class="container pt-4">
+        <%= yield %>
         <%= render 'shared/navbar' %>
       </div>
     <% end %>
