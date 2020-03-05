@@ -8,17 +8,14 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   </head>
   <body>
-    <div data-role="page">
-      <div role="main" class="ui-content">
+    <div data-role="page" data-ajax="false">
+      <div role="main" class="ui-content" data-ajax="false">
       <%= render 'shared/flashes' %>
       <%= yield %>
       </div>
-      <div data-role="footer">
+      <div data-role="footer" data-ajax="false">
         <%= render 'shared/navbar' %>
       </div>
       <%= javascript_pack_tag 'application' %>
