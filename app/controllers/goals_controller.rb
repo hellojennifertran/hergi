@@ -19,7 +19,12 @@ class GoalsController < ApplicationController
   end
 
   def update
-    @goal.update(goal_params)
+    if @goal.update(goal_params)
+      redirect_to profile_path(@user)
+    else
+      render 'profile/:id'
+    end
+
   end
 
   def privatize_all
