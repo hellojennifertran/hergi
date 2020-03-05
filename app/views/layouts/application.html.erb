@@ -11,10 +11,11 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <div class="container pt-4">
+    <div class="container pt-4" style="min-height: calc(100vh - 76px);">
       <%= yield %>
     </div>
     <div class="nav">
+      <div style="height: 76px;"></div>
       <%= render 'shared/navbar' %>
     </div>
     <%= javascript_pack_tag 'application' %>
