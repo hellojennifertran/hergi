@@ -14,6 +14,9 @@
   background-color: #7dc3b7;
   border-bottom: solid 1px #605855;
   position: relative;
+  .dropdown-menu.show {
+    transform: translate3d(-141px, 36px, 0px) !important;
+  }
 }
 
 .goal-details {
