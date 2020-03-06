@@ -1,26 +1,22 @@
-<div class="container mt-5">
-  <h2>All you goals</h2>
-  <div class="container mt-4">
+<h2>All your goals</h2>
 
-    <%= link_to "Add New Goal", new_goal_path%>
-    <% if @goals.length >= 1 %>
-      <% @goals.each do |g| %>
-        <div class="card-product">
-          <% if g.photo.attached? %>
-            <%= cl_image_tag g.photo.first.key %>
-          <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <% end %>
-          <div class="card-product-infos">
-            <div class="description">
-              <small><%= g.date %></small>
-              <h2><%= g.category %></h2>
-              <h3><%= g.category_type %></h3>
-              <p><%= g.note %></p>
-            </div>
-          </div>
-        </div>
+<%= link_to "Add New Goal", new_goal_path%>
+<% if @goals.length >= 1 %>
+  <% @goals.each do |g| %>
+    <div class="card-product">
+      <% if g.photo.attached? %>
+        <%= cl_image_tag g.photo.first.key %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <% end %>
-    <% end %>
-  </div>
-</div>
+      <div class="card-product-infos">
+        <div class="description">
+          <small><%= g.date %></small>
+          <h2><%= g.category %></h2>
+          <h3><%= g.category_type %></h3>
+          <p><%= g.note %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
