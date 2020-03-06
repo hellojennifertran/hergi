@@ -16,7 +16,8 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <% if params[:controller] == 'pages' && params[:action] == 'home' %>
+    <% if params[:controller] == 'pages' && params[:action] == 'home' ||
+    params[:controller] == 'users' && params[:action] == 'profile' %>
       <%= yield %>
     <% else %>
     <div class="container pt-4" style="min-height: calc(100vh - 76px);">
