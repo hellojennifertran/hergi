@@ -3,7 +3,7 @@
   <%= active_link_to "<i class='fas fa-home'></i><br><small>Home</small>".html_safe, root_path, active: :exact %>
   <%= active_link_to "<i class='fas fa-search-location'></i><br><small>Discover</small>".html_safe, root_path, active: :exact %>
   <div class="dropup">
-    <button class="dropbtn"> 
+    <button class="dropbtn">
       <i class="fas fa-plus"></i>
     </button>
     <div class="dropup-content">
@@ -12,10 +12,10 @@
 		  <% end %>
       <a type="button" data-toggle="modal" data-target="#exampleModalCenter">
         <i class="fas fa-pencil-alt"></i> Blog
-      </a> 
+      </a>
     </div>
 <!-- Button trigger modal -->
-  </div> 
+  </div>
   <%= active_link_to "<i class='fas fa-lightbulb'></i><br><small>Inspire</small>".html_safe, posts_path, active: :exact %>
   <% if current_user %>
     <%= active_link_to "<i class='fas fa-user'></i><br><small>Profile</small>".html_safe, profile_path(current_user), active: :exact %>
@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="modal-body">
-              <%= render "posts/form" %>
+              <%= render "posts/form", post: Post.new %>
             </div>
           </div>
         </div>
