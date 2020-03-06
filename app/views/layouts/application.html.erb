@@ -19,6 +19,7 @@
     <% if params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= yield %>
     <% else %>
+      <%= render 'shared/header' %>
     <div class="container pt-4" style="min-height: calc(100vh - 76px);">
       <%= yield %>
     </div>
