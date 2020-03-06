@@ -7,20 +7,25 @@
     total goal points accumulated,
     swipe to see achievements log
 %>
-<div class="profile-banner">
-  <%= image_tag "avatar", class: "profile-avatar" %>
-  <h3><%= @user.first_name %><%= @user.last_name %></h3>
-  <%# calculate progression %>
-  <%# <p>Congratulations! You are <%= (@user.health_goal + @user.exploration_goal + @user.relationship_goal) </p> %>
-  <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fal fa-cog"></i>
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item edit-profile" href="#">Edit Profile</a>
-      <a class="dropdown-item" href="#">Edit Monthly Goals</a>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+
+<div style="height: 40px;">
+</div>
+<div>
+  <div class="profile-banner">
+    <%= image_tag "avatar", class: "profile-avatar" %>
+    <h3><%= @user.first_name %><%= @user.last_name %></h3>
+    <%# calculate progression %>
+    <%# <p>Congratulations! You are <%= (@user.health_goal + @user.exploration_goal + @user.relationship_goal) </p> %>
+    <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fal fa-cog"></i>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item edit-profile" href="#">Edit Profile</a>
+        <a class="dropdown-item" href="#">Edit Monthly Goals</a>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+      </div>
     </div>
   </div>
   <%# user-description %>
