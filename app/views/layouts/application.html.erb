@@ -19,6 +19,7 @@
     <% if params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= yield %>
     <% elsif params[:controller] == 'users' && params[:action] == 'profile' %>
+      <%= render 'shared/header' %>
       <%= yield %>
       <%= render 'shared/navbar' %>
     <% else %>

@@ -6,7 +6,7 @@ import "bootstrap";
 
 // edit profile
 
-// const description = document.querySelector(".edit-profile");
+const description = document.querySelector(".edit-profile");
 
 
 if (description) {
