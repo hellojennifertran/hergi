@@ -1,6 +1,4 @@
-<div style="height: 80px;"></div>
-
- <canvas id="myChart" width="400" height="400"
+<canvas id="myChart" width="400" height="300"
         data-health-done="<%= @health %>"
         data-health-tobedone="<%= 10 - @health %>"
         data-exploration-done="<%= @exploration %>"
@@ -8,8 +6,8 @@
         data-relationship-done="<%= @relationship %>"
         data-relationship-tobedone="<%= 10 - @relationship %>"
         >
-          
 </canvas>
+<br>
   <% if @goals.length >= 1 %>
     <% @goals.each do |g| %>
       <div class="card-product">
