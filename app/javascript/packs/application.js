@@ -95,8 +95,8 @@ if (discovers) {
     .then((data) => {
       data.results.forEach((res) => {
         // interpolate .insertadjacetnhtml
-        // const discoverBody = 
-        // const html = 
+        const discoverBody = document.querySelector(".discover-body")
+        const html = ""
       })
     })
 }
