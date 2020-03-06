@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'users#dashboard', as: :dashboard
   get 'profile/:id', to: 'users#profile', as: :profile
   get 'update/:id', to: 'users#update', as: :update
-  
+  get 'discovers', to: 'discovers#index', as: :discovers
   resources :goals, only: [:index, :create, :new] do
     collection do
       patch :privatize_all
