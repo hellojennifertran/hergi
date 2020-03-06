@@ -95,8 +95,16 @@ if (discovers) {
     .then((data) => {
       data.results.forEach((res) => {
         // interpolate .insertadjacetnhtml
-        const discoverBody = document.querySelector(".discover-body")
-        const html = ""
+        const discoverBody = document.querySelector(".discover-body");
+        const html = '<div class="card-trip"> \n
+                        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />\n
+                        <div class="card-trip-infos"> \n
+                          <div class="discovery-results">\n
+                          </div>\n
+                          <h2 class="card-trip-pricing">£99.99</h2>\n
+                          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />\n
+                        </div> \n
+                      </div>'
       })
     })
 }
