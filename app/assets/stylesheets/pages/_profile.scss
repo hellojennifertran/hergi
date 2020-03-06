@@ -45,6 +45,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  .dropdown-menu {
+  .dropdown-menu.show {
+    left: -138px;
   }
 }

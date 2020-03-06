@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 user = User.create!(
   first_name: 'Jennifer',
@@ -18,3 +19,10 @@ goal = Goal.create!(
   category_type: '',
   note: 'This is my goal',
   )
+
+  query = Goals::CATEGORIES[category: params[:category]
+  url = "https://api.predicthq.com/v1/events/?q=#{query}"
+  
+  doc = open(url).read
+  p doc
+  
