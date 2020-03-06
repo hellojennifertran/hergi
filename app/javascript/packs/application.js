@@ -88,7 +88,7 @@ window.onscroll = function() {
 }
 
 // api call
-const url = "https://api.predicthq.com/v1/events/";
+const url = "https://api.predicthq.com/v1/events/?q=concert";
 const options = {
   mode: 'cors',
   headers: {
@@ -100,6 +100,6 @@ const options = {
 fetch(url, options)
   .then((response) => {
   console.log(response.json().then(e => {
-    console.log(JSON.stringify(e.results));
+    console.log(e);
   }));
 })
