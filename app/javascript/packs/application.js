@@ -19,17 +19,17 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['Health done', 'Health unfinished', 'Exploration done', 'Exploration unfinished', 'Relationship done', 'Relationship unfinished'],
+        labels: ['Health done', "Health To-do", 'Exploration done', "Exploration To-do", 'Relationship done', "Relationship  To-do"],
         datasets: [{
             label: '# of Votes',
             data: [chart.dataset.healthDone, chart.dataset.healthTobedone, chart.dataset.explorationDone, chart.dataset.explorationTobedone, chart.dataset.relationshipDone, chart.dataset.relationshipTobedone],
             backgroundColor: [
-                '#FF008A',
-                '#FFFFFF',
-                '#040083',
-                '#FFFFFF',
-                '#27CA00',
-                '#FFFFFF'
+                '#ff0101',
+                '#ec9999',
+                '#167ffb',
+                '#8ebbf0',
+                '#1edd88',
+                '#91d3b6'
             ],
             borderColor: [
                 '#D6D6D6',
@@ -39,7 +39,7 @@ var myChart = new Chart(ctx, {
                 '#D6D6D6',
                 '#D6D6D6'
             ],
-            borderWidth: 1
+            borderWidth: 0
         }]
     },
     options: {
@@ -51,7 +51,7 @@ var myChart = new Chart(ctx, {
             },
             title: {
               display: true,
-              text: 'Chart.js Doughnut Chart'
+              text: 'Monthly Goals'
             },
             animation: {
               animateScale: true,
@@ -60,15 +60,13 @@ var myChart = new Chart(ctx, {
           }
 });
 
-const description = document.querySelector(".edit-profile");
+const editProfile = document.querySelector(".edit-profile");
 
 
-if (description) {
-  description.addEventListener("click", (e) => {
-    const descriptionForm = document.querySelector('.description-form');
-    descriptionForm.classList.toggle("invisible-form")
-  })
-}
+editProfil.addEventListener("click", (e) => {
+  const descriptionForm = document.querySelector('.description-form');
+  descriptionForm.classList.toggle("invisible-form")
+})
 
 // header
 
