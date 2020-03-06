@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'profile/:id', to: 'users#profile', as: :profile
   get 'update/:id', to: 'users#update', as: :update
   
+  resources :discover, only: [:index, :show]
+  
   resources :goals, only: [:index, :create, :new] do
     collection do
       patch :privatize_all

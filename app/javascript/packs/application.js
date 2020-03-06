@@ -23,16 +23,6 @@ const options = {
   }
 }
 
-// const fetchPromise = fetch(url, options);
-
-// let getEvents = new Promise((resolve, reject) =>{
-//   fetchPromise.then(response => {
-//     resolve(response);
-//   }) .catch (error => {
-//     console.log(error)
-//   })
-// })
-
 fetch(url, options)
   .then((response) => {
   console.log(response.json().then(e => {
