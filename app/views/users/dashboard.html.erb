@@ -1,6 +1,16 @@
 <div class="container mt-5">
-  <h2>All you goals</h2>
+  <center><h2>All you goals</h2></center>
+  <br>
+  <canvas id="myChart" width="400" height="400"
+          data-health-done="<%= @health %>"
+          data-health-tobedone="<%= 10 - @health %>"
+          data-exploration-done="<%= @exploration %>"
+          data-exploration-tobedone="<%= 10 - @exploration %>"
+          data-relationship-done="<%= @relationship %>"
+          data-relationship-tobedone="<%= 10 - @relationship %>"
+          ></canvas>
   <div class="container mt-4">
+    <br>
 
     <%= link_to "Add New Goal", new_goal_path%>
     <% if @goals.length >= 1 %>

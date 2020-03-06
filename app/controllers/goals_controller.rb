@@ -5,7 +5,8 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
-    @user = User.find(params[:user_id])
+    @user = current_user
+    @goal.user = @user
     if @goal.save
       redirect_to root_path
     else
