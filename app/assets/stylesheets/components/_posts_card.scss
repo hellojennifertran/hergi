@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   height: 300px;
-  margin: 15px;
 
   .post-info-general {
     position: relative;
@@ -16,11 +15,12 @@
     margin-bottom: 5px;
 
     .user-avatar {
-      width: 50px;
+      width: 52px;
       height: 50px;
       border-radius: 50%;
       display: block;
       margin-left: 16px;
+      border: 1px solid black;
       @media only screen and (max-width: 576px) {
         margin-left: 10px;
       }

@@ -18,8 +18,12 @@
     <%= render 'shared/flashes' %>
     <% if params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= yield %>
+    <% elsif params[:controller] == 'users' && params[:action] == 'profile' %>
+      <%= yield %>
+      <%= render 'shared/navbar' %>
     <% else %>
-    <div class="container pt-4" style="min-height: calc(100vh - 76px);">
+      <%= render 'shared/header' %>
+    <div class="page-content" style="min-height: calc(100vh - 76px);">
       <%= yield %>
     </div>
     <div class="nav">

@@ -1,0 +1,21 @@
+.page-header {
+  justify-content: space-between;
+  background-color: #333;
+  width: 100%;
+  position: fixed;
+  transition: top 0.5s;
+  z-index: 100;
+}
+
+.page-header .header-brand img {
+  width: 90px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 6px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%
+}
