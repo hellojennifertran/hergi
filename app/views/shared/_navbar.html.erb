@@ -1,7 +1,7 @@
 <!--  <div class="my-navbar"> -->
 	<div class="navbar">
   <%= active_link_to "<i class='fas fa-home'></i><br><small>Home</small>".html_safe, root_path, active: :exact %>
-  <%= active_link_to "<i class='fas fa-search-location'></i><br><small>Discover</small>".html_safe, root_path, active: :exact %>
+  <%= active_link_to "<i class='fas fa-search-location'></i><br><small>Discover</small>".html_safe, discovers_path, active: :exact %>
   <div class="dropup">
     <button class="dropbtn">
       <i class="fas fa-plus"></i>
