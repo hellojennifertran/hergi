@@ -1,1 +1,30 @@
-<p> test</p>
+<div style="height: 35px;">
+</div>
+<div class="post-card show-page-card">
+  <div class="post-info-general">
+    <img class="user-avatar" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+    <div class="user-details">
+      <p><strong><%= @post.title %></strong></p>
+      <p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
+      <p><%= @post.created_at.strftime("Posted on %d %b. %Y at %H:%M") %></p>
+    </div>
+  </div>
+
+ <div class="post-image">
+  <% if @post.photo.attached? %>
+    <%= cl_image_tag @post.photo.key %>
+  <% else %>
+    <img src="https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+  <% end %>
+  </div>
+  <div class="post-content">
+    <p><%= @post.content %></p>
+  </div>
+</div>
+<p style="padding-left: 20px"><%= link_to "Return to Feed", posts_path%></p>
+
+
+
+
+
+

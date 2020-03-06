@@ -16,10 +16,6 @@
   position: relative;
 }
 
-.profile-body {
-  padding: 30px 10px;
-}
-
 .goal-details {
   border: 1px solid #605855;
   .goal-info {
@@ -45,7 +41,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  .dropdown-menu.show {
-    left: -138px;
+  .dropdown-menu {
   }
 }

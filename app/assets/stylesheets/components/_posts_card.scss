@@ -5,20 +5,22 @@
   display: flex;
   flex-direction: column;
   height: 300px;
-  margin: 15px;
 
   .post-info-general {
     position: relative;
     display: flex;
     align-items: center;
     height: 88px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 
     .user-avatar {
-      width: 50px;
+      width: 52px;
       height: 50px;
       border-radius: 50%;
       display: block;
       margin-left: 16px;
+      border: 1px solid black;
       @media only screen and (max-width: 576px) {
         margin-left: 10px;
       }
@@ -64,10 +66,22 @@
     object-position: center;
    }
  }
+
 }
 
 p {
   font-size: 15px;
   margin-bottom: 0px;
   color: black;
+}
+
+a {
+  color: black;
+}
+
+.show-page-card {
+  height: auto;
+ .post-content {
+  margin: 10px;
+ }
 }

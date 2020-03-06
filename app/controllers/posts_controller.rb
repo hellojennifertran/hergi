@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save!
-      redirect_to posts_path
+      redirect_to post_path(@post)
     else
       render 'posts'
     end
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-    @post = Post.update(post_params)
+    @post.update(post_params)
     redirect_to posts_path
   end
 
