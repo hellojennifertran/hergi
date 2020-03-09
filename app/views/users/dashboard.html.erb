@@ -1,10 +1,10 @@
 <canvas id="myChart" width="400" height="300"
         data-health-done="<%= @health %>"
-        data-health-tobedone="<%= current_user.health_goal - @health %>"
+        data-health-tobedone="<%= current_user.health_goal.to_i - @health.to_i %>"
         data-exploration-done="<%= @exploration %>"
-        data-exploration-tobedone="<%= current_user.exploration_goal - @exploration %>"
+        data-exploration-tobedone="<%= current_user.exploration_goal.to_i - @exploration.to_i %>"
         data-relationship-done="<%= @relationship %>"
-        data-relationship-tobedone="<%= current_user.relationships_goal - @relationship %>"
+        data-relationship-tobedone="<%= current_user.relationships_goal.to_i - @relationship.to_i %>"
         >
 </canvas>
 <br>
