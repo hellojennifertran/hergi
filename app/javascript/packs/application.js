@@ -10,8 +10,18 @@ document.addEventListener('turbolinks:load', () => {
   const editProfile = document.querySelector(".edit-profile");
   if (editProfile) {
     editProfile.addEventListener("click", (e) => {
+      // user description
       const descriptionForm = document.querySelector('.user-note');
+      const profileNote = document.querySelector('.profile-note');
       descriptionForm.classList.toggle("invisible-form");
+      profileNote.classList.toggle("invisible-form");
+      // image
+      const editImg = document.querySelector('.edit-img');
+      const profileImg = document.querySelector('.profile-img');
+      editImg.classList.toggle("invisible-form");
+      profileImg.classList.toggle("invisible-form");
+      // document.querySelector('.edit-img').disabled = !document.querySelector('.edit-img').disabled
+      // privatize
       const checkBoxes = document.querySelectorAll('.goal-privatize');
       checkBoxes.forEach((checkbox) => {
         checkbox.classList.toggle('invisible-form');
@@ -19,6 +29,7 @@ document.addEventListener('turbolinks:load', () => {
       const updateBtn = document.querySelector('.profile-edit-btn');
       updateBtn.classList.toggle('invisible-form');
     })
+
   }
 
   const userDashboard = document.getElementById("myChart");
@@ -70,20 +81,20 @@ document.addEventListener('turbolinks:load', () => {
               }
     });
 
-    // /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-    // var prevScrollpos = window.pageYOffset + 50;
-    // window.onscroll = function() {
-    //   if (window.pageYOffset > 10) {
-    //     var currentScrollPos = window.pageYOffset;
-    //     if (prevScrollpos > currentScrollPos) {
-    //       document.getElementById("myHeader").style.top = "0";
-    //     } else {
-    //       document.getElementById("myHeader").style.top = "-54px";
-    //     }
-    //     prevScrollpos = currentScrollPos;
+    /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+    var prevScrollpos = window.pageYOffset + 50;
+    window.onscroll = function() {
+      if (window.pageYOffset > 10) {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("myHeader").style.top = "0";
+        } else {
+          document.getElementById("myHeader").style.top = "-54px";
+        }
+        prevScrollpos = currentScrollPos;
 
-    //   }
-    // }
+      }
+    }
   }
 
   // // api call

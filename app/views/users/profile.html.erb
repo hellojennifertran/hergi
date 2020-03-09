@@ -2,7 +2,11 @@
   <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: false do |f|%>
     <div class="profile-banner">
       <div class="profile-avatar">
-        <img id="profile-img" src="https://cdn1.vectorstock.com/i/1000x1000/23/70/default-avatar-profile-icon-vector-18942370.jpg">
+        <%= f.input :photo, as: :file, input_html: { class: 'edit-img invisible-form' }, label: "<img id='profile-img' src='https://cdn1.vectorstock.com/i/1000x1000/23/70/default-avatar-profile-icon-vector-18942370.jpg'>".html_safe  %>
+        <%# <img class="avatar-img" id="profile-img" src="https://cdn1.vectorstock.com/i/1000x1000/23/70/default-avatar-profile-icon-vector-18942370.jpg"> %>
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, class: "profile-img" %>
+        <% end %>
       </div>
       <div class="profile-user">
         <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
@@ -25,30 +29,27 @@
           </div>
           <p class="profile-note"><%= @user.note %></p>
         </div>
+      <div class="profile-edit-btn invisible-form">
+        <%= f.submit class: 'btn btn-primary' %>
       </div>
+      </div>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Achievements</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Blog</a>
+        </li>
+      </ul>
     </div>
-    <% @goals.each do |goal| %>
-      <div class="goal-details">
-        <div class="goal-user-details">
-          <%# goal.title %>
-          <h4 class="goal-info category">
-            <%= goal.category %>
-            <% if goal.private == true %>
-              <i class="fal fa-eye-slash"></i>
-            <% end %>
-          </h4>
-          <%# goal.note %>
-          <h5 class="goal-info note"><%= goal.note %></h5>
-          <p class="goal-info date"><%= goal.date.strftime("%d/%B/%Y") %></p>
-        </div>
-      </div>
-      <div class="goal-privatize invisible-form">
-        <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
-      </div>
-    <% end %>
-    <div class="profile-edit-btn invisible-form">
-      <%= f.submit class: 'btn btn-primary' %>
+   <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <%= render 'user_goals' %>
     </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <%= render 'user_posts' %>
+    </div>
+  </div>
     <div style="height: 80px">
     </div>
   <% end %>

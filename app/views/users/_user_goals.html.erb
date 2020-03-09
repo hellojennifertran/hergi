@@ -1,0 +1,18 @@
+<% @goals.each do |goal| %>
+    <%# <div class="goal-details <%= background %>
+      <div class="goal-user-details">
+        <%# goal.title %>
+        <h4 class="goal-info category">
+          <%= goal.category %>
+          <% if goal.private == true %>
+            <i class="fal fa-eye-slash"></i>
+          <% end %>
+        </h4>
+        <h5 class="goal-info category-type"><%= goal.category_type %></h5>
+        <h5 class="goal-info note"><%= goal.note %></h5>
+        <p class="goal-info date"><%= goal.date.strftime("%d/%B/%Y") %></p>
+      </div>
+      <div class="goal-privatize invisible-form">
+        <input type="checkbox" value="<%= goal.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if goal.private %>>
+      </div>
+  <% end %>
