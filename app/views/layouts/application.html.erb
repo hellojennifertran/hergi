@@ -39,6 +39,8 @@
     <%= render 'shared/flashes' %>
     <% if params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= yield %>
+    <% elsif  params[:controller] == 'users' && params[:action] == 'update_goals_number' && current_user.health_goal.nil? && current_user.exploration_goal.nil? && current_user.relationships_goal.nil? %>
+      <%= yield %>
     <% elsif params[:controller] == 'users' && params[:action] == 'profile' %>
       <%= render 'shared/header' %>
       <div style="height: 60px;"></div>
