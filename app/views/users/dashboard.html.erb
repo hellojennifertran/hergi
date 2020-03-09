@@ -1,36 +1,30 @@
-<div class="container mt-5">
-  <center><h2>All you goals</h2></center>
-  <br>
-  <canvas id="myChart" width="400" height="400"
-          data-health-done="<%= @health %>"
-          data-health-tobedone="<%= 10 - @health %>"
-          data-exploration-done="<%= @exploration %>"
-          data-exploration-tobedone="<%= 10 - @exploration %>"
-          data-relationship-done="<%= @relationship %>"
-          data-relationship-tobedone="<%= 10 - @relationship %>"
-          >
-  </canvas>
-  
-  <div class="container mt-4">
-    <h2>All your goals</h2>
-    <% if @goals.length >= 1 %>
-      <% @goals.each do |g| %>
-        <div class="card-product">
-          <% if g.photo.attached? %>
-            <%= cl_image_tag g.photo.first.key %>
-          <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <% end %>
-          <div class="card-product-infos">
-            <div class="description">
-              <small><%= g.date %></small>
-              <h2><%= g.category %></h2>
-              <h3><%= g.category_type %></h3>
-              <p><%= g.note %></p>
-            </div>
+<canvas id="myChart" width="400" height="300"
+        data-health-done="<%= @health %>"
+        data-health-tobedone="<%= 10 - @health %>"
+        data-exploration-done="<%= @exploration %>"
+        data-exploration-tobedone="<%= 10 - @exploration %>"
+        data-relationship-done="<%= @relationship %>"
+        data-relationship-tobedone="<%= 10 - @relationship %>"
+        >
+</canvas>
+<br>
+  <% if @goals.length >= 1 %>
+    <% @goals.each do |g| %>
+      <div class="card-product">
+        <% if g.photo.attached? %>
+          <%= cl_image_tag g.photo.first.key %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% end %>
+        <div class="card-product-infos">
+          <div class="description">
+            <small><%= g.date %></small>
+            <h2><%= g.category %></h2>
+            <h3><%= g.category_type %></h3>
+            <p><%= g.note %></p>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 </div>

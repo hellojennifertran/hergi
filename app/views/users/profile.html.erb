@@ -7,12 +7,9 @@
     total goal points accumulated,
     swipe to see achievements log
 %>
-
-<div style="height: 70px;">
-</div>
 <div>
   <div class="profile-banner">
-    <%= image_tag "avatar", class: "profile-avatar" %>
+    <img src="https://cdn1.vectorstock.com/i/1000x1000/23/70/default-avatar-profile-icon-vector-18942370.jpg" height="60" width="60" style="border-radius: 50%">
     <h3><%= @user.first_name %><%= @user.last_name %></h3>
     <%# calculate progression %>
     <%# <p>Congratulations! You are <%= (@user.health_goal + @user.exploration_goal + @user.relationship_goal) </p> %>
