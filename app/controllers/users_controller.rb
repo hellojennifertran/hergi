@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def profile
     @user = User.find(params[:id])
     @goals = Goal.where(user: @user).reverse
+    @posts = Post.where(user: @user).reverse
   end
 
   def update

@@ -16,7 +16,6 @@
 .profile-avatar {
   height: 80%;
   width: 100%;
-  margin-bottom: 20px;
   #profile-img {
     height: 100%;
     width: 100%;
@@ -25,8 +24,16 @@
   }
 }
 
+.profile-user{
+  padding: 20px 30px;
+  text-align: center;
+}
+
 .goal-details {
   border: 1px solid #605855;
+  padding: 10px;
+  margin: 8px;
+  box-shadow: 1px 1px 5px lightgray;
   .goal-info {
     margin-top: 16px;
     margin-right: 20px;
@@ -34,12 +41,24 @@
   }
 }
 
-.profile-note {
-  height: 30px;
+#myTab {
   width: 100%;
+  display: flex;
+  
+  .nav-item {
+    width: 50%;
+    text-align: center;
+
+    &:active {
+      border-bottom: 2px solid white;
+    }
+  }
 }
 
-.parent-note {
+.profile-note {
+  height: auto;
+  width: 85%;
+  margin: 0 auto;
   position: relative;
 }
 
