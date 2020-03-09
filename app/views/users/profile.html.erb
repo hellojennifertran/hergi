@@ -16,7 +16,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <span class="dropdown-item edit-profile">Edit Profile</span>
-            <a class="dropdown-item" href="#">Edit Monthly Goals</a>
+            <%= link_to "Edit Monthly Goals", update_goals_path, class: "dropdown-item"%>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
           </div>
         </div>

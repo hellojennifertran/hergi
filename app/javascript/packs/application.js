@@ -2,7 +2,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
 import "bootstrap";
 import Chart from 'chart.js';
 
@@ -31,7 +30,6 @@ document.addEventListener('turbolinks:load', () => {
     })
 
   }
-
   const userDashboard = document.getElementById("myChart");
   if (userDashboard) {
     // dashboard graph
@@ -80,7 +78,7 @@ document.addEventListener('turbolinks:load', () => {
                 }
               }
     });
-
+    
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
     var prevScrollpos = window.pageYOffset + 50;
     window.onscroll = function() {
@@ -96,7 +94,6 @@ document.addEventListener('turbolinks:load', () => {
       }
     }
   }
-
   // // api call
   // const discovers = document.getElementById("discovers-index");
   // if (discovers) {
@@ -117,5 +114,4 @@ document.addEventListener('turbolinks:load', () => {
   //       })
   //     })
   // }
-
 })

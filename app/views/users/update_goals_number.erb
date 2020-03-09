@@ -1,0 +1,64 @@
+<div class="container">
+  <h2>Goals Setting</h2>
+  <br>
+  <br>
+    <div class="slidecontainer">
+      <h4>Set Health</h4>
+          <input type="range" min="1" max="10" value="<%= current_user.health_goal || 1 %>" class="slider" id="myRange-h">
+          <p id="demo-h"></p>
+          <script>
+            var slider = document.getElementById("myRange-h");
+            var outputH = document.getElementById("demo-h");
+            outputH.innerHTML = slider.value; // Display the default slider value
+
+            // Update the current slider value (each time you drag the slider handle)
+            slider.oninput = function() {
+              outputH.innerHTML = this.value;
+              document.getElementById("goals_health").value = this.value
+            }
+          </script>
+    </div>
+
+    <div class="slidecontainer">
+      <h4>Set Explore</h4>
+      <input type="range" min="1" max="10" value="<%= current_user.exploration_goal || 1 %>" class="slider" id="myRange-e">
+      <p id="demo-e"></p>
+      <script>
+        var slider = document.getElementById("myRange-e");
+        var outputE = document.getElementById("demo-e");
+        outputE.innerHTML = slider.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+          outputE.innerHTML = this.value;
+          document.getElementById("goals_explore").value = this.value
+        }
+      </script>
+
+    </div>
+
+    <div class="slidecontainer">
+      <h4>Set Relationship</h4>
+      <input type="range" min="1" max="10" value="<%= current_user.relationships_goal || 1 %>" class="slider" id="myRange-r">
+      <p id="demo-r"></p>
+      <script>
+        var slider = document.getElementById("myRange-r");
+        var outputR = document.getElementById("demo-r");
+        outputR.innerHTML = slider.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+          outputR.innerHTML = this.value;
+          document.getElementById("goals_relationship").value = this.value
+        }
+      </script>
+
+      <%= simple_form_for :goals, url: set_goals_path, method: :patch do |f| %>
+          <%= f.input :health, as: :hidden, input_html: { value: current_user.health_goal || 1 } %>
+          <%= f.input :explore, as: :hidden, input_html: { value: (current_user.exploration_goal || 1)  } %>
+          <%= f.input :relationship, as: :hidden, input_html: { value: (current_user.relationships_goal || 1) } %>
+          <%= f.submit %>
+      <% end %>
+
+    </div>
+</div>

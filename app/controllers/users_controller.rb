@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @health = @goals.where(category: "Health").count
     @exploration = @goals.where(category: "Exploration").count
     @relationship = @goals.where(category: "Relationship").count
+    redirect_to update_goals_path if @goals.length < 1 && current_user.health_goal.nil? && current_user.exploration_goal.nil? && current_user.relationships_goal.nil?
   end
 
   def profile
@@ -28,7 +29,20 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  def update_goals_number
+    @user = current_user
+    @health_goal = @user.health_goal
+    @exploration_goal = @user.exploration_goal
+    @relationships_goal = @user.relationships_goal
+
+  end
+
+  def set_goals
+    current_user.update(health_goal: params[:goals][:health], exploration_goal: params[:goals][:explore], relationships_goal: params[:goals][:relationship])
+    redirect_to dashboard_path
+  end
+
+   private
 
   def profile_params
     params.require(:user).permit(:note, :photo)

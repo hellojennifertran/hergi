@@ -1,12 +1,41 @@
+  <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit post.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "form", post: @post, remote: true %>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <div class="post-card show-page-card">
   <div class="post-info-general">
     <img class="user-avatar" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
     <div class="user-details">
       <p><strong><%= @post.title %></strong></p>
       <p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
-      <p><%= @post.created_at.strftime("Posted on %d %b. %Y at %H:%M") %></p>
+      <p><%= @post.created_at.strftime("Posted: %d %b, %H:%M") %></p>
     </div>
   </div>
+   <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'> Edit</i>".html_safe, edit_post_path(@post), data: {toggle: "modal", target: "#exampleModalCenter3" }%></a>
+          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'> Delete</i>".html_safe, post_path(@post), method: :delete %></a>
+        </div>
+  </div>
+
 
  <div class="post-image">
   <% if @post.photo.attached? %>
@@ -17,9 +46,48 @@
   </div>
   <div class="post-content">
     <p><%= @post.content %></p>
+    <hr>
   </div>
 </div>
-<p style="padding-left: 20px"><%= link_to "Return to Feed", posts_path%></p>
+<div class="comments">
+  <%= link_to "<i class='far fa-comments'></i> Leave a comment".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %>
+  <hr>
+  <% @post.comments.reverse.each do |comment| %>
+  <p><strong><%=comment.user.first_name%> <%=comment.user.last_name%></strong></p>
+  <p><%=comment.created_at.strftime("%d %b, %H:%M")%></p>
+  <p><%=comment.content%></p>
+  <hr>
+  <% end %>
+
+</div>
+
+<div class="feed-link">
+  <h6><strong><%= link_to "Return to Feed", posts_path%></strong></h6>
+</div>
+
+
+
+  <div class="modal fade" id="exampleModalCenterComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Create Comment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "comments/form", post: @post, comment: Comment.new, remote: true %>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
 
 

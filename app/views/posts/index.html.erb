@@ -1,3 +1,7 @@
+<div class="welcome-card">
+<h5><strong>Get inspired & go inspire</strong></h5>
+</div>
+
 <% @posts.each do |post| %>
 
   <div class="modal fade" id="exampleModalCenter2-<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -25,7 +29,7 @@
         <div class="user-details">
           <p><strong><%= post.title %></strong></p>
           <p><%= post.user.first_name %> <%= post.user.last_name %></p>
-          <p><%= post.created_at.strftime("Posted on %d %b. %Y at %H:%M") %></p>
+          <p><%= post.created_at.strftime("Posted: %d %b, %H:%M") %></p>
         </div>
       <% end %>
       <div class="dropdown">
@@ -47,6 +51,15 @@
         <% end %>
       </div>
     <% end %>
+  <div class="comment-teaser">
+    <i class='far fa-comments'>
+      <% if post.comments.count.zero? %>
+        <%= "No comments" %>
+       <% else %>
+        <%= pluralize(post.comments.count, "comment") %>
+      <% end %>
+    </i>
+  </div>
   </div>
 <% end %>
 
