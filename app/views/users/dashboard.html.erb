@@ -9,19 +9,18 @@
 </canvas>
 <br>
   <% if @goals.length >= 1 %>
-    <% @goals.each do |g| %>
+    <% @goals.reverse.each do |g| %>
       <div class="card-product">
         <% if g.photo.attached? %>
-          <%= cl_image_tag g.photo.first.key %>
+          <%= cl_image_tag g.photo.key %>
         <% else %>
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
         <% end %>
         <div class="card-product-infos">
           <div class="description">
             <small><%= g.date %></small>
-            <h2><%= g.category %></h2>
-            <h3><%= g.category_type %></h3>
-            <p><%= g.note %></p>
+            <p></p><small><%= g.category %>: <%= g.category_type %></small></p>
+            <p><%= g.note.first(120) + "..." %></p>
           </div>
         </div>
       </div>

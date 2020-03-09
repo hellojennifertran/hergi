@@ -1,15 +1,16 @@
 <h2><%= params[:category] %></h2>
 <% c_type = nil %>
-<% @category_type.select do |cat| %>
+<% Goal::CATEGORIES.select do |cat| %>
 <% c_type = cat[:category_type] if cat[:category] == params[:category] %>
 <% end %>
 
 <div id="goal-form">
 <%= simple_form_for @goal do |f| %>
   <%= f.input :category_type, label: 'Activity:', collection: c_type %>
-  <%= f.input :category, as: :hidden, input_html: {value: params[:category]} %>
-  <%= f.input :note, label: 'Note:', hint: 'What did you accomplish?' %>
-  <%= f.input :date, label: 'Date:', hint: 'Enter the date you completed this goal' %>
-  <%= f.button :submit  %>
+  <%= f.input :category, as: :hidden, input_html: { required: true, value: params[:category]} %>
+  <%= f.input :note, label: 'Note:', hint: 'What did you accomplish?', required: true %>
+  <%= f.input :date, label: 'Date:', hint: 'Enter the date you completed this goal', html5: true, as: :date, input_html: { value: Date.today } %>
+  <%= f.input :photo, label: 'Image', as: :file, hint: 'Add an image to remember this moment! 😊' %>
+  <%= f.button :submit, value: "hello"  %>
 <% end %>
 </div>
