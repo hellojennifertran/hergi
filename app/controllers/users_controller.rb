@@ -24,7 +24,12 @@ class UsersController < ApplicationController
 
   end
 
-  private
+  def set_goals
+    current_user.update(health_goal: params[:goals][:health], exploration_goal: params[:goals][:explore], relationships_goal: params[:goals][:relationship])
+    redirect_to dashboard_path
+  end
+
+   private
 
   def profile_params
     params.require(:user).permit(:description, :photo)
