@@ -22,7 +22,7 @@
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <%= render 'application/favicon' %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
