@@ -18,7 +18,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 330px;
   margin-bottom: 5px;
 
   .post-info-general {
@@ -29,7 +29,18 @@
     margin-top: 10px;
     margin-bottom: 10px;
 
+    p {
+      font-size: 15px;
+      margin-bottom: 0px;
+      color: black;
+      max-width: 220px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
     .user-avatar {
+      object-fit: cover;
       width: 52px;
       height: 50px;
       border-radius: 50%;
@@ -37,14 +48,14 @@
       margin-left: 16px;
       border: 1px solid black;
       @media only screen and (max-width: 576px) {
-        margin-left: 10px;
+        margin-left: 20px;
       }
     }
 
     .user-details {
       display: flex;
       flex-direction: column;
-      padding-left: 30px;
+      padding-left: 20px;
     }
 
     .dropdown {
@@ -73,7 +84,7 @@
   }
 
  .post-image {
-  height: 212px;
+  height: 214px;
   img {
     height: 100%;
     width: 100%;
@@ -84,19 +95,29 @@
 
 }
 
-p {
-  font-size: 15px;
-  margin-bottom: 0px;
-  color: black;
+.comment-teaser {
+  background-color: white;
+  padding: 5px 15px 5px;
 }
+
+
 
 a {
   color: black;
 }
 
+ p {
+  font-size: 15px;
+  margin-bottom: 0px;
+  color: black;
+  }
+
 .show-page-card {
   position: relative;
   height: auto;
+  .post-info-general {
+    max-height: 66px !important;
+  }
 
   .dropdown {
       position: absolute;
@@ -143,24 +164,29 @@ a {
   h6 {
     margin-bottom: 0px;
     a {
-      color: grey;
+      color: darkgrey;
     }
   }
 }
 
 .comments {
-  background-color: lightgrey;
+  background-color: white;
   margin-bottom: 5px;
+  margin-top: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  hr {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 #create-comment {
-
   i {
-    padding-left: 10px;
     font-size: 1.5em;
     margin-bottom: 5px;
+    margin-top: 5px;
   }
 }
+
 
