@@ -25,9 +25,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= render 'application/favicon' %>
     <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    
+    <%= csp_meta_tag %>
+    <meta property="og:hergi" content="Get inspired & go inspire">
+    <meta property="og:description" content="A lifestyle app for personal growth and development">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1505778276668-26b3ff7af103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2086&q=80">
+    <meta property="og:url" content="http://www.hergi.co.uk/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
@@ -51,6 +56,5 @@
      </div>
      </div>
     <% end %>
-    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
