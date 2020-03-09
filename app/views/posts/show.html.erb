@@ -23,7 +23,7 @@
     <div class="user-details">
       <p><strong><%= @post.title %></strong></p>
       <p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
-      <p><%= @post.created_at.strftime("Posted on %d %b. %Y at %H:%M") %></p>
+      <p><%= @post.created_at.strftime("Posted: %d %b, %H:%M") %></p>
     </div>
   </div>
    <div class="dropdown">
@@ -48,12 +48,13 @@
     <p><%= @post.content %></p>
     <hr>
   </div>
-  <%= link_to "<i class='far fa-comments'></i> Comment".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %>
 </div>
 <div class="comments">
+  <%= link_to "<i class='far fa-comments'></i> Leave a comment".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %>
+  <hr>
   <% @post.comments.reverse.each do |comment| %>
   <p><strong><%=comment.user.first_name%> <%=comment.user.last_name%></strong></p>
-  <p><%=comment.created_at.strftime("%d %b. %Y at %H:%M")%></p>
+  <p><%=comment.created_at.strftime("%d %b, %H:%M")%></p>
   <p><%=comment.content%></p>
   <hr>
   <% end %>
