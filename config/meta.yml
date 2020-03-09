@@ -1,0 +1,5 @@
+meta_product_name: "hergi"
+meta_title: "hergi | Get inspired & go inspire"
+meta_description: "hergi is a lifestyle app celebrating milestones beyond your academics - encouraging personal growth through health, exploration, and relationships (HER) "
+meta_image: "hergi.png" # should exist in `app/assets/images/`
+twitter_account: "@hergiapp"   # required for Twitter Cards
