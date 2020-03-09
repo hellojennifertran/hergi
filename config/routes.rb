@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   # patch 'goals/:id', to: 'goals#update'
   # delete 'goals/:id', to: 'goals#destroy'
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:new, :create]
+  end
 end
 
