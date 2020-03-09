@@ -1,5 +1,6 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
+
 require("@rails/activestorage").start()
 require("channels")
 
@@ -70,20 +71,20 @@ document.addEventListener('turbolinks:load', () => {
               }
     });
 
-    // /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-    // var prevScrollpos = window.pageYOffset + 50;
-    // window.onscroll = function() {
-    //   if (window.pageYOffset > 10) {
-    //     var currentScrollPos = window.pageYOffset;
-    //     if (prevScrollpos > currentScrollPos) {
-    //       document.getElementById("myHeader").style.top = "0";
-    //     } else {
-    //       document.getElementById("myHeader").style.top = "-54px";
-    //     }
-    //     prevScrollpos = currentScrollPos;
+    /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+    var prevScrollpos = window.pageYOffset + 50;
+    window.onscroll = function() {
+      if (window.pageYOffset > 10) {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("myHeader").style.top = "0";
+        } else {
+          document.getElementById("myHeader").style.top = "-54px";
+        }
+        prevScrollpos = currentScrollPos;
 
-    //   }
-    // }
+      }
+    }
   }
 
   // // api call

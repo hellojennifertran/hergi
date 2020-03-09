@@ -27,6 +27,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_goals_number
+    @user = current_user
+    @health_goal = @user.health_goal
+    @exploration_goal = @user.exploration_goal
+    @relationships_goal = @user.relationships_goal
+
+  end
+
   private
 
   def profile_params

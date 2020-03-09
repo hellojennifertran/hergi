@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: 'users#dashboard'
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/dashboard', to: 'users#dashboard', as: :dashboard
   get '/profile/:id', to: 'users#profile', as: :profile
   patch '/update/:id', to: 'users#update', as: :update
   get '/discover', to: 'discovers#index', as: :discovers
+  get '/update_goals_number/:id', to: 'users#update_goals_number', as: :update_goals
 
   resources :goals, only: [:index, :create, :new] do
     collection do
