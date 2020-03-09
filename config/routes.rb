@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   get '/profile/:id', to: 'users#profile', as: :profile
   patch '/update/:id', to: 'users#update', as: :update
   get '/discover', to: 'discovers#index', as: :discovers
-  get '/update_goals_number/:id', to: 'users#update_goals_number', as: :update_goals
+  get '/update_goals_number', to: 'users#update_goals_number', as: :update_goals
+  patch '/update_goals_number', to: 'users#set_goals', as: :set_goals
 
   resources :goals, only: [:index, :create, :new] do
     collection do
