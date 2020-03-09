@@ -20,12 +20,12 @@
       <%= yield %>
     <% elsif params[:controller] == 'users' && params[:action] == 'profile' %>
       <%= render 'shared/header' %>
-      <div style="height: 70px;"></div>
+      <div style="height: 60px;"></div>
       <%= yield %>
       <%= render 'shared/navbar' %>
     <% else %>
       <%= render 'shared/header' %>
-      <div style="height: 70px;"></div>
+      <div style="height: 60px;"></div>
     <div class="page-content" style="min-height: calc(100vh - 76px);">
       <%= yield %>
     </div>
