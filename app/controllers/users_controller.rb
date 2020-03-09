@@ -8,12 +8,23 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
-    @goals = Goal.where(user: @user)
+    @goals = Goal.where(user: @user).reverse
   end
 
   def update
     @user = current_user
-    @user.update(profile_params)
+    if (params.dig(:privatize_goals, :goal_ids))
+      private_goals = params[:privatize_goals][:goal_ids].map{ |id| Goal.find(id) }
+      private_goals.each { |goal| goal.update(private: true) }
+      public_goals = current_user.goals - private_goals
+      public_goals.each { |goal| goal.update(private: false) }
+    end
+    if @user.update(profile_params)
+      flash[:notice] = "Profile successfully updated"
+      redirect_to profile_path(current_user)
+    else
+      render :profile
+    end
   end
 
   def update_goals_number
@@ -32,6 +43,6 @@ class UsersController < ApplicationController
    private
 
   def profile_params
-    params.require(:user).permit(:description, :photo)
+    params.require(:user).permit(:note, :photo)
   end
 end

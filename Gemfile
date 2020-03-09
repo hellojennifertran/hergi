@@ -21,6 +21,7 @@ gem 'webpacker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'rails_real_favicon', '~> 0.1.0'
 end
 
 group :development, :test do
