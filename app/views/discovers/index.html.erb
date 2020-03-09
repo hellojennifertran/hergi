@@ -1,22 +1,31 @@
-
-	<% @events["results"].each do |event| %>
-		<div class="card-deck" style="display: flex;">
-			<div class="card">
-			<img class="card-img-top" src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2019/10/How-to-organise-music-concert.jpg" alt="Card image cap">
-			<h4 class="card-title"><%= "Event:" + event["title"].to_s %></h4>
-			<div class="card-body">
-				<ul>
-				  <p class="card-text">
-					  <li><%= "Location:" + event["location"].to_s %></li>
-					  <li><%= "Label:" + event["labels"].to_s %></li>
-					  <li><%= "Description:" + event["description"].to_s %></li>
-					</p>
-					<div class="card-footer">
-			      <small class="text-muted"><%= "Category:" + event["category"].to_s %></small>
-			    </div>
-				</ul>
-			</div>
-			</div>
+<% @events["results"].each do |event| %>
+	<div class="card-deck" style="display: flex;">
+		<div class="card">
+		<img class="card-img-top" src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2019/10/How-to-organise-music-concert.jpg" alt="Card image cap">
+		<h4 class="card-title"><%= "Event:" + event["title"].to_s %></h4>
+		<div class="card-body">
+			<ul>
+			  <p class="card-text">
+				  <li><%= "Location:" + event["location"].to_s %></li>
+				  <li><%= "Label:" + event["labels"].to_s %></li>
+				  <li><%= "Description:" + event["description"].to_s %></li>
+				</p>
+				<div class="card-footer">
+		      <small class="text-muted"><%= "Category:" + event["category"].to_s %></small>
+		    </div>
+			</ul>
 		</div>
-	<% end %>
+		</div>
+		<%#= simple_form_for(@save_event) do |f| %>
+			<%# f.input :location, value: event["location"].to_s %>
+			<%# f.input :label, value: event["labels"].to_s %>
+			<%# f.input :description, value: event["description"].to_s %>
+			<%#= f.submit	 %>
+		<%# end %>
+		  
+	</div>
+<% end %>
 
+<!-- Controller -->
+<!-- @save_event.user = current_user -->
+<!-- @save_event.save -->
