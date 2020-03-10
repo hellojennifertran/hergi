@@ -27,7 +27,7 @@
           <div class="card-product-infos">
             <div class="description">
               <%= g.category %> - <%= g.category_type %>
-              <p><%= "This happened on " + g.date.to_s.split.first %></p>
+              <p><%= g.date.strftime("%b %e, %Y") %></p>
               <small><%= g.note.first(120).to_s %></small>
               <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,18 +42,14 @@
           </div>
         </div>
       <% end %>
-    <% end %>
-    </div>
-  </div>
     <% else %>
-    <div class="jumbotron">
-      <h4 class="display-5">Begin your Journey !</h4>
-      <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
-      <hr class="my-4">
-      <p>Start slowly by clicking on +</p>
-    </div>
+      <div class="jumbotron">
+        <h4 class="display-5">Begin your Journey</h4>
+        <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
+        <hr class="my-4">
+        <p>Start slowly by clicking on +</p>
+      </div>
     <% end %>
-    </div>
   </div>
 </div>
 <%# Goal.where(user: current_user).order(created_at: :desc).first(5)  %>
