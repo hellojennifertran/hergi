@@ -7,7 +7,6 @@
   <div id="goal-form">
   <%= simple_form_for @goal do |f| %>
     <%= f.input :category_type, label: 'Activity:', collection: c_type %>
-    <%= f.input :category, as: :hidden, input_html: { required: true, value: params[:category]} %>
     <%= f.input :note, label: 'Note:', placeholder: 'What did you accomplish?', hint: 'Ex: Met a new friend in New York! His name Ben.', required: true %>
     <%= f.input :date, label: 'Date:', hint: 'Enter the date you completed this goal', html5: true, as: :date, input_html: { value: Date.today } %>
     <%= f.input :photo, value: 'Image', as: :file, hint: 'Add an image to remember this moment! 😊' %>
