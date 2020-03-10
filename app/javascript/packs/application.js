@@ -7,7 +7,9 @@ import Chart from 'chart.js';
 
 document.addEventListener('turbolinks:load', () => {
   const editImg = document.querySelector('.form-group.file.optional.user_photo');
-  editImg.classList.add('invisible-form');
+  if (editImg) {
+    editImg.classList.add('invisible-form');
+  }
   const editProfile = document.querySelector(".edit-profile");
   if (editProfile) {
     editProfile.addEventListener("click", (e) => {
@@ -87,7 +89,7 @@ document.addEventListener('turbolinks:load', () => {
                 }
       }
     });
-    
+
     Chart.pluginService.register({
       beforeDraw: function(chart) {
         var width = chart.chart.width,
@@ -138,8 +140,8 @@ document.addEventListener('turbolinks:load', () => {
   //     .then((data) => {
   //       data.results.forEach((res) => {
   //         // interpolate .insertadjacetnhtml
-  //         // const discoverBody = 
-  //         // const html = 
+  //         // const discoverBody =
+  //         // const html =
   //       })
   //     })
   // }
