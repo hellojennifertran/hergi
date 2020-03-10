@@ -9,6 +9,7 @@
   background-color: white;
   border-bottom: solid 1px #605855;
   position: relative;
+  margin-bottom: 5px;
   .dropdown-menu.show {
     transform: translate3d(-141px, 36px, 0px) !important;
   }
@@ -38,18 +39,6 @@
   padding: 20px 30px;
   text-align: center;
   height: auto;
-}
-
-.goal-details {
-  border: 1px solid #605855;
-  padding: 10px;
-  margin: 8px;
-  box-shadow: 1px 1px 5px lightgray;
-  .goal-info {
-    margin-top: 16px;
-    margin-right: 20px;
-    margin-left: 20px;
-  }
 }
 
 #myTab {
@@ -86,7 +75,30 @@
   width: 100%;
 }
 
-.form-control-file.file.optional.edit-img {
-  display: none;
+.goal-info.category {
+display: flex;
+justify-content: space-between;
+  .private-goal { 
+    font-size: 20px;
+  }
 }
 
+.goal-user-details {
+  border: 1px solid #605855;
+  padding: 10px;
+  margin-bottom: 5px;;
+  box-shadow: 1px 1px 5px lightgray;
+  .goal-info {
+    margin-top: 16px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
+.btn.dropdown-toggle {
+  color: gray;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
