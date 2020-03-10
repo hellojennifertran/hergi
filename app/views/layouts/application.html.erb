@@ -49,14 +49,16 @@
     <% else %>
       <%= render 'shared/header' %>
       <div style="height: 46px;"></div>
-    <div class="page-content" style="min-height: calc(100vh - 76px);">
-      <%= yield %>
-    </div>
-    <div class="nav">
-      <div style="height: 76px;">
-        <%= render 'shared/navbar' %>
-     </div>
-     </div>
+      <div class="page-content" style="min-height: calc(100vh - 76px);">
+        <%= yield %>
+      </div>
+      <% if user_signed_in? == true %>
+      <div class="nav">
+        <div style="height: 76px;">
+          <%= render 'shared/navbar' %>
+        </div>
+      </div>
+      <% end %>
     <% end %>
   </body>
 </html>
