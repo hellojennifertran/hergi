@@ -4,13 +4,22 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
   margin-bottom: 5px;
 
   h5 {
     margin-bottom: 0px;
   }
+
+   input {
+    border: 1px solid lightgrey;
+  }
+
 }
+
+
+
 
 .post-card {
   overflow: hidden;
@@ -85,6 +94,12 @@
 
  .post-image {
   height: 214px;
+  background-color: lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
   img {
     height: 100%;
     width: 100%;
@@ -92,6 +107,12 @@
     object-position: center;
    }
  }
+
+ .icons-format {
+  color: white;
+  text-align: center;
+  font-size: 4em;
+}
 
 }
 
@@ -187,12 +208,7 @@ a {
   }
 }
 
-#first {
-  margin-top: 25px;
-  font-size: 14px;
-  text-align: center;
-}
-
 .jumbotron {
   margin-top: 30px;
 }
+

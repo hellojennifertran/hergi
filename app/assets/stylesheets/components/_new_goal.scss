@@ -20,6 +20,8 @@
     display:block;
     position:relative;
     text-align: center;
+    height: 70px;
+    width: 70px;
   }
 
   label:hover {
@@ -33,7 +35,6 @@
 
   .form-check {
     padding-left: 0px;
-    width: 80px;
     margin: 10px;
   }
 
