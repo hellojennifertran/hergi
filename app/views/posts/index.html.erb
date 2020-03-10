@@ -28,7 +28,11 @@
 
   <div class="post-card">
     <div class="post-info-general">
-      <img class="user-avatar" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+      <% if post.user.photo.attached? %>
+        <%= cl_image_tag post.user.photo.key, class: "user-avatar" %>
+      <% else %>
+        <%= image_tag 'avatar.jpeg', class: "user-avatar"%>
+      <% end %>
       <%= link_to post_path(post) do %>
         <div class="user-details">
           <p><strong><%= post.title %></strong></p>
