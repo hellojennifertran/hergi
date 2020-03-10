@@ -1,4 +1,12 @@
-<h2><%= params[:category] %></h2>
+<div class="styling">
+
+<% @my_title = Goal::CATEGORIES.map do |h| %>
+  <% if params[:category] == h[:category] || params[:goal] && params[:goal][:category] == h[:category] %>
+    <% "#{h[:icon]} #{h[:category]}" %>
+  <% end %>
+<% end %>
+
+<h2><%= @my_title.compact.first.html_safe %></h2>
 <% c_type = nil %>
 <% Goal::CATEGORIES.select do |cat| %>
 <% c_type = cat[:category_type] if cat[:category] == params[:category] %>
@@ -6,12 +14,24 @@
 <div class="container">
 	<div id="goal-form">
 	<%= simple_form_for @goal do |f| %>
-	  <%= f.input :category_type, label: 'Activity:', collection: c_type %>
+  <div class="formatting">
+    <% if params[:category] == "Health" %>
+      <%= render 'health_form' %>
+    <% elsif params[:category] == "Exploration" %>
+      <%= render 'exploration_form' %>
+    <% else %>
+      <%= render 'relationship_form' %>
+    <% end %>
+	  <%#= f.input :category_type, label: 'Activity:', collection: c_type, as: :radio_buttons, label_method: lambda { |obj|  obj.html_safe } %>
+  </div>
 	  <%= f.input :category, as: :hidden, input_html: { required: true, value: params[:category]} %>
-	  <%= f.input :note, label: 'Note:', placeholder: 'What did you accomplish?', hint: 'Ex: Met a new friend in New York! His name Ben.', required: true %>
+	  <%= f.input :note, label: 'Note:', placeholder: 'Tell us more!', hint: 'Ex: Met a new friend in New York! His name Ben.', required: true %>
 	  <%= f.input :date, label: 'Date:', hint: 'Enter the date you completed this goal', html5: true, as: :date, input_html: { value: Date.today } %>
 	  <%= f.input :photo, value: 'Image', as: :file, hint: 'Add an image to remember this moment! 😊' %>
-	  <%= f.button :submit, value: "Log", class: "btn btn-secondary" %>
+	  <%= f.button :submit, value: "Log Activity", class: "btn btn-secondary" %>
 	<% end %>
 	</div>
 </div>
+</div>
+
+
