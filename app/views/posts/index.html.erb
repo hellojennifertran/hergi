@@ -1,6 +1,10 @@
 <div class="welcome-card">
 <small style="color: gray;"><%= "get inspired & go inspire".upcase %></small>
+  <div class="write-post">
+    <input type="Create a blog post" placeholder="Create a blog post">
+  </div>
 </div>
+
 
 <% @posts.each do |post| %>
 
@@ -47,7 +51,11 @@
         <% if post.photo.attached? %>
           <%= cl_image_tag post.photo.key %>
         <% else %>
-          <img src="https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+        <div class="icons-format">
+          <i class="fas fa-heartbeat"></i>
+          <i class="fas fa-binoculars"></i>
+          <i class="fas fa-users"></i>
+        </div>
         <% end %>
       </div>
     <% end %>
