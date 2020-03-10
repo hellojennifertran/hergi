@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-    @goals = Goal.where(user:current_user)
+    @goals = Goal.all
     @health = @goals.where(category: "Health").count
     @exploration = @goals.where(category: "Exploration").count
     @relationship = @goals.where(category: "Relationship").count
