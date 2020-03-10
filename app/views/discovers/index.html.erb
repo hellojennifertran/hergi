@@ -2,6 +2,30 @@
 	<small style="color: gray;"><%= "discover things to do".upcase %></small>
 </div>
 
+<div class="card text-center">
+
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Health</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Exploration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Relationship</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
 <% @events["events"].reverse.each do |event| %>
 	<div class="card-deck" style="display: flex;">
 		<div class="card">

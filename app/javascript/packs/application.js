@@ -98,7 +98,9 @@ document.addEventListener('turbolinks:load', () => {
             ctx = cht.chart.ctx;
 
         ctx.restore();
-        var fontSize = (height / 180).toFixed(2);
+
+        var fontSize = (height / 160).toFixed(2);
+
         ctx.font = fontSize + "em sans-serif";
         ctx.textBaseline = "middle";
 
