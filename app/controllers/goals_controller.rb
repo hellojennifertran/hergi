@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   def index
-    @goals = Goal.all.include(:users)
+    # @goals = Goal.all.includes(:users)
   end
 
   def create
@@ -10,13 +10,14 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to root_path
     else
-      render :new
+      render :new, locals: { category: params[:goal][:category]}
     end
   end
 
   def new
     @goal = Goal.new
     @category_type = Goal::CATEGORIES
+    @my_title = build_title
   end
 
   def edit
@@ -43,6 +44,16 @@ class GoalsController < ApplicationController
   end
 
   private
+
+  def build_title
+    Goal::CATEGORIES.map do |h|
+      if params[:category] == h[:category]
+        "#{h[:icon]} #{h[:category]}"
+      elsif params[:goal] && params[:goal][:category] == h[:category]
+        "#{h[:icon]} #{h[:category]}"
+      end
+    end.compact.first
+  end
 
   def goal_params
     params.require(:goal).permit(:category, :category_type, :date, :note, :private, :photo)
