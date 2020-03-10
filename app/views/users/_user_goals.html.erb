@@ -10,15 +10,21 @@
         <div class="card-product-infos">
           <div class="description">
             <%= g.category %> - <%= g.category_type %>
-            <p><%= g.date.strftime(%b %e %y) %></p>
+            <p><%= g.date.strftime("%b %e, %Y") %></p>
             <small><%= g.note.first(120).to_s %></small>
-            <div class="dropdown">
+            <div class="dropdown" id="profile-drop">
+              <% if g.private == true %>
+                <i class="fas fa-eye-slash"></i>
+              <% end %>
               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-v"></i>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_goal_path(g) %></a>
                 <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, goal_path(g), method: :delete %></a>
+              </div>
+              <div class="goal-privatize invisible-form">
+                <input type="checkbox" value="<%= g.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if g.private %>>
               </div>
             </div>
           </div>

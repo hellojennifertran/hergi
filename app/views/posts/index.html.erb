@@ -33,7 +33,7 @@
         <div class="user-details">
           <p><strong><%= post.title %></strong></p>
           <p><%= post.user.first_name %> <%= post.user.last_name %></p>
-          <p><%= post.created_at.strftime("Posted: %d %b, %H:%M") %></p>
+          <p><%= post.created_at.strftime("%b %e, %Y") %></p>
         </div>
       <% end %>
       <div class="dropdown">
