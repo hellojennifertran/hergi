@@ -47,24 +47,25 @@ document.addEventListener('turbolinks:load', () => {
                 data: [chart.dataset.healthDone, chart.dataset.healthTobedone, chart.dataset.explorationDone, chart.dataset.explorationTobedone, chart.dataset.relationshipDone, chart.dataset.relationshipTobedone],
                 backgroundColor: [
                     '#f58226',
-                    '#f5a872',
+                    '#ffffff',
                     '#64c194',
-                    '#c0dfd0',
+                    '#ffffff',
                     '#5763af',
-                    '#adc5e4'
-                ],
-                borderColor: [
-                    '#ffffff',
-                    '#ffffff',
-                    '#ffffff',
-                    '#ffffff',
-                    '#ffffff',
                     '#ffffff'
                 ],
-                borderWidth: 0
+                borderColor: [
+                    '#f58226',
+                    '#f58226',
+                    '#64c194',
+                    '#64c194',
+                    '#5763af',
+                    '#5763af'
+                ],
+                borderWidth: 2
             }]
         },
         options: {
+                cutoutPercentage:70,
                 rotation: 1 * Math.PI,
                 circumference: 1 * Math.PI,
                 responsive: true,
@@ -91,17 +92,19 @@ document.addEventListener('turbolinks:load', () => {
     });
 
     Chart.pluginService.register({
-      beforeDraw: function(chart) {
-        var width = chart.chart.width,
-            height = chart.chart.height,
-            ctx = chart.chart.ctx;
+      beforeDraw: function(cht) {
+        var width = cht.chart.width,
+            height = cht.chart.height,
+            ctx = cht.chart.ctx;
 
         ctx.restore();
-        var fontSize = (height / 114).toFixed(2);
+
+        var fontSize = (height / 160).toFixed(2);
+
         ctx.font = fontSize + "em sans-serif";
         ctx.textBaseline = "middle";
 
-        var text = "79%",
+        var text = chart.dataset.total,
             textX = Math.round((width - ctx.measureText(text).width) / 2),
             textY = height / 1.2;
 

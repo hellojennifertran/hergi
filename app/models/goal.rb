@@ -10,17 +10,17 @@ class Goal < ApplicationRecord
     {
       category: 'Health',
       icon: '<i class="fas fa-heartbeat"></i>',
-      category_type: %w[sport healthyfood running]
+      category_type: ["<i class='fas fa-dumbbell'></i> Gym", "<i class='fas fa-carrot'></i> Ate healthy", "<i class='fas fa-running'></i> Cardio", "<i class='fas fa-heartbeat'></i> Other"]
     },
     {
       category: 'Exploration',
       icon: '<i class="fas fa-binoculars"></i>',
-      category_type: %w[dancing climbing swimming]
+      category_type: ["<i class='fas fa-utensils'></i> Dining", "<i class='fas fa-music'></i> Social event", "<i class='fas fa-mountain'></i> Nature", "<i class='fas fa-user-graduate'></i> Academics"]
     },
     {
       category: 'Relationship',
       icon: '<i class="fas fa-users"></i>',
-      category_type: %w[friends family dating social]
+      category_type: ["<i class='fas fa-user-friends'></i> Friends", "<i class='fas fa-users'></i> Family", "<i class='far fa-heart'></i> Dating", "<i class='fas fa-glass-cheers'></i> Social"]
     }
   ]
 end
