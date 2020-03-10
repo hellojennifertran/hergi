@@ -2,11 +2,12 @@
   <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: false do |f|%>
     <div class="profile-banner">
       <div class="profile-avatar">
-        <%= f.input :photo, as: :file, input_html: { class: 'edit-img invisible-form' }, label: "<img id='profile-img' src='https://cdn1.vectorstock.com/i/1000x1000/23/70/default-avatar-profile-icon-vector-18942370.jpg'>".html_safe  %>
-        <%# <img class="avatar-img" id="profile-img" src="https://cdn1.vectorstock.com/i/1000x1000/23/70/default-avatar-profile-icon-vector-18942370.jpg"> %>
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, class: "profile-img" %>
+        <% else %>
+          <%= image_tag 'avatar.jpeg', class: "profile-img" %>
         <% end %>
+        <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: "<i class='fas fa-pen-square edit-img-btn'></i>".html_safe %>
       </div>
       <div class="profile-user">
         <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>

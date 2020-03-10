@@ -1,5 +1,6 @@
 .profile-banner {
-  height: 70vh;
+  min-height: 70vh;
+  height: auto;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -14,9 +15,9 @@
 }
 
 .profile-avatar {
-  height: 80%;
+  height: 40vh;
   width: 100%;
-  #profile-img {
+  .profile-img{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -24,9 +25,19 @@
   }
 }
 
+.edit-img-btn {
+  position: relative;
+  color: lightgray;
+  font-size: 7em;
+  top: -30vh;
+  left: 39vw;
+  opacity: 0.7;
+}
+
 .profile-user{
   padding: 20px 30px;
   text-align: center;
+  height: auto;
 }
 
 .goal-details {
@@ -74,3 +85,8 @@
   display: inline-flex;
   width: 100%;
 }
+
+.form-control-file.file.optional.edit-img {
+  display: none;
+}
+

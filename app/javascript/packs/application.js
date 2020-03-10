@@ -6,6 +6,8 @@ import "bootstrap";
 import Chart from 'chart.js';
 
 document.addEventListener('turbolinks:load', () => {
+  const editImg = document.querySelector('.form-group.file.optional.user_photo');
+  editImg.classList.add('invisible-form');
   const editProfile = document.querySelector(".edit-profile");
   if (editProfile) {
     editProfile.addEventListener("click", (e) => {
@@ -14,11 +16,10 @@ document.addEventListener('turbolinks:load', () => {
       const profileNote = document.querySelector('.profile-note');
       descriptionForm.classList.toggle("invisible-form");
       profileNote.classList.toggle("invisible-form");
-      // image
-      const editImg = document.querySelector('.edit-img');
-      const profileImg = document.querySelector('.profile-img');
+      // edit image
+      // const profileImg = document.querySelector('.profile-img');
       editImg.classList.toggle("invisible-form");
-      profileImg.classList.toggle("invisible-form");
+      // profileImg.classList.toggle("invisible-form");
       // document.querySelector('.edit-img').disabled = !document.querySelector('.edit-img').disabled
       // privatize
       const checkBoxes = document.querySelectorAll('.goal-privatize');
