@@ -65,6 +65,7 @@ document.addEventListener('turbolinks:load', () => {
             }]
         },
         options: {
+                cutoutPercentage:70,
                 rotation: 1 * Math.PI,
                 circumference: 1 * Math.PI,
                 responsive: true,
