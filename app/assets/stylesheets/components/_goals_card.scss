@@ -5,7 +5,8 @@
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  position: relative
+  position: relative;
+  border-radius: 10px;
 }
 
 .card-product img {
@@ -30,4 +31,9 @@
 .card-product .card-product-infos {
   height: 100%;
   padding: 9px;
+}
+
+#activity-feed {
+  border-radius: 30px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
