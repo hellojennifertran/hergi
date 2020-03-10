@@ -1,7 +1,5 @@
 <div class="bg-light">
-  <div class="welcome-card">
-    <small style="color: gray;"><% time = Time.new %> <%= time.strftime("%B").to_s.upcase + " goals".upcase %></small>
-  </div>
+  <h5 class="pt-4" style="text-align: center; color: gray;"><% time = Time.new %> <%= time.strftime("%B").to_s.upcase + " goals".upcase %></h5>
   <div class="ml-3 mr-3">
     <canvas id="myChart" width="400" height="300"
             data-health-done="<%= @health.to_i %>"
@@ -15,10 +13,10 @@
     </canvas>
   </div>
   <div id="activity-feed" class="card pt-3">
-    <h6><center>Activity feed</center></h6>
+    <h6><center><%= 'activity feed'.upcase %></center></h6>
     <% if @goals.length >= 1 %>
       <% @goals.reverse.each do |g| %>
-        <div class="card-product mb-2 mt-1 bg-light ml-2 mr-2">
+        <div class="card-product mb-2 mt-1 ml-2 mr-2">
           <% if g.photo.attached? %>
             <%= cl_image_tag g.photo.key %>
           <% else %>
@@ -41,6 +39,11 @@
             </div>
           </div>
         </div>
+
+
+
+
+        <hr>
       <% end %>
     <% else %>
     <div class="jumbotron">

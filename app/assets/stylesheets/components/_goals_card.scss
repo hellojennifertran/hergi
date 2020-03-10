@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .card-product img {
@@ -36,7 +36,8 @@
 
 #activity-feed {
   border-radius: 30px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-style: none;
+  // box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 .icon-formatting {
