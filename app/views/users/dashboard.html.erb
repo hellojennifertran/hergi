@@ -28,7 +28,16 @@
             <%= g.category %> - <%= g.category_type %>
             <p><%= "This happened on " + g.date.to_s.split.first %></p>
             <small><%= g.note.first(120).to_s %></small>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_goal_path(g) %></a>
+                <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, goal_path(g), method: :delete %></a>
+              </div>
           </div>
+
         </div>
       </div>
     <% end %>

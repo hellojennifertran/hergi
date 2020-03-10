@@ -19,13 +19,19 @@ class GoalsController < ApplicationController
     @category_type = Goal::CATEGORIES
   end
 
-  def update
-    if @goal.update(goal_params)
-      redirect_to profile_path(@user)
-    else
-      render 'profile/:id'
-    end
+  def edit
+    @goal = Goal.find(params[:id])
+  end
 
+  def update
+    @goal = Goal.update(goal_params)
+    redirect_to dashboard_path
+  end
+
+  def destroy
+    @goal = Goal.find(params[:id])
+    @goal.destroy
+    redirect_to dashboard_path
   end
 
   def privatize_all
