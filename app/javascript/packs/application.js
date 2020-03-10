@@ -47,21 +47,21 @@ document.addEventListener('turbolinks:load', () => {
                 data: [chart.dataset.healthDone, chart.dataset.healthTobedone, chart.dataset.explorationDone, chart.dataset.explorationTobedone, chart.dataset.relationshipDone, chart.dataset.relationshipTobedone],
                 backgroundColor: [
                     '#f58226',
-                    '#f5a872',
+                    '#ffffff',
                     '#64c194',
-                    '#c0dfd0',
+                    '#ffffff',
                     '#5763af',
-                    '#adc5e4'
-                ],
-                borderColor: [
-                    '#ffffff',
-                    '#ffffff',
-                    '#ffffff',
-                    '#ffffff',
-                    '#ffffff',
                     '#ffffff'
                 ],
-                borderWidth: 0
+                borderColor: [
+                    '#f58226',
+                    '#f58226',
+                    '#64c194',
+                    '#64c194',
+                    '#5763af',
+                    '#5763af'
+                ],
+                borderWidth: 2
             }]
         },
         options: {
