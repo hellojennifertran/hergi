@@ -16,6 +16,10 @@
 @import "components/goals_card";
 @import "users/update";
 
+body {
+	font-family: sans-serif;
+}
+
 .active {
   color: orange !important;
   border-right: 1px solid black !important;

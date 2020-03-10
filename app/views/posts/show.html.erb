@@ -44,13 +44,12 @@
     <img src="https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
   <% end %>
   </div>
-  <div class="post-content">
+  <div class="post-content py-3">
     <p><%= @post.content %></p>
-    <hr>
   </div>
 </div>
 <div class="comments">
-  <%= link_to "<i class='far fa-comments'></i> Leave a comment".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %>
+ <small style="color: gray!important;"><%= link_to "<i class='far fa-comments'></i> LEAVE A COMMENT".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %></small>
   <hr>
   <% @post.comments.reverse.each do |comment| %>
   <p><strong><%=comment.user.first_name%> <%=comment.user.last_name%></strong></p>

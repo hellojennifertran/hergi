@@ -1,5 +1,5 @@
 <div class="welcome-card">
-<h5><strong>Get inspired & go inspire</strong></h5>
+<small style="color: gray;"><%= "get inspired & go inspire".upcase %></small>
 </div>
 
 <% @posts.each do |post| %>
@@ -37,8 +37,8 @@
           <i class="fas fa-ellipsis-v"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'> Edit</i>".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></a>
-          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'> Delete</i>".html_safe, post_path(post), method: :delete %></a>
+          <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></a>
+          <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, post_path(post), method: :delete %></a>
         </div>
       </div>
     </div>
@@ -52,13 +52,15 @@
       </div>
     <% end %>
   <div class="comment-teaser">
-    <i class='far fa-comments'>
-      <% if post.comments.count.zero? %>
-        <%= "No comments" %>
-       <% else %>
-        <%= pluralize(post.comments.count, "comment") %>
-      <% end %>
-    </i>
+    <small style="color: gray;">
+      <i class='far fa-comments'>
+        <% if post.comments.count.zero? %>
+          <%= "no comments".upcase %>
+         <% else %>
+          <%= pluralize(post.comments.count, "comment") %>
+        <% end %>
+      </i>
+    </small>
   </div>
   </div>
 <% end %>
