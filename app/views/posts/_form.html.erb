@@ -1,6 +1,6 @@
 <%= simple_form_for post do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
-  <%= f.input :photo, as: :file, label: "Upload Image:" %>
-  <%= f.button :submit %>
+  <%= f.input :photo, as: :file, label: "Upload image:" %>
+  <%= f.button :submit, value: "Post", class: "btn btn-secondary" %>
 <% end %>

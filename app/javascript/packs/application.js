@@ -38,27 +38,27 @@ document.addEventListener('turbolinks:load', () => {
     var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Health done', 'Health unfinished', 'Exploration done', 'Exploration unfinished', 'Relationship done', 'Relationship unfinished'],
+            labels: ['Health', 'Health goal', 'Exploration', 'Exploration goal', 'Relationship', 'Relationship goal'],
             datasets: [{
                 label: '# of Votes',
                 data: [chart.dataset.healthDone, chart.dataset.healthTobedone, chart.dataset.explorationDone, chart.dataset.explorationTobedone, chart.dataset.relationshipDone, chart.dataset.relationshipTobedone],
                 backgroundColor: [
-                    '#FF008A',
-                    '#FFFFFF',
-                    '#040083',
-                    '#FFFFFF',
-                    '#27CA00',
-                    '#FFFFFF'
+                    '#f58226',
+                    '#f5a872',
+                    '#64c194',
+                    '#c0dfd0',
+                    '#5763af',
+                    '#adc5e4'
                 ],
                 borderColor: [
-                    '#D6D6D6',
-                    '#D6D6D6',
-                    '#D6D6D6',
-                    '#D6D6D6',
-                    '#D6D6D6',
-                    '#D6D6D6'
+                    '#ffffff',
+                    '#ffffff',
+                    '#ffffff',
+                    '#ffffff',
+                    '#ffffff',
+                    '#ffffff'
                 ],
-                borderWidth: 1
+                borderWidth: 0
             }]
         },
         options: {
@@ -66,19 +66,47 @@ document.addEventListener('turbolinks:load', () => {
                 circumference: 1 * Math.PI,
                 responsive: true,
                 legend: {
-                  position: 'top',
+                  position: 'top'
                 },
                 title: {
-                  display: true,
-                  text: 'Chart.js Doughnut Chart'
+                  display: false,
+                  text: 'Monthly Goal'
                 },
                 animation: {
                   animateScale: true,
                   animateRotate: true
+                },
+                legend: {
+                  labels: {
+                      filter: function(item, chart) {
+                          // Logic to remove a particular legend item goes here
+                          return item.text == 'Health' || item.text == 'Exploration' || item.text == 'Relationship';
+                      }
+                  }
                 }
-              }
+      }
     });
     
+    Chart.pluginService.register({
+      beforeDraw: function(chart) {
+        var width = chart.chart.width,
+            height = chart.chart.height,
+            ctx = chart.chart.ctx;
+
+        ctx.restore();
+        var fontSize = (height / 114).toFixed(2);
+        ctx.font = fontSize + "em sans-serif";
+        ctx.textBaseline = "middle";
+
+        var text = "79%",
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = height / 1.2;
+
+        ctx.fillText(text, textX, textY);
+        ctx.save();
+      }
+    });
+
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
     var prevScrollpos = window.pageYOffset + 50;
     window.onscroll = function() {
