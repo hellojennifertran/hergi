@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     # @posts = Post.all.reverse
+    @user = User.new(params[:user_id])
     @posts = Post.order(created_at: :desc)
     @post = Post.new
   end

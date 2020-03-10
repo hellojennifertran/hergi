@@ -1,5 +1,5 @@
 <% if @user == current_user %>
-  <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: false do |f|%>
+  <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: true do |f|%>
     <div class="profile-banner">
       <div class="profile-avatar">
         <% if @user.photo.attached? %>
@@ -10,28 +10,27 @@
         <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: "<i class='fas fa-pen-square edit-img-btn'></i>".html_safe %>
       </div>
       <div class="profile-user">
-        <%# settings button - nav dropdown w/ logout, edit monthly goals, edit photo? %>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-cog"></i>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <span class="dropdown-item edit-profile">Edit Profile</span>
-            <%= link_to "Edit Monthly Goals", update_goals_path, class: "dropdown-item"%>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
-          </div>
-        </div>
         <h3><%= @user.first_name %> <%= @user.last_name %></h3>
         <div class="parent-note">
           <div class='description-form'>
             <div class="user-note invisible-form">
-              <%= f.input :note, placeholder: "Add a note", label: false %>
+              <%= f.input :note, placeholder: "Add a description", label: false %>
             </div>
           </div>
           <p class="profile-note"><%= @user.note %></p>
         </div>
+        <div class="friends-followers">
+          <div class="profile-friends">
+            <p>30</p>
+            <p>Friends</p>
+          </div>
+          <div class="profile-followers">
+            <p>23</p>
+            <p>Followers</p>
+          </div>
+        </div>
         <div class="profile-edit-btn invisible-form">
-          <%= f.submit class: 'btn btn-primary' %>
+          <%= f.submit 'Update', class: 'btn btn-primary profile-btn' %>
         </div>
       </div>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
