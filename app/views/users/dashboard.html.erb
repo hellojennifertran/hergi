@@ -2,7 +2,6 @@
   <div class="welcome-card">
     <small style="color: gray;"><% time = Time.new %> <%= time.strftime("%B").to_s.upcase + " goals".upcase %></small>
   </div>
-
   <div class="ml-3 mr-3">
     <canvas id="myChart" width="400" height="300"
             data-health-done="<%= @health.to_i %>"
@@ -25,7 +24,6 @@
           <% else %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
-
           <div class="card-product-infos">
             <div class="description">
               <%= g.category %> - <%= g.category_type %>
@@ -47,5 +45,13 @@
     <% end %>
     </div>
   </div>
+  <% else %>
+    <div class="jumbotron">
+      <h4 class="display-5">Begin your Journey !</h4>
+      <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
+      <hr class="my-4">
+      <p>Start slowly by clicking on +</p>
+    </div>
+  <% end %>
 </div>
 <%# Goal.where(user: current_user).order(created_at: :desc).first(5)  %>
