@@ -64,3 +64,12 @@
 .dropup:hover .dropup-content {
   display: block;
 }
+
+#dropdownMenuButton {
+  background-color: transparent;
+  color: lightgray;
+  border: none;
+  &.active {
+    color: cyan;
+  }
+}

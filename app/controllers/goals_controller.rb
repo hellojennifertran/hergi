@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   def index
-    # @goals = Goal.all.includes(:users)
+    @goals = Goal.includes(:user).all
   end
 
   def create
