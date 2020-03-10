@@ -1,5 +1,5 @@
 .profile-banner {
-  min-height: 30vh;
+  min-height: 70vh;
   height: auto;
   width: 100vw;
   display: flex;
@@ -7,8 +7,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  // border-bottom: solid 1px #605855;
-  box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+  border-bottom: solid 1px #605855;
   position: relative;
   margin-bottom: 5px;
   .dropdown-menu.show {
@@ -16,47 +15,10 @@
   }
 }
 
-.user-profile-banner {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 30px;
-
-  .profile-friends,
-  .profile-followers {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    p:first-of-type {
-      font-size: 21px;
-      font-weight: 900;
-    }
-  }
-}
-
-.profile-user {
-  padding: 0 20px 20px 30px;
-  width: 100%;
-
-  h4 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 0 8px 0;
-  }
-
-  .parent-note {
-    .profile-note {
-      margin: 0;
-    }
-  }
-}
-
 .profile-avatar {
-  height: 100px;
-  width: 100px;
+  height: 40vh;
+  width: 100%;
   .profile-img{
-    border-radius: 50%;
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -73,6 +35,12 @@
   opacity: 0.7;
 }
 
+.profile-user{
+  padding: 20px 30px;
+  text-align: center;
+  height: auto;
+}
+
 #myTab {
   width: 100%;
   display: flex;
@@ -80,32 +48,10 @@
   .nav-item {
     width: 50%;
     text-align: center;
-    border: none !important;
+
     &:active {
-      border-bottom: solid 3px cyan;
+      border-bottom: 2px solid white;
     }
-  }
-
-  .nav-link {
-    border: none !important;
-    margin: 0 2rem 5px 2rem !important; 
-    &.active {
-      border-bottom: 3px solid orange !important;
-    }
-  }
-}
-
-#myTabContent {
-  padding-bottom: 80px;
-}
-
-.tab-pane.fade {
-  &.active {
-    border: none !important;
-  }
-
-  .card-product {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) !important;
   }
 }
 
@@ -120,6 +66,8 @@
   position: absolute;
   top: 0;
   right: 0;
+  .dropdown-menu {
+  }
 }
 
 .profile-progression-achievements {

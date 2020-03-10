@@ -1,6 +1,6 @@
 
 <% if @goals.length >= 1 %>
-    <% @goals.each do |g| %>
+    <% @goals.reverse.each do |g| %>
       <div class="card-product mb-1">
         <% if g.photo.attached? %>
           <%= cl_image_tag g.photo.key %>
@@ -10,7 +10,7 @@
         <div class="card-product-infos">
           <div class="description">
             <%= g.category %> - <%= g.category_type %>
-            <p><%= g.date.strftime(%b %e %y) %></p>
+            <p><%= "This happened on " + g.date.to_s.split.first %></p>
             <small><%= g.note.first(120).to_s %></small>
             <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

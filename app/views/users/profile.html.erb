@@ -1,6 +1,6 @@
 <% if @user == current_user %>
   <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: true do |f|%>
-    <div class="user-profile-banner">
+    <div class="profile-banner">
       <div class="profile-avatar">
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, class: "profile-img" %>
@@ -9,50 +9,48 @@
         <% end %>
         <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: "<i class='fas fa-pen-square edit-img-btn'></i>".html_safe %>
       </div>
-
-      <div class="profile-friends">
-        <p>30</p>
-        <p>Friends</p>
-      </div>
-      <div class="profile-followers">
-        <p>23</p>
-        <p>Followers</p>
-      </div>
-    </div>
-
-    <div class="profile-user">
-      <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-      <div class="parent-note">
-        <div class='description-form'>
-          <div class="user-note invisible-form">
-            <%= f.input :note, placeholder: "Add a description", label: false %>
+      <div class="profile-user">
+        <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+        <div class="parent-note">
+          <div class='description-form'>
+            <div class="user-note invisible-form">
+              <%= f.input :note, placeholder: "Add a description", label: false %>
+            </div>
+          </div>
+          <p class="profile-note"><%= @user.note %></p>
+        </div>
+        <div class="friends-followers">
+          <div class="profile-friends">
+            <p>30</p>
+            <p>Friends</p>
+          </div>
+          <div class="profile-followers">
+            <p>23</p>
+            <p>Followers</p>
           </div>
         </div>
-        <p class="profile-note"><%= @user.note %></p>
+        <div class="profile-edit-btn invisible-form">
+          <%= f.submit 'Update', class: 'btn btn-primary profile-btn' %>
+        </div>
       </div>
-      </div>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Achievements</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Blog</a>
+        </li>
+      </ul>
     </div>
-    <div class="profile-edit-btn invisible-form">
-      <%= f.submit 'Update', class: 'btn btn-primary profile-btn' %>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <%= render 'user_goals' %>
     </div>
-  
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Achievements</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Blog</a>
-      </li>
-    </ul>
-
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <%= render 'user_goals' %>
-      </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <%= render 'user_posts' %>
-      </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <%= render 'user_posts' %>
     </div>
-  
+  </div>
+  <div style="height: 80px">
+  </div>
   <% end %>
 <% end %>
