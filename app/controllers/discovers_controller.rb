@@ -1,10 +1,11 @@
 class DiscoversController < ApplicationController
   def index
-    query = "health"
-    url = 'https://api.predicthq.com/v1/events'
-    # token = '4qgQOYNjfU2vJKPv9JnRF2CTVnA24Kr2kiImdw3v'
-    curl = `curl -X GET https://api.predicthq.com/v1/events/?q="${query}" \
-    -H "Authorization: Bearer 4qgQOYNjfU2vJKPv9JnRF2CTVnA24Kr2kiImdw3v"`
-    @events = JSON.parse(curl)
+
+    film_file = File.read(Rails.root.join('app/assets/json/film-response.json'))
+    festivals_file = File.read(Rails.root.join('app/assets/json/london-festivals-response.json'))
+    sports_file = File.read(Rails.root.join('app/assets/json/london-sports-active-life-response.json'))
+    arts_file = File.read(Rails.root.join('app/assets/json/visual-arts-response.json'))
+
+    @events = JSON.parse(film_file)
   end
 end
