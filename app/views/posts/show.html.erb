@@ -23,7 +23,7 @@
     <div class="user-details">
       <p><strong><%= @post.title %></strong></p>
       <p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
-      <p><%= @post.created_at.strftime(%b %e %y) %></p>
+      <p><%= @post.created_at.strftime("%b %e, %Y") %></p>
     </div>
   </div>
    <div class="dropdown">
@@ -53,7 +53,7 @@
   <hr>
   <% @post.comments.reverse.each do |comment| %>
   <p><strong><%=comment.user.first_name%> <%=comment.user.last_name%></strong></p>
-  <p><%=comment.created_at.strftime("%d %b, %H:%M")%></p>
+  <p><%=comment.created_at.strftime("%b %e, %Y")%></p>
   <p><%=comment.content%></p>
   <hr>
   <% end %>
