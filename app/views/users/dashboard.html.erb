@@ -9,7 +9,7 @@
           data-exploration-tobedone="<%= current_user.exploration_goal.to_i - @exploration.to_i %>"
           data-relationship-done="<%= @relationship.to_i %>"
           data-relationship-tobedone="<%= current_user.relationships_goal.to_i - @relationship.to_i %>"
-          data-total ="<%= (@health.to_i + @exploration.to_i + @relationship.to_i) / (current_user.health_goal.to_f + current_user.exploration_goal.to_f + current_user.relationships_goal.to_f) * 100 %>%"
+          data-total ="<%= ((@health.to_i + @exploration.to_i + @relationship.to_i) / (current_user.health_goal.to_f + current_user.exploration_goal.to_f + current_user.relationships_goal.to_f) * 100).round(2)%>%"
           >
   </canvas>
 </div>
