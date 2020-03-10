@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/update_goals_number', to: 'users#update_goals_number', as: :update_goals
   patch '/update_goals_number', to: 'users#set_goals', as: :set_goals
 
-  resources :goals, only: [:index, :create, :new] do
+  resources :goals, only: [:index, :create, :new, :edit, :update, :destroy] do
     collection do
       patch :privatize_all
     end
