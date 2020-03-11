@@ -2,50 +2,43 @@
 	<small style="color: gray;"><%= "discover things to do".upcase %></small>
 </div>
 
-<div class="card text-center">
+<div class="card text-center" id="discover-nav">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Health</a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Exploration</a>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Relationship</a>
+    </div>
+  </nav>
 
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Health</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Exploration</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Relationship</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">ONE</div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">TWO</div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">THREE</div>
   </div>
 </div>
 
-
 <% @events["events"].reverse.each do |event| %>
-	<div class="card-deck" style="display: flex;">
-		<div class="card">
-			<img class="card-img-top pb-3" src=<%= "#{event["image_url"]}" %> alt="Card image cap" style="height: 200px;">
-			<small class="pl-2 pr-2">
-				<p>
-				<strong><%= event["name"] %></strong>
-				<li class="pb-2" style="list-style:none;"><%= event["location"]["address1"].to_s + ", " + event["location"]["city"].to_s %></li>
-				<li class="pb-3" style="list-style:none;"><%= event["description"] %></li>
-			</p></small>
-			<%#= simple_form_for(@save_event) do |f| %>
-				<%# f.input :location, value: event["location"].to_s %>
-				<%# f.input :label, value: event["labels"].to_s %>
-				<%# f.input :description, value: event["description"].to_s %>
-				<%#= f.submit	 %>
-			<%# end %>
-		</div>
-	</div>
+  <div class="card-deck" style="display: flex;">
+    <div class="card">
+      <img class="card-img-top pb-3" src=<%= "#{event["image_url"]}" %> alt="Card image cap" style="height: 200px;">
+      <small class="pl-2 pr-2">
+        <p>
+        <strong><%= event["name"] %></strong>
+        <li class="pb-2" style="list-style:none;"><%= event["location"]["address1"].to_s + ", " + event["location"]["city"].to_s %></li>
+        <li class="pb-3" style="list-style:none;"><%= event["description"] %></li>
+      </p></small>
+      <%#= simple_form_for(@save_event) do |f| %>
+        <%# f.input :location, value: event["location"].to_s %>
+        <%# f.input :label, value: event["labels"].to_s %>
+        <%# f.input :description, value: event["description"].to_s %>
+        <%#= f.submit  %>
+      <%# end %>
+    </div>
+  </div>
 <% end %>
 
 <!-- Controller -->
 <!-- @save_event.user = current_user -->
 <!-- @save_event.save -->
+
