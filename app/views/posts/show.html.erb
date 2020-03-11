@@ -22,7 +22,7 @@
     <% if @post.user.photo.attached? %>
         <%= cl_image_tag @post.user.photo.key, class: "user-avatar" %>
       <% else %>
-        <%= image_tag 'avatar.jpeg', class: "user-avatar"%>
+        <%= image_tag 'avatar.jpg', class: "user-avatar"%>
     <% end %>
     <div class="user-details">
       <p><strong><%= @post.title %></strong></p>

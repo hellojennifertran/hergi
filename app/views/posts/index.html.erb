@@ -4,7 +4,7 @@
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, class: "user-avatar" %>
     <% else %>
-      <%= image_tag 'avatar.jpeg', class: "user-avatar" %>
+      <%= image_tag 'avatar.jpg', class: "user-avatar" %>
     <% end %>
     <p> <%= current_user.first_name %>, share your story...</p>
   </div>
@@ -34,7 +34,7 @@
       <% if post.user.photo.attached? %>
         <%= cl_image_tag post.user.photo.key, class: "user-avatar" %>
       <% else %>
-        <%= image_tag 'avatar.jpeg', class: "user-avatar"%>
+        <%= image_tag 'avatar.jpg', class: "user-avatar"%>
       <% end %>
       <%= link_to post_path(post) do %>
         <div class="user-details">
