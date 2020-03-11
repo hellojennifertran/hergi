@@ -1,12 +1,13 @@
 <div class="welcome-card">
-  <small style="color: gray;"><% time = Time.new %> <%=  "set #{time.strftime('%B')}".upcase + " goals".upcase %></small>
+  <small style="color: gray;"><% time = Time.new %> <%=  "#{time.strftime('%B')}".upcase + " goals".upcase %></small>
 </div>
 <div class="welcome-card mb-5">
-  <small>📌 Set a number of goals you want to complete from each category.</small>
+  <p>📌 Set a number of goals you want to complete from each category.</p>
 </div>
-<div class="ml-4 mr-4">
+<div class="goal-format">
+    <h6>Set <%=time.strftime('%B')%> Goals</h6>
     <div class="slidecontainer">
-      <h4>Health</h4>
+      <h4><i class="fas fa-heartbeat"></i> Health</h4>
           <input type="range" min="1" max="10" value="<%= current_user.health_goal || 1 %>" class="slider" id="myRange-h">
           <p id="demo-h"></p>
           <script>
@@ -23,7 +24,7 @@
     </div>
 
     <div class="slidecontainer">
-      <h4>Exploration</h4>
+      <h4><i class="fas fa-binoculars"></i> Exploration</h4>
       <input type="range" min="1" max="10" value="<%= current_user.exploration_goal || 1 %>" class="slider" id="myRange-e">
       <p id="demo-e"></p>
       <script>
@@ -41,7 +42,7 @@
     </div>
 
     <div class="slidecontainer">
-      <h4>Relationships</h4>
+      <h4><i class="fas fa-users"></i> Relationship</h4>
       <input type="range" min="1" max="10" value="<%= current_user.relationships_goal || 1 %>" class="slider" id="myRange-r">
       <p id="demo-r"></p>
       <script>
@@ -60,7 +61,7 @@
           <%= f.input :health, as: :hidden, input_html: { value: current_user.health_goal || 1 } %>
           <%= f.input :explore, as: :hidden, input_html: { value: (current_user.exploration_goal || 1)  } %>
           <%= f.input :relationship, as: :hidden, input_html: { value: (current_user.relationships_goal || 1) } %>
-          <%= f.submit :save, label:'Save', class: "btn btn-secondary" %>
+          <%= f.submit :save, label:'Save', class: "btn-block btn-secondary" %>
       <% end %>
 
     </div>
