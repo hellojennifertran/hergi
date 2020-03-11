@@ -1,7 +1,6 @@
 <div class="welcome-card">
 	<small style="color: gray;"><%= "discover things to do".upcase %></small>
 </div>
-
 <div class="card text-center" id="discover-nav">
   <ul class="nav nav-tabs discovery" id="myTab" role="tablist">
     <li class="nav-item">
@@ -14,33 +13,62 @@
       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Relationship</a>
     </li>
   </ul>
-
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">One</div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Two</div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Three</div>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="text-left tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <% @events_health["events"].reverse.first(20).each do |h_event| %>
+        <div class="card-deck" style="display: flex;">
+          <div class="card">
+            <img class="card-img-top pb-3" src=<%= "#{h_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
+            <small class="pl-2 pr-2">
+              <p>
+              <strong><%= h_event["name"].capitalize %></strong>
+              <li class="pb-2" style="list-style:none;"><%= h_event["location"]["address1"].to_s + ", " + h_event["location"]["city"].to_s.capitalize %></li>
+              <li class="pb-3" style="list-style:none;"><%= h_event["description"].capitalize %></li>
+            </p></small>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-left tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <% @events_exploration["events"].reverse.first(20).each do |e_event| %>
+        <div class="card-deck" style="display: flex;">
+          <div class="card">
+            <img class="card-img-top mb-3" src=<%= "#{e_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
+            <small class="pl-2 pr-2">
+              <p>
+              <strong><%= e_event["name"].capitalize %></strong>
+              <li class="pb-2" style="list-style:none;"><%= e_event["location"]["address1"].to_s + ", " + e_event["location"]["city"].to_s %></li>
+              <li class="pb-3" style="list-style:none;"><%= e_event["description"].capitalize %></li>
+            </p></small>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-left tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <% @events_relationships["events"].reverse.first(20).each do |r_event| %>
+        <div class="card-deck" style="display: flex;">
+          <div class="card">
+            <img class="card-img-top pb-3" src=<%= "#{r_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
+            <small class="pl-2 pr-2">
+              <p>
+              <strong><%= r_event["name"].capitalize %></strong>
+              <li class="pb-2" style="list-style:none;"><%= r_event["location"]["address1"].to_s + ", " + r_event["location"]["city"].to_s %></li>
+              <li class="pb-3" style="list-style:none;"><%= r_event["description"].capitalize %></li>
+            </p></small>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<% @events["events"].reverse.each do |event| %>
-  <div class="card-deck" style="display: flex;">
-    <div class="card">
-      <img class="card-img-top pb-3" src=<%= "#{event["image_url"]}" %> alt="Card image cap" style="height: 200px;">
-      <small class="pl-2 pr-2">
-        <p>
-        <strong><%= event["name"] %></strong>
-        <li class="pb-2" style="list-style:none;"><%= event["location"]["address1"].to_s + ", " + event["location"]["city"].to_s %></li>
-        <li class="pb-3" style="list-style:none;"><%= event["description"] %></li>
-      </p></small>
+      <!-- IF we want to implement likes  -->
       <%#= simple_form_for(@save_event) do |f| %>
         <%# f.input :location, value: event["location"].to_s %>
         <%# f.input :label, value: event["labels"].to_s %>
         <%# f.input :description, value: event["description"].to_s %>
         <%#= f.submit  %>
       <%# end %>
-    </div>
-  </div>
-<% end %>
 
 <!-- Controller -->
 <!-- @save_event.user = current_user -->
