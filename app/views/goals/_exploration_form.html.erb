@@ -7,7 +7,7 @@
 <input type="hidden" name="goal[category_type]" value="">
 <div class="d-flex">
   <div class="form-check">
-    <input class="form-check-input radio_buttons required" type="radio" value="
+    <input class="form-check-input radio_buttons required" <%= "checked" if @goal.category_type&.include? "Dining" %> type="radio" value="
   <i class='fas fa-utensils'>
   </i> Dining" name="goal[category_type]" id="goal_category_type_i_classfas_fa-utensilsi_dining">
   <label class="form-check-label collection_radio_buttons" for="goal_category_type_i_classfas_fa-utensilsi_dining">
@@ -16,7 +16,7 @@
   </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input radio_buttons required" type="radio" value="
+    <input class="form-check-input radio_buttons required" <%= "checked" if @goal.category_type&.include? "Social" %> type="radio" value="
   <i class='fas fa-music'>
   </i> Social event" name="goal[category_type]" id="goal_category_type_i_classfas_fa-musici_social_event">
   <label class="form-check-label collection_radio_buttons" for="goal_category_type_i_classfas_fa-musici_social_event">
@@ -25,7 +25,7 @@
   </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input radio_buttons required" type="radio" value="
+    <input class="form-check-input radio_buttons required" <%= "checked" if @goal.category_type&.include? "Nature" %> type="radio" value="
   <i class='fas fa-mountain'>
   </i> Nature" name="goal[category_type]" id="goal_category_type_i_classfas_fa-mountaini_nature">
   <label class="form-check-label collection_radio_buttons" for="goal_category_type_i_classfas_fa-mountaini_nature">
@@ -34,7 +34,7 @@
   </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input radio_buttons required" type="radio" value="
+    <input class="form-check-input radio_buttons required" <%= "checked" if @goal.category_type&.include? "Skill" %> type="radio" value="
   <i class='fas fa-user-graduate'>
   </i> Skill" name="goal[category_type]" id="goal_category_type_i_classfas_fa-user-graduatei_skill">
   <label class="form-check-label collection_radio_buttons" for="goal_category_type_i_classfas_fa-user-graduatei_skill">
