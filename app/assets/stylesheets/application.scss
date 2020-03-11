@@ -16,21 +16,28 @@
 @import "components/goals_card";
 @import "users/update";
 
-body {
-	font-family: sans-serif;
-}
-
 .active {
-  color: orange !important;
+  color: #50c491 !important;
   border-right: 1px solid black !important;
 }
 
-.container {
-  padding: 2px;
+body {
+	font-family: "Montserrat", "Helvetica";
+	color: #454545!important;
 }
 
+h1 {
+	font-size: 20px;
+}
 
+h2 {
+	font-size: 16px;
+}
 
+h3 {
+	font-size: 2em;
+}
 
-
-
+h4 {
+	font-size: 2em;
+}

@@ -43,22 +43,22 @@
       <%= yield %>
     <% elsif params[:controller] == 'users' && params[:action] == 'profile' %>
       <%= render 'shared/header' %>
-      <div style="height: 46px;"></div>
+      <div style="height: 40px;"></div>
       <%= yield %>
       <%= render 'shared/navbar' %>
     <% else %>
       <%= render 'shared/header' %>
-      <div style="height: 46px;"></div>
-      <div class="page-content" style="min-height: calc(100vh - 76px);">
-        <%= yield %>
-      </div>
-      <% if user_signed_in? == true %>
+      <div style="height: 40px;"></div>
+    <div class="page-content" style="min-height: calc(100vh - 76px);">
+      <%= yield %>
+    </div>
+    <% if user_signed_in? == true %>
       <div class="nav">
         <div style="height: 76px;">
           <%= render 'shared/navbar' %>
         </div>
       </div>
-      <% end %>
+    </div>
     <% end %>
   </body>
 </html>
