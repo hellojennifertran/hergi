@@ -1,16 +1,18 @@
 <div class="welcome-card">
 	<small style="color: gray;"><%= "discover things to do".upcase %></small>
 </div>
-
 <div class="card text-center" id="discover-nav">
-  <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Health</a>
-      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Exploration</a>
-      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Relationship</a>
-    </div>
-  </nav>
-
+  <ul class="nav nav-tabs discovery" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Health</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Exploration</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Relationship</a>
+    </li>
+  </ul>
   <div class="tab-content" id="nav-tabContent">
     <div class="text-left tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
       <% @events_health["events"].reverse.first(20).each do |h_event| %>

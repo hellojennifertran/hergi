@@ -85,39 +85,10 @@
   opacity: 0.85;
 }
 
-#myTab {
-  width: 100%;
-  display: flex;
-  
-  .nav-item {
-    width: 50%;
-    text-align: center;
-    border: none !important;
-  }
-
-  .nav-link {
-    border: none !important;
-    margin: 0 2rem 5px 2rem !important; 
-    padding: 0.5rem 0;
-    &.active {
-      border-bottom: 3px solid orange !important;
-    }
-  }
+.card-product {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) !important;
 }
 
-#myTabContent {
-  padding-bottom: 80px;
-}
-
-.tab-pane.fade {
-  &.active {
-    border: none !important;
-  }
-
-  .card-product {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) !important;
-  }
-}
 
 .profile-note {
   height: auto;
