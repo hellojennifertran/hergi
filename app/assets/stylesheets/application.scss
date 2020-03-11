@@ -50,6 +50,7 @@ h3 {
 h4 {
 	font-size: 14px;
 	line-height: 14px;
+	font-weight: 300;
 }
 
 h5 {
@@ -69,11 +70,11 @@ p {
 }
 
 a:active {
-	font-size: 12px;
+	font-color: black;
 }
 
 a:hover {
-	font-size: 12px;
+	text-decoration: none;
 }
 
 small {
@@ -81,3 +82,4 @@ small {
 	color: gray;
 	// text-transform: uppercase;
 }
+

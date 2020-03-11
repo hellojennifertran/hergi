@@ -1,5 +1,5 @@
 <div class="bg-light">
-  <h1 class="pt-4" style="text-align: center; color: gray;"><%= @current_user.first_name + "'s" %><% time = Time.new %> <%= time.strftime("%B").to_s + " Goal" %></h5>
+  <h1 class="pt-4" style="text-align: center;"><%= @current_user.first_name.to_s + "'s" %><% time = Time.new %> <%= time.strftime("%B").to_s + " Goal" %></h5>
   <div class="ml-3 mr-3">
     <canvas id="myChart" width="400" height="300"
             data-health-done="<%= @health.to_i %>"
@@ -30,23 +30,23 @@
               <small>
                 Logged
                 <% if g.category == "Health" %>
-                  <i class="fas fa-heartbeat"></i>
+                  <i class="fas fa-heartbeat" style="color: #f58226;"></i>
                 <% elsif g.category == "Exploration" %>
-                  <i class="fas fa-binoculars"></i>
+                  <i class="fas fa-binoculars" style="color: #64c194;"></i>
                 <% elsif g.category == "Relationship" %>
-                  <i class="fas fa-users"></i>
+                  <i class="fas fa-users" style="color:#5763af;"></i>
                 <% end %>
                 <%= g.category%> <%= g.category_type.html_safe %>
               </small>
-              <p><%= g.note.first(120).to_s %></p>
+              <p><%= g.note.to_s %></p>
               <h5 class="mt-3"><%= g.date.strftime("Happened on %b. %d %Y") %></h5>
               <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButtonDashboard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-v"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_goal_path(g) %></a>
-                  <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, goal_path(g), method: :delete %></a>
+                  <h6 class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_goal_path(g) %></h6>
+                  <h6 class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'></i> DELETE".html_safe, goal_path(g), method: :delete %></h6>
                 </div>
               </div>
             </div>
