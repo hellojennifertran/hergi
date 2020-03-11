@@ -6,27 +6,27 @@
 <input type="hidden" name="goal[category_type]" value="">
 <div class="d-flex">
   <div class="form-check">
-    <input class="form-check-input radio_buttons required" type="radio" value="
+    <input class="form-check-input radio_buttons required" <%= "checked" if @goal.category_type&.include? "Friends" %> type="radio" value="
     <i class='fas fa-user-friends'>
     </i> Friends" name="goal[category_type]" id="goal_category_type_i_classfas_fa-user-friendsi_friends">
     <label class="form-check-label collection_radio_buttons" for="goal_category_type_i_classfas_fa-user-friendsi_friends">
     <i class="fas fa-user-friends"></i> Friends</label>
   </div>
   <div class="form-check">
-    <input class="form-check-input radio_buttons required" type="radio" value="
+    <input class="form-check-input radio_buttons required" <%= "checked" if @goal.category_type&.include? "Family" %> type="radio" value="
     <i class='fas fa-users'></i> Family" name="goal[category_type]" id="goal_category_type_i_classfas_fa-usersi_family">
     <label class="form-check-label collection_radio_buttons" for="goal_category_type_i_classfas_fa-usersi_family">
     <i class="fas fa-users"></i> Family</label>
   </div>
 
   <div class="form-check">
-    <input class="form-check-input radio_buttons required" type="radio" value="
+    <input class="form-check-input radio_buttons required" <%= "checked" if @goal.category_type&.include? "Dating" %> type="radio" value="
     <i class='far fa-heart'></i> Dating" name="goal[category_type]" id="goal_category_type_i_classfar_fa-hearti_dating">
     <label class="form-check-label collection_radio_buttons" for="goal_category_type_i_classfar_fa-hearti_dating">
     <i class="far fa-heart"></i> Dating</label>
   </div>
   <div class="form-check">
-    <input class="form-check-input radio_buttons required" type="radio" value="
+    <input class="form-check-input radio_buttons required" <%= "checked" if @goal.category_type&.include? "Social" %> type="radio" value="
     <i class='fas fa-glass-cheers'></i> Social" name="goal[category_type]" id="goal_category_type_i_classfas_fa-glass-cheersi_social">
     <label class="form-check-label collection_radio_buttons" for="goal_category_type_i_classfas_fa-glass-cheersi_social">
     <i class="fas fa-glass-cheers"></i> Social</label>

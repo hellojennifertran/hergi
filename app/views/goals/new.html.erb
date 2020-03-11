@@ -1,7 +1,7 @@
 <div class="styling">
 
 <% @my_title = Goal::CATEGORIES.map do |h| %>
-  <% if params[:category] == h[:category] || params[:goal] && params[:goal][:category] == h[:category] %>
+  <% if @category == h[:category] || params[:goal] && params[:goal][:category] == h[:category] %>
     <% "#{h[:icon]} #{h[:category]}" %>
   <% end %>
 <% end %>
@@ -9,22 +9,22 @@
 <h2 class="mb-4 mt-4"><%= @my_title.compact.first.html_safe %></h2>
 <% c_type = nil %>
 <% Goal::CATEGORIES.select do |cat| %>
-<% c_type = cat[:category_type] if cat[:category] == params[:category] %>
+  <% c_type = cat[:category_type] if cat[:category] == @category %>
 <% end %>
 <div class="container">
 	<div id="goal-form">
 	<%= simple_form_for @goal do |f| %>
   <div class="formatting">
-    <% if params[:category] == "Health" %>
+    <% if @category == "Health" %>
       <%= render 'health_form' %>
-    <% elsif params[:category] == "Exploration" %>
+    <% elsif @category == "Exploration" %>
       <%= render 'exploration_form' %>
     <% else %>
       <%= render 'relationship_form' %>
     <% end %>
 	  <%#= f.input :category_type, label: 'Activity:', collection: c_type, as: :radio_buttons, label_method: lambda { |obj|  obj.html_safe } %>
   </div>
-	  <%= f.input :category, as: :hidden, input_html: { required: true, value: params[:category]} %>
+	  <%= f.input :category, as: :hidden, input_html: { required: true, value: @category} %>
 	  <%= f.input :note, label: 'Note', placeholder: 'Tell us more!', hint: 'Ex: Met a new friend in New York! His name Ben.', required: true %>
 	  <%= f.input :date, label: 'Date', hint: 'Enter the date you completed this goal.', html5: true, as: :date, input_html: { value: Date.today } %>
 	  <%= f.input :photo, label: 'Image', as: :file, hint: 'Upload an image to remember this moment. 😊' %>
