@@ -2,11 +2,24 @@
   overflow: hidden;
   background-color: white;
   height: 120px;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  justify-content: space-between;
   display: flex;
   align-items: center;
   position: relative;
   border-radius: 5px;
+  .user-avatar {
+    display: inline;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+  }
+
+ #dropdownMenuButtonDashboard {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
 }
 
 .card-product img {
@@ -48,4 +61,10 @@
     font-size: 4em;
   }
 }
+
+.avatar-name-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
 
