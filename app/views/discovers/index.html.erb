@@ -26,7 +26,7 @@
                 <% date = DateTime.strptime(h_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
                 <%= date.strftime('%H:%M on %B %-d') %>
                 </li>
-              <li class="pb-3" style="list-style:none;"><%= h_event["description"].capitalize %></li>
+              <li class="pb-3" style="color: #131111"><%= h_event["description"].capitalize %></li>
             </p></small>
           </div>
         </div>
@@ -40,11 +40,11 @@
             <small class="pl-2 pr-2">
               <p>
               <h2><%= e_event["name"].capitalize %></h2>
-              <li class="pb-2" style="list-style:none;"><%= e_event["location"]["address1"].to_s + ", " + e_event["location"]["city"].to_s.capitalize %> | 
+              <li class="pb-2"><%= e_event["location"]["address1"].to_s + ", " + e_event["location"]["city"].to_s.capitalize %> | 
                 <% date = DateTime.strptime(e_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
                 <%= date.strftime('%H:%M on %B %-d') %>
                 </li>
-              <li class="pb-3" style="list-style:none;"><%= e_event["description"].capitalize %></li>
+              <li class="pb-3" style="color: #131111"><%= e_event["description"].capitalize %></li>
             </p></small>
           </div>
         </div>
@@ -65,11 +65,11 @@
             <small class="pl-2 pr-2">
               <p>
               <h2><%= r_event["name"].capitalize %></h2>
-              <li class="pb-2" style="list-style:none;"><%= r_event["location"]["address1"].to_s + ", " + r_event["location"]["city"].to_s.capitalize %> | 
+              <li class="pb-2"><%= r_event["location"]["address1"].to_s + ", " + r_event["location"]["city"].to_s.capitalize %> | 
                 <% date = DateTime.strptime(r_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
                 <%= date.strftime('%H:%M on %B %-d') %>
                 </li>
-              <li class="pb-3" style="list-style:none;"><%= r_event["description"].capitalize %></li>
+              <li class="pb-3" style="color: #131111"><%= r_event["description"].capitalize %></li>
             </p></small>
           </div>
         </div>
