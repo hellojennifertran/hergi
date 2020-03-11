@@ -15,7 +15,7 @@ class Goal < ApplicationRecord
     {
       category: 'Exploration',
       icon: '<i class="fas fa-binoculars"></i>',
-      category_type: ["<i class='fas fa-utensils'></i> Dining", "<i class='fas fa-music'></i> Social event", "<i class='fas fa-mountain'></i> Nature", "<i class='fas fa-user-graduate'></i> Academics"]
+      category_type: ["<i class='fas fa-utensils'></i> Dining", "<i class='fas fa-music'></i> Social event", "<i class='fas fa-mountain'></i> Nature", "<i class='fas fa-user-graduate'></i> Skill"]
     },
     {
       category: 'Relationship',
