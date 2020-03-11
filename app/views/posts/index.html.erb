@@ -30,9 +30,9 @@
       <% end %>
       <%= link_to post_path(post) do %>
         <div class="user-details">
-          <p><strong><%= post.title %></strong></p>
-          <p><%= post.user.first_name %> <%= post.user.last_name %></p>
-          <p><%= post.created_at.strftime("%b %e, %Y") %></p>
+          <h2><%= post.title %></h2>
+          <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
+          <small><%= post.created_at.strftime("%b %e, %Y") %></small>
         </div>
       <% end %>
       <div class="dropdown">
