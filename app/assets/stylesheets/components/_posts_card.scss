@@ -12,14 +12,40 @@
     margin-bottom: 0px;
   }
 
-   input {
-    border: 1px solid lightgrey;
+
+.create-post {
+  padding: 5px;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+
+  .user-avatar {
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #d2d7db;
+      }
+
+    p {
+      border: 1px solid lightgrey;
+      align-items: center;
+      display: flex;
+      margin-left: 15px;
+      padding-left: 10px;
+      color: grey;
+      margin-bottom: 1px;
+      height: 35px;
+      flex: 1;
+    }
+
   }
 
 }
-
-
-
 
 .post-card {
   overflow: hidden;
