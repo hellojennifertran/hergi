@@ -61,7 +61,7 @@
           <%= f.input :health, as: :hidden, input_html: { value: current_user.health_goal || 1 } %>
           <%= f.input :explore, as: :hidden, input_html: { value: (current_user.exploration_goal || 1)  } %>
           <%= f.input :relationship, as: :hidden, input_html: { value: (current_user.relationships_goal || 1) } %>
-          <%= f.submit :save, label:'Save', class: "btn-block btn-secondary" %>
+          <%= f.submit :save, value:'Save', class: "btn-block btn-secondary" %>
       <% end %>
 
     </div>
