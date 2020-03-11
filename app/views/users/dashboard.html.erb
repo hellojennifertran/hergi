@@ -1,4 +1,4 @@
-<div class="bg-white">
+<div class="bg-light">
   <h1 class="pt-4" style="text-align: center; color: gray;"><%= @current_user.first_name + "'s" %><% time = Time.new %> <%= time.strftime("%B").to_s + " Goal" %></h5>
   <div class="ml-3 mr-3">
     <canvas id="myChart" width="400" height="300"
@@ -12,11 +12,11 @@
             >
     </canvas>
   </div>
-  <div id="activity-feed" class="card pt-3">
-    <h5><center><%= 'activity feed'.upcase %></center></h5>
+  <div id="activity-feed" class="card pt-3 bg-white">
+    <h5 class="text-center"><%= 'activity feed'.upcase %></h5>
     <% if @goals.length >= 1 %>
       <% @goals.reverse.each do |g| %>
-        <div class="card-product mb-2 mt-1 ml-2 mr-2">
+        <div class="card-product pl-1 pr-2 bg-white">
           <div class="card-product-infos">
             <div class="description">
               <div class="avatar-name-wrapper align-items-center">
@@ -58,11 +58,7 @@
           </div>
           <% end %>
         </div>
-
-
-
-
-        <!-- <hr> -->
+              <hr>
       <% end %>
     <% else %>
       <div class="jumbotron">
