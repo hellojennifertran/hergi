@@ -1,0 +1,47 @@
+.nav.nav-tabs {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  display: flex;
+  border: none;
+  .nav-item {
+    text-align: center;
+    border: none !important;
+  }
+
+  .nav-link {
+    border: none !important;
+    margin: 0 1.5rem !important; 
+    padding: 0.5rem 0;
+    &.active {
+      border-bottom: 3px solid orange !important;
+    }
+  }
+}
+
+.nav.nav-tabs.discovery {
+  grid-template-columns: repeat(3, 1fr) !important;
+  width: 100vw;
+  .nav-link {
+    max-width: 100%;
+    margin: 0 0.7rem !important;
+    background-color: transparent;
+    &.active {
+      border-bottom: 3px solid orange !important;
+    }
+  }
+
+  .nav-item {
+    margin: 0 0.3rem !important;
+  }
+}
+
+#myTabContent {
+  padding-bottom: 80px;
+}
+
+.tab-pane.fade {
+  &.active {
+    border: none !important;
+  }
+}
