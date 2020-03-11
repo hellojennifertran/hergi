@@ -128,24 +128,19 @@ document.addEventListener('turbolinks:load', () => {
       }
     }
   }
-  // // api call
-  // const discovers = document.getElementById("discovers-index");
+  // api call
+  // const discovers = document.getElementById("discovers-nav");
   // if (discovers) {
-  //   const url = "https://api.predicthq.com/v1/events/?q=concert";
+  //   const url = "https://www.eventbriteapi.com/v3";
   //   const options = {
-  //     mode: 'cors',
   //     headers: {
-  //       'Authorization':'Bearer fp8j4_bwRRRWgxLZNMJPIqt_9P6mh3fUIvGTLhEf'
+  //       'Authorization':'Bearer 7EDIBA4OXL6DKUBIPNIC'
   //     }
   //   }
   //   fetch(url, options)
   //     .then(response => response.json())
   //     .then((data) => {
-  //       data.results.forEach((res) => {
-  //         // interpolate .insertadjacetnhtml
-  //         // const discoverBody =
-  //         // const html =
-  //       })
+  //       console.log(data)
   //     })
   // }
-})
+});

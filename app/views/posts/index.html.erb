@@ -1,13 +1,8 @@
 <div class="welcome-card">
-<small style="color: gray;"><%= "get inspired & go inspire".upcase %></small>
-  <div class="write-post">
-    <input type="Create a blog post" placeholder="Create a blog post">
-  </div>
+  <small class="posts-welcome" style="color: gray;"><%= "get inspired & go inspire".upcase %></small>
 </div>
 
-
 <% @posts.each do |post| %>
-
   <div class="modal fade" id="exampleModalCenter2-<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
