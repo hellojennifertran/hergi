@@ -1,5 +1,5 @@
 <div class="bg-light">
-  <h1 class="pt-4" style="text-align: center; color: gray;"><%= @current_user.first_name + "'s" %><% time = Time.new %> <%= time.strftime("%B").to_s + " Goal" %></h5>
+  <h1 class="pt-4" style="text-align: center; color: gray;"><%= @current_user.first_name.to_s + "'s" %><% time = Time.new %> <%= time.strftime("%B").to_s + " Goal" %></h5>
   <div class="ml-3 mr-3">
     <canvas id="myChart" width="400" height="300"
             data-health-done="<%= @health.to_i %>"
