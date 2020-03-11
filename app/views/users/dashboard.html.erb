@@ -1,4 +1,4 @@
-<div class="bg-light">
+<div class="bg-white">
   <h5 class="pt-4" style="text-align: center; color: gray;"><% time = Time.new %> <%= time.strftime("%B").to_s.upcase + " goals".upcase %></h5>
   <div class="ml-3 mr-3">
     <canvas id="myChart" width="400" height="300"
@@ -23,9 +23,7 @@
                 <% if g.user.photo.attached? %>
                   <%= cl_image_tag g.user.photo.key, class: "user-avatar" %>
                 <% else %>
-                <img src="https://images.pexels.com/photos/1722198/pexels-photo-1722198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="user-avatar">
-
-                  <%#= image_tag 'avatar.jpeg', class: "user-avatar"%>
+                  <%= image_tag 'avatar.jpeg', class: "user-avatar"%>
                 <% end %>
                 <h6 class="m-0 ml-2"> <%= g.user.first_name%> <%= g.user.last_name%></h6>
               </div>
@@ -61,7 +59,7 @@
 
 
 
-        <hr>
+        <!-- <hr> -->
       <% end %>
     <% else %>
       <div class="jumbotron">

@@ -7,7 +7,7 @@
         <% else %>
           <%= image_tag 'avatar.jpeg', class: "profile-img" %>
         <% end %>
-        <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: "<i class='fas fa-pen-square edit-img-btn'></i>".html_safe %>
+        <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: "<div class='edit-img-overlay'><i class='fas fa-camera edit-img-btn'></i></div>".html_safe %>
       </div>
 
       <div class="profile-friends">
@@ -29,7 +29,6 @@
           </div>
         </div>
         <p class="profile-note"><%= @user.note %></p>
-      </div>
       </div>
     </div>
     <div class="profile-edit-btn invisible-form">
@@ -53,6 +52,5 @@
         <%= render 'user_posts' %>
       </div>
     </div>
-  
   <% end %>
 <% end %>

@@ -10,18 +10,24 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to root_path
     else
-      render :new, locals: { category: params[:goal][:category]}
+      @category = params[:goal][:category]
+      @category_type = Goal::CATEGORIES
+      @my_title = build_title
+      render :new
     end
   end
 
   def new
     @goal = Goal.new
     @category_type = Goal::CATEGORIES
-    @my_title = build_title
+    @category = params[:category]
   end
 
   def edit
     @goal = Goal.find(params[:id])
+    @category_type = Goal::CATEGORIES
+    @category = @goal.category
+    @my_title = build_title
   end
 
   def update
