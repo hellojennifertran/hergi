@@ -1,35 +1,51 @@
-
 <% if @goals.length >= 1 %>
-    <% @goals.each do |g| %>
-      <div class="card-product mb-1">
-        <% if g.photo.attached? %>
-          <%= cl_image_tag g.photo.key %>
-        <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <% end %>
-        <div class="card-product-infos">
-          <div class="description">
-            <%= g.category %> - <%= g.category_type %>
-            <p><%= g.date.strftime("%b %e, %Y") %></p>
-            <small><%= g.note.first(120).to_s %></small>
-            <div class="dropdown" id="profile-drop">
-              <% if g.private == true %>
-                <i class="fas fa-eye-slash"></i>
-              <% end %>
-              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-v"></i>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_goal_path(g) %></a>
-                <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, goal_path(g), method: :delete %></a>
-              </div>
-              <div class="goal-privatize invisible-form">
-                <input type="checkbox" value="<%= g.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if g.private %>>
-              </div>
-            </div>
+  <% @goals.reverse.each do |g| %>
+    <div class="card-product mb-2 mt-1 bg-light ml-2 mr-2">
+      <% if g.photo.attached? %>
+        <%= cl_image_tag g.photo.key %>
+      <% else %>
+      <div class="icon-formatting">
+       <% if g.category == "Health" %>
+         <i class="fas fa-heartbeat"></i>
+       <% elsif g.category == "Exploration" %>
+         <i class="fas fa-binoculars"></i>
+       <% elsif g.category == "Relationship" %>
+         <i class="fas fa-users"></i>
+       <% end %>
+      </div>
+      <% end %>
+      <div class="card-product-infos">
+        <div class="description">
+          <%= g.category %> - <%= g.category_type.html_safe %>
+          <p><%= g.date.strftime("Happened on: %d %b") %></p>
+          <p> <%= g.user.first_name%> <%= g.user.last_name%></p>
+          <small><%= g.note.first(120).to_s %></small>
+        <div class="dropdown" id="profile-drop">
+          <% if g.private == true %>
+            <i class="fas fa-eye-slash"></i>
+          <% end %>
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_goal_path(g) %></a>
+            <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, goal_path(g), method: :delete %></a>
           </div>
-
+          <div class="goal-privatize invisible-form">
+            <input type="checkbox" value="<%= g.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if g.private %>>
+          </div>
+        </div>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
+<% else %>
+  <div class="jumbotron">
+    <h4 class="display-5">Begin your Journey</h4>
+    <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
+    <hr class="my-4">
+    <p>Start slowly by clicking on +</p>
+  </div>
+<% end %>
+
+

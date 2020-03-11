@@ -22,12 +22,21 @@
           <% if g.photo.attached? %>
             <%= cl_image_tag g.photo.key %>
           <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="icon-formatting">
+           <% if g.category == "Health" %>
+             <i class="fas fa-heartbeat"></i>
+           <% elsif g.category == "Exploration" %>
+             <i class="fas fa-binoculars"></i>
+           <% elsif g.category == "Relationship" %>
+             <i class="fas fa-users"></i>
+           <% end %>
+          </div>
           <% end %>
           <div class="card-product-infos">
             <div class="description">
-              <%= g.category %> - <%= g.category_type %>
-              <p><%= g.date.strftime("%b %e, %Y") %></p>
+              <%= g.category %> - <%= g.category_type.html_safe %>
+              <p><%= g.date.strftime("Happened on: %d %b") %></p>
+              <p> <%= g.user.first_name%> <%= g.user.last_name%></p>
               <small><%= g.note.first(120).to_s %></small>
               <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
