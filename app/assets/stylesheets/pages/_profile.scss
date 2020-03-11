@@ -64,13 +64,25 @@
   }
 }
 
+.edit-img-overlay {
+  height: 40px;
+  width: 40px;
+  background-color: lightgray;
+  border-radius: 50%;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -38px;
+  left: 60px;
+}
+
 .edit-img-btn {
   position: relative;
-  color: lightgray;
-  font-size: 7em;
-  top: -30vh;
-  left: 39vw;
-  opacity: 0.7;
+  color: gray;
+  font-size: 1.7em;
+  opacity: 0.85;
 }
 
 #myTab {
@@ -81,14 +93,12 @@
     width: 50%;
     text-align: center;
     border: none !important;
-    &:active {
-      border-bottom: solid 3px cyan;
-    }
   }
 
   .nav-link {
     border: none !important;
     margin: 0 2rem 5px 2rem !important; 
+    padding: 0.5rem 0;
     &.active {
       border-bottom: 3px solid orange !important;
     }
