@@ -31,7 +31,8 @@ class GoalsController < ApplicationController
   end
 
   def update
-    @goal = Goal.update(goal_params)
+    @goal = Goal.find(params[:id])
+    @goal.update(goal_params)
     redirect_to dashboard_path
   end
 
