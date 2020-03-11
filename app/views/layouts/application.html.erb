@@ -37,8 +37,10 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/header' %>
-    <div style="height: 40px"></div>
+    <% if user_signed_in? %>
+        <%= render 'shared/header' %>
+        <div style="height: 40px"></div>
+    <% end %>
       <div class="page-content" style="<%= 'min-height: calc(100vh - 116px);' unless action_name == 'profile' %>%">
         <%= yield %>
       </div>
