@@ -21,8 +21,11 @@
             <img class="card-img-top pb-3" src=<%= "#{h_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
               <p>
-              <strong><%= h_event["name"].capitalize %></strong>
-              <li class="pb-2" style="list-style:none;"><%= h_event["location"]["address1"].to_s + ", " + h_event["location"]["city"].to_s.capitalize %></li>
+              <h2><%= h_event["name"].capitalize %></h2>
+              <li class="pb-2" style="list-style:none;"><%= h_event["location"]["address1"].to_s + ", " + h_event["location"]["city"].to_s.capitalize %> | 
+                <% date = DateTime.strptime(h_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
+                <%= date.strftime('%H:%M on %B %-d') %>
+                </li>
               <li class="pb-3" style="list-style:none;"><%= h_event["description"].capitalize %></li>
             </p></small>
           </div>
@@ -44,7 +47,6 @@
         </div>
       <% end %>
     </div>
-
 <!--     <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
