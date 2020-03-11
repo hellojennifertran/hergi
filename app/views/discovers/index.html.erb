@@ -36,11 +36,14 @@
       <% @events_exploration["events"].reverse.first(20).each do |e_event| %>
         <div class="card-deck" style="display: flex;">
           <div class="card">
-            <img class="card-img-top mb-3" src=<%= "#{e_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
+            <img class="card-img-top pb-3" src=<%= "#{e_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
               <p>
-              <strong><%= e_event["name"].capitalize %></strong>
-              <li class="pb-2" style="list-style:none;"><%= e_event["location"]["address1"].to_s + ", " + e_event["location"]["city"].to_s %></li>
+              <h2><%= e_event["name"].capitalize %></h2>
+              <li class="pb-2" style="list-style:none;"><%= e_event["location"]["address1"].to_s + ", " + e_event["location"]["city"].to_s.capitalize %> | 
+                <% date = DateTime.strptime(e_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
+                <%= date.strftime('%H:%M on %B %-d') %>
+                </li>
               <li class="pb-3" style="list-style:none;"><%= e_event["description"].capitalize %></li>
             </p></small>
           </div>
@@ -61,8 +64,11 @@
             <img class="card-img-top pb-3" src=<%= "#{r_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
               <p>
-              <strong><%= r_event["name"].capitalize %></strong>
-              <li class="pb-2" style="list-style:none;"><%= r_event["location"]["address1"].to_s + ", " + r_event["location"]["city"].to_s %></li>
+              <h2><%= r_event["name"].capitalize %></h2>
+              <li class="pb-2" style="list-style:none;"><%= r_event["location"]["address1"].to_s + ", " + r_event["location"]["city"].to_s.capitalize %> | 
+                <% date = DateTime.strptime(r_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
+                <%= date.strftime('%H:%M on %B %-d') %>
+                </li>
               <li class="pb-3" style="list-style:none;"><%= r_event["description"].capitalize %></li>
             </p></small>
           </div>
