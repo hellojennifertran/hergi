@@ -37,28 +37,18 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <% if params[:controller] == 'pages' && params[:action] == 'home' %>
-      <%= yield %>
-    <% elsif  params[:controller] == 'users' && params[:action] == 'update_goals_number' && current_user.health_goal.nil? && current_user.exploration_goal.nil? && current_user.relationships_goal.nil? %>
-      <%= yield %>
-    <% elsif params[:controller] == 'users' && params[:action] == 'profile' %>
-      <%= render 'shared/header' %>
-      <div style="height: 40px;"></div>
-      <%= yield %>
-      <%= render 'shared/navbar' %>
-    <% else %>
-      <%= render 'shared/header' %>
-      <div style="height: 40px;"></div>
-      <div class="page-content" style="min-height: calc(100vh - 76px);">
+    <%= render 'shared/header' %>
+    <div style="height: 40px"></div>
+      <div class="page-content" style="<%= 'min-height: calc(100vh - 116px);' unless action_name == 'profile' %>%">
         <%= yield %>
       </div>
-      <% if user_signed_in? == true %>
-        <div class="nav">
-          <div style="height: 76px;">
-            <%= render 'shared/navbar' %>
-          </div>
+
+    <% if user_signed_in? %>
+      <div class="nav">
+        <div style="height: 76px;">
+          <%= render 'shared/navbar' %>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </body>
 </html>
