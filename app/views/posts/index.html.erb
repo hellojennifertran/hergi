@@ -75,7 +75,7 @@
         <% if post.comments.count.zero? %>
           <%= "no comments".upcase %>
          <% else %>
-          <%= pluralize(post.comments.count, "comment".upcase) %>
+          <%= pluralize(post.comments.count, "comment").upcase %>
         <% end %>
       </h6>
     </i>
