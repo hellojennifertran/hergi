@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @exploration = current_user.goals.where(category: "Exploration").count
     @relationship = current_user.goals.where(category: "Relationship").count
     redirect_to update_goals_path if current_user.health_goal.nil? && current_user.exploration_goal.nil? && current_user.relationships_goal.nil?
+    @user = current_user
   end
 
   def profile
