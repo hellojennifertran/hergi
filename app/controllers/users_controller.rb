@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def dashboard
     @goals = Goal.all
-    @health = @goals.where(category: "Health").count
-    @exploration = @goals.where(category: "Exploration").count
-    @relationship = @goals.where(category: "Relationship").count
+    @health = current_user.goals.where(category: "Health").count
+    @exploration = current_user.goals.where(category: "Exploration").count
+    @relationship = current_user.goals.where(category: "Relationship").count
     redirect_to update_goals_path if current_user.health_goal.nil? && current_user.exploration_goal.nil? && current_user.relationships_goal.nil?
   end
 
