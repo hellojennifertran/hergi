@@ -4,8 +4,6 @@
         <%= link_to post_path(post) do %>
           <div class="user-details">
             <p><strong><%= post.title %></strong></p>
-            <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
-
             <h5><%= post.created_at.strftime("%b %e, %Y" ) %></h5>
           </div>
         <% end %>
@@ -26,9 +24,14 @@
           <% if post.photo.attached? %>
             <%= cl_image_tag post.photo.key %>
           <% else %>
-            <img src="https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+            <div class="icons-format">
+              <i class="fas fa-heartbeat"></i>
+              <i class="fas fa-binoculars"></i>
+              <i class="fas fa-users"></i>
+            </div>
           <% end %>
         </div>
       <% end %>
+      <hr>
     </div>
   <% end %>
