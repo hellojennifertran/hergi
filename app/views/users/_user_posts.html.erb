@@ -7,17 +7,19 @@
             <h5><%= post.created_at.strftime("%b %e, %Y" ) %></h5>
           </div>
         <% end %>
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-h"></i>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <h6>
-              <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></a>
-              <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'></i> DELETE".html_safe, post_path(post), method: :delete %></a>
-            </h6>
+        <% if post.user == current_user %>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-h"></i>
+            </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <h6>
+                  <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></a>
+                  <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'></i> DELETE".html_safe, post_path(post), method: :delete %></a>
+                </h6>
+              </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <%= link_to post_path(post) do %>
         <div class="post-image">
