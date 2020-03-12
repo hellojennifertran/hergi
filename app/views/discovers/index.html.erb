@@ -17,6 +17,15 @@
     <div class="text-left tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <% @events_health["events"].reverse.first(20).each do |h_event| %>
         <div class="card-deck" style="display: flex;">
+          <% if current_user.events.include?(h_event['id']) %>
+            <%= link_to delete_event_users_path(event_id: h_event['id']), class:'like-cta', remote: true, method: :delete do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to save_event_users_path(event_id: h_event['id']), class:'like-cta', remote: true, method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
           <div class="card">
             <img class="card-img-top pb-3" src=<%= "#{h_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
@@ -32,6 +41,15 @@
     <div class="text-left tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <% @events_exploration["events"].reverse.first(20).each do |e_event| %>
         <div class="card-deck" style="display: flex;">
+          <% if current_user.events.include?(e_event['id']) %>
+            <%= link_to delete_event_users_path(event_id: e_event['id']), class:'like-cta', remote: true, method: :delete do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to save_event_users_path(event_id: e_event['id']), class:'like-cta', remote: true, method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
           <div class="card">
             <img class="card-img-top mb-3" src=<%= "#{e_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
@@ -55,6 +73,15 @@
     <div class="text-left tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <% @events_relationships["events"].reverse.first(20).each do |r_event| %>
         <div class="card-deck" style="display: flex;">
+          <% if current_user.events.include?(r_event['id']) %>
+            <%= link_to delete_event_users_path(event_id: r_event['id']), class:'like-cta', remote: true, method: :delete do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to save_event_users_path(event_id: r_event['id']), class:'like-cta', remote: true, method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
           <div class="card">
             <img class="card-img-top pb-3" src=<%= "#{r_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
@@ -69,7 +96,16 @@
     </div>
   </div>
 </div>
-
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    if (localStorage['scroll']) {
+      window.scroll({ top: localStorage['scroll'] })
+    }
+    window.addEventListener('scroll', () => {
+      localStorage['scroll'] = window.scrollY;
+    })
+  })
+</script>
       <!-- IF we want to implement likes  -->
       <%#= simple_form_for(@save_event) do |f| %>
         <%# f.input :location, value: event["location"].to_s %>

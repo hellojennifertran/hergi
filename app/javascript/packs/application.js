@@ -143,4 +143,36 @@ document.addEventListener('turbolinks:load', () => {
   //       console.log(data)
   //     })
   // }
+  const menuButton = document.querySelector(".menu-trigger");
+  const item0 = document.querySelector('.menu-0')
+  const item1 = document.querySelector('.menu-1')
+  const item2 = document.querySelector('.menu-2')
+  const item3 = document.querySelector('.menu-3')
+  const pageContent = document.querySelector('.page-content');
+  
+  menuButton.addEventListener('click', (e) => {
+    item0.classList.toggle('item0-active');
+    item1.classList.toggle('item1-active');
+    item2.classList.toggle('item2-active');
+    item3.classList.toggle('item3-active');
+    pageContent.classList.toggle('dropup-active');
+    // document.querySelectorAll(".move-left").forEach((item) => {
+    //   item.classList.toggle('move-left');
+    // });
+  })
+  pageContent.addEventListener('click', (e) => {
+    item0.classList.remove('item0-active');
+    item1.classList.remove('item1-active');
+    item2.classList.remove('item2-active');
+    item3.classList.remove('item3-active');
+    pageContent.classList.remove('dropup-active');
+    // document.querySelectorAll(".move-left").forEach((item) => {
+    //   item.classList.toggle('move-left');
+    // });
+  })
 });
+
+
+
+
+
