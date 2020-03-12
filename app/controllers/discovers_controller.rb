@@ -13,9 +13,10 @@ class DiscoversController < ApplicationController
       end
     end
 
-    @saved_events = current_user.events.map do |event|
-      @all_events["#{event}"]
-    end
+    @saved_events = 
+      current_user.events
+        .map { |event| @all_events["#{event}"] }
+        .sort_by { |e| Date.parse(e['time_start'])}
   end
 
   private
