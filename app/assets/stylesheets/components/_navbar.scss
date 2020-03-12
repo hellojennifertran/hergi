@@ -109,11 +109,11 @@
 // }
 
 .menu-transition-item {
-  background: red;
+  background: #333;
   position: absolute;
   z-index: -10;
   left: 30px;
-  bottom: 0;
+  bottom: -60px;
   opacity: 0;
   transition: 1s;
   float: none;
