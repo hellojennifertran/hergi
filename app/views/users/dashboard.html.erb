@@ -19,14 +19,16 @@
         <div class="card-product pl-1 pr-2 bg-white">
           <div class="card-product-infos">
             <div class="description">
-              <div class="avatar-name-wrapper align-items-center">
-                <% if g.user.photo.attached? %>
-                  <%= cl_image_tag g.user.photo.key, class: "user-avatar" %>
-                <% else %>
-                  <%= image_tag 'avatar.jpg', class: "user-avatar"%>
-                <% end %>
-                <h3 class="m-0 ml-2"> <%= g.user.first_name%> <%= g.user.last_name%></h3>
-              </div>
+              <%= link_to profile_path(g.user) do %>
+                  <div class="avatar-name-wrapper align-items-center">
+                    <% if g.user.photo.attached? %>
+                      <%= cl_image_tag g.user.photo.key, class: "user-avatar" %>
+                    <% else %>
+                      <%= image_tag 'avatar.jpg', class: "user-avatar"%>
+                    <% end %>
+                    <h3 class="m-0 ml-2"> <%= g.user.first_name%> <%= g.user.last_name%></h3>
+                  </div>
+              <% end %>
               <small>
                 Logged
                 <% if g.category == "Health" %>
