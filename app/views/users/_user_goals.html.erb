@@ -1,19 +1,6 @@
 <% if @goals.length >= 1 %>
   <% @goals.reverse.each do |g| %>
-    <div class="card-product mb-2 mt-1 bg-light ml-2 mr-2">
-      <% if g.photo.attached? %>
-        <%= cl_image_tag g.photo.key %>
-      <% else %>
-      <div class="icon-formatting">
-       <% if g.category == "Health" %>
-         <i class="fas fa-heartbeat" style="color: #f58226;"></i>
-       <% elsif g.category == "Exploration" %>
-         <i class="fas fa-binoculars" style="color: #64c194;"></i>
-       <% elsif g.category == "Relationship" %>
-         <i class="fas fa-users" style="color:#5763af;"></i>
-       <% end %>
-      </div>
-      <% end %>
+    <div class="card-product mb-2 mt-1 ml-2 mr-2">
       <div class="card-product-infos">
         <div class="description">
           <small>
@@ -34,7 +21,7 @@
             <i class="fas fa-eye-slash"></i>
           <% end %>
           <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v"></i>
+            <i class="fas fa-ellipsis-h"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <h6 class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_goal_path(g) %></h6>
@@ -46,7 +33,21 @@
         </div>
         </div>
       </div>
+      <% if g.photo.attached? %>
+        <%= cl_image_tag g.photo.key %>
+      <% else %>
+      <!-- <div class="icon-formatting">
+       <%# if g.category == "Health" %>
+         <i class="fas fa-heartbeat" style="color: #f58226;"></i>
+       <%# elsif g.category == "Exploration" %>
+         <i class="fas fa-binoculars" style="color: #64c194;"></i>
+       <%# elsif g.category == "Relationship" %>
+         <i class="fas fa-users" style="color:#5763af;"></i>
+       <%# end %>
+      </div> -->
+      <% end %>
     </div>
+    <hr>
   <% end %>
 <% else %>
   <div class="jumbotron">
@@ -56,5 +57,3 @@
     <p>Start slowly by clicking on +</p>
   </div>
 <% end %>
-
-

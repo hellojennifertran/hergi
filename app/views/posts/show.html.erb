@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Edit post.</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit post</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -25,18 +25,18 @@
         <%= image_tag 'avatar.jpg', class: "user-avatar"%>
     <% end %>
     <div class="user-details">
-      <p><strong><%= @post.title %></strong></p>
-      <p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
-      <p><%= @post.created_at.strftime("%b %e, %Y") %></p>
+      <h3><%= @post.title %></h3>
+      <h5><%= "by " + @post.user.first_name.to_s %> <%= @post.user.last_name.to_s %></h5>
+      <h5><%= @post.created_at.strftime("%b %e, %Y") %></h5>
     </div>
   </div>
    <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v"></i>
+          <i class="fas fa-ellipsis-h"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'> Edit</i>".html_safe, edit_post_path(@post), data: {toggle: "modal", target: "#exampleModalCenter3" }%></a>
-          <a class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'> Delete</i>".html_safe, post_path(@post), method: :delete %></a>
+          <h6 class="dropdown-item p-0" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_post_path(@post), data: {toggle: "modal", target: "#exampleModalCenter3" }%></h6>
+          <h6 class="dropdown-item p-0" href="#"><%= link_to "<i class='fas fa-trash-alt'></i> DELETE".html_safe, post_path(@post), method: :delete %></h6>
         </div>
   </div>
 
@@ -57,12 +57,12 @@
   </div>
 </div>
 <div class="comments">
- <small style="color: gray!important;"><%= link_to "<i class='far fa-comments'></i> LEAVE A COMMENT".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %></small>
+ <h6 style="display: inline; font-size: 11px; color: #454545!important;"><%= link_to "<i class='far fa-comments'></i> LEAVE A COMMENT".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %></h6>
   <hr>
   <% @post.comments.reverse.each do |comment| %>
-  <p><strong><%=comment.user.first_name%> <%=comment.user.last_name%></strong></p>
-  <p><%=comment.created_at.strftime("%b %e, %Y")%></p>
-  <p><%=comment.content%></p>
+  <h6><%=comment.user.first_name%> <%=comment.user.last_name%></h6>
+  <h5><%=comment.created_at.strftime("%b %e, %Y")%></h5>
+  <small style="color: #000;"><%=comment.content%></small>
   <hr>
   <% end %>
 
@@ -72,25 +72,23 @@
   <h6><strong><%= link_to "Return to Feed", posts_path%></strong></h6>
 </div>
 
-
-
-  <div class="modal fade" id="exampleModalCenterComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Create Comment</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= render "comments/form", post: @post, comment: Comment.new, remote: true %>
-        </div>
-        <div class="modal-footer">
-        </div>
+<div class="modal fade" id="exampleModalCenterComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="display:none;">
+        <h5 class="modal-title" id="exampleModalLongTitle">Create Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "comments/form", post: @post, comment: Comment.new, remote: true %>
+      </div>
+      <div class="modal-footer" style="display:none;">
       </div>
     </div>
   </div>
+</div>
 
 
 

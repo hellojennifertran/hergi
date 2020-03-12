@@ -1,6 +1,9 @@
 <div class="welcome-card">
   <small class="posts-welcome" style="color: gray;"><%= "get inspired & go inspire".upcase %></small>
-  <div class="create-post" type="button" data-toggle="modal" data-target="#exampleModalCenter" >
+</div>
+
+<div class="welcome-card p-0">
+  <div class="create-post" type="button" data-toggle="modal" data-target="#exampleModalCenter">
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, class: "user-avatar" %>
     <% else %>
@@ -15,7 +18,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Edit post.</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit post</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -38,18 +41,18 @@
       <% end %>
       <%= link_to post_path(post) do %>
         <div class="user-details">
-          <h2><%= post.title %></h2>
-          <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
-          <small><%= post.created_at.strftime("%b %e, %Y") %></small>
+          <h3><%= post.title %></h3>
+          <h5><%= "by " + post.user.first_name.to_s %> <%= post.user.last_name.to_s %></h5>
+          <h5><%= post.created_at.strftime("%b %e, %Y") %></h5>
         </div>
       <% end %>
       <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v"></i>
+          <i class="fas fa-ellipsis-h"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></a>
-          <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, post_path(post), method: :delete %></a>
+          <h6 class="dropdown-item p-0" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></h6>
+          <h6 class="dropdown-item p-0" href="#"><%= link_to "<i class='fas fa-trash-alt'></i> DELETE".html_safe, post_path(post), method: :delete %></h6>
         </div>
       </div>
     </div>
@@ -67,15 +70,15 @@
       </div>
     <% end %>
   <div class="comment-teaser">
-    <small style="color: gray;">
-      <i class='far fa-comments'>
+    <i class='far fa-comments'>
+      <h6 style="display: inline; font-size: 11px">
         <% if post.comments.count.zero? %>
           <%= "no comments".upcase %>
          <% else %>
-          <%= pluralize(post.comments.count, "comment") %>
+          <%= pluralize(post.comments.count, "comment".upcase) %>
         <% end %>
-      </i>
-    </small>
+      </h6>
+    </i>
   </div>
   </div>
 <% end %>
