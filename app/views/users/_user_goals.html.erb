@@ -1,35 +1,31 @@
 <% if @goals.length >= 1 %>
   <% @goals.reverse.each do |g| %>
-    <div class="card-product mb-2 mt-1 bg-light ml-2 mr-2">
-      <% if g.photo.attached? %>
-        <%= cl_image_tag g.photo.key %>
-      <% else %>
-      <div class="icon-formatting">
-       <% if g.category == "Health" %>
-         <i class="fas fa-heartbeat"></i>
-       <% elsif g.category == "Exploration" %>
-         <i class="fas fa-binoculars"></i>
-       <% elsif g.category == "Relationship" %>
-         <i class="fas fa-users"></i>
-       <% end %>
-      </div>
-      <% end %>
+    <div class="card-product mb-2 mt-1 ml-2 mr-2">
       <div class="card-product-infos">
         <div class="description">
-          <%= g.category %> - <%= g.category_type.html_safe %>
-          <p><%= g.date.strftime("Happened on: %d %b") %></p>
-          <p> <%= g.user.first_name%> <%= g.user.last_name%></p>
-          <small><%= g.note.first(120).to_s %></small>
+          <small>
+            Logged
+            <% if g.category == "Health" %>
+              <i class="fas fa-heartbeat" style="color: #f58226;"></i>
+            <% elsif g.category == "Exploration" %>
+              <i class="fas fa-binoculars" style="color: #64c194;"></i>
+            <% elsif g.category == "Relationship" %>
+              <i class="fas fa-users" style="color:#5763af;"></i>
+            <% end %>
+            <%= g.category%> <%= g.category_type.html_safe %>
+          </small>
+          <p><%= g.note.first(120).to_s %></p>
+          <h5 class="mt-3"><%= g.date.strftime("Happened on %b. %d %Y") %></h5>
         <div class="dropdown" id="profile-drop">
           <% if g.private == true %>
             <i class="fas fa-eye-slash"></i>
           <% end %>
           <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v"></i>
+            <i class="fas fa-ellipsis-h"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_goal_path(g) %></a>
-            <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, goal_path(g), method: :delete %></a>
+            <h6 class="dropdown-item" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_goal_path(g) %></h6>
+            <h6 class="dropdown-item" href="#"><%= link_to "<i class='fas fa-trash-alt'></i> DELETE".html_safe, goal_path(g), method: :delete %></h6>
           </div>
           <div class="goal-privatize invisible-form">
             <input type="checkbox" value="<%= g.id %>" name="privatize_goals[goal_ids][]" <%= "checked" if g.private %>>
@@ -37,15 +33,27 @@
         </div>
         </div>
       </div>
+      <% if g.photo.attached? %>
+        <%= cl_image_tag g.photo.key %>
+      <% else %>
+      <!-- <div class="icon-formatting">
+       <%# if g.category == "Health" %>
+         <i class="fas fa-heartbeat" style="color: #f58226;"></i>
+       <%# elsif g.category == "Exploration" %>
+         <i class="fas fa-binoculars" style="color: #64c194;"></i>
+       <%# elsif g.category == "Relationship" %>
+         <i class="fas fa-users" style="color:#5763af;"></i>
+       <%# end %>
+      </div> -->
+      <% end %>
     </div>
+    <hr>
   <% end %>
 <% else %>
   <div class="jumbotron">
     <h4 class="display-5">Begin your Journey</h4>
     <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
     <hr class="my-4">
-    <p>Start slowly by clicking on +</p>
+    <p>Start by clicking on + to add new goals!</p>
   </div>
 <% end %>
-
-
