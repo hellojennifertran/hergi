@@ -3,16 +3,18 @@
   <%= active_link_to "<i class='fas fa-home'></i><br>Home".html_safe, root_path, active: :exact %>
   <%= active_link_to "<i class='fas fa-search-location'></i><br>Discover".html_safe, discovers_path, active: :exact %>
   <div class="dropup">
-    <button class="dropbtn">
+    <button class="dropbtn menu-trigger">
       <i class="fas fa-plus"></i>
     </button>
-    <div class="dropup-content">
-		  <% Goal::CATEGORIES.each do |category| %>
-		    <%= active_link_to "#{category[:icon]} #{category[:category]}".html_safe, new_goal_path(category: category[:category]) %>
-		  <% end %>
-      <a type="button" data-toggle="modal" data-target="#exampleModalCenter">
-        <i class="fas fa-pencil-alt"></i> Inspire
-      </a>
+    <div class="menu-dropdown">
+      <div class="menu-items">
+        <% Goal::CATEGORIES.each_with_index do |category, idx| %>
+          <%= active_link_to "#{category[:icon]} #{category[:category]}".html_safe, new_goal_path(category: category[:category]), class: "menu-transition-item menu-#{idx}" %>
+        <% end %>
+        <a type="button" id="open-menu" class="menu-transition-item menu-3">
+          <i class="fas fa-pencil-alt"></i> Inspire
+        </a>
+      </div>
     </div>
 <!-- Button trigger modal -->
   </div>

@@ -1,15 +1,11 @@
-// .write-post {
-//   height: 40px;
-//   width: 40px;
-//   padding: 3px;
-//   border-radius: 50%;
-//   background-color: orange;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   position: sticky;
-//   top: 50px;
-//   left: 360px;
-//   z-index: 15;
-// }
-
+.card-deck {
+  position: relative;
+  .like-cta {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 10;
+    font-size: 20px;
+    color: red;
+  }
+}

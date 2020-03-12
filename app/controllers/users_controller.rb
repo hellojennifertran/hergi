@@ -30,6 +30,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def save_event
+    current_user.events << params[:event_id]
+    current_user.save
+    redirect_to discovers_path
+  end
+
+  def delete_event
+    current_user.events.delete(params[:event_id])
+    current_user.save
+    redirect_to discovers_path
+  end
+
   def update_goals_number
     @user = current_user
     @health_goal = @user.health_goal

@@ -29,7 +29,10 @@ Rails.application.routes.draw do
   # put 'goals/:id', to: 'goals#update'
   # patch 'goals/:id', to: 'goals#update'
   # delete 'goals/:id', to: 'goals#destroy'
-
+  resources :users, only: [] do
+    post :save_event, on: :collection
+    delete :delete_event, on: :collection
+  end
   resources :posts do
     resources :comments, only: [:new, :create]
   end
