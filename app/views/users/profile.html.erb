@@ -47,12 +47,12 @@
 
     </ul>
 
-      <div id="activity-feed" class="card pt-3 bg-white">
+  <div id="activity-feed" class="card pt-3 bg-white">
     <div class="tab-content" id="myTabContent">
 
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
           <% if @goals.length >= 1 %>
-          <%= render 'user_goals' %>
+            <%= render 'user_goals' %>
           <% else %>
             <div class="jumbotron">
               <h4 class="display-5">No activity yet</h4>
@@ -65,7 +65,7 @@
 
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <% if @posts.length >= 1 %>
-          <%= render 'user_posts' %>
+            <%= render 'user_posts' %>
           <% else %>
             <div class="jumbotron">
               <h4 class="display-5">No posts yet</h4>

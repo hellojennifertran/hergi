@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @goals = Goal.where(user: @user).reverse
     @posts = Post.where(user: @user).reverse
+    # @events = current_user.events.group(:date)
   end
 
   def update
@@ -39,7 +40,12 @@ class UsersController < ApplicationController
   def delete_event
     current_user.events.delete(params[:event_id])
     current_user.save
-    redirect_to discovers_path
+    raise
+    if params[:page] == 'saved'
+      redirect_to saved_events_path
+    else
+      redirect_to discovers_path
+    end
   end
 
   def update_goals_number
