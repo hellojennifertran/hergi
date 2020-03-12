@@ -7,17 +7,23 @@
   justify-content: space-between;
   padding: 10px;
   margin-bottom: 5px;
+  margin-top: 5px;
 
   h5 {
     margin-bottom: 0px;
   }
 
+.create-post-holder {
+  height: 200px;
+}
 
 .create-post {
   padding: 5px;
   margin-top: 3px;
   display: flex;
   align-items: center;
+  background-color: white;
+  // margin: 5px 0;
 
   .user-avatar {
     object-fit: cover;

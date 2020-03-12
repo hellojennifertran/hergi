@@ -2,8 +2,8 @@
   <small class="posts-welcome" style="color: gray;"><%= "get inspired & go inspire".upcase %></small>
 </div>
 
-<div class="welcome-card p-0">
-  <div class="create-post" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+<div class="welcome-card create-post-holder p-0" style="height: 60px">
+  <div class="create-post" data-toggle="modal" data-target="#exampleModalCenter">
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, class: "user-avatar" %>
     <% else %>
