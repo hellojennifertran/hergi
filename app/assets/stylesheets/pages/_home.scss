@@ -4,8 +4,19 @@
   height: 75vh;
   overflow: 100%;
 }
+
 .carousel-inner {
   height: 75vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.2;
 }
 
 .homepage-info {
@@ -30,6 +41,7 @@
   color: white;
   width: 290px;
 }
+
 .title-hergi {
   width: 100vw;
   justify-content: center;
@@ -42,14 +54,16 @@
     font-weight: 300;
   }
 }
+
 .sign-in-up {
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .btn-homepage {
   font-size: 13px;
 }
+
 .flex-container {
   display: flex;
   text-align: center;
