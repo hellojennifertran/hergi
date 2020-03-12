@@ -36,7 +36,7 @@
 }
 
 .profile-user {
-  padding: 0 20px 20px 30px;
+  padding: 0 20px 0px 30px;
   width: 100%;
 
   h4 {
@@ -49,6 +49,7 @@
       margin: 0;
     }
   }
+
 }
 
 .profile-avatar {
@@ -110,7 +111,7 @@
 .goal-info.category {
 display: flex;
 justify-content: space-between;
-  .private-goal { 
+  .private-goal {
     font-size: 20px;
   }
 }
@@ -145,7 +146,9 @@ justify-content: space-between;
 }
 
 .profile-btn {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  length: 80%;
 }
 
 .profile-drop {
