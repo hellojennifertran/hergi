@@ -40,7 +40,6 @@ class UsersController < ApplicationController
   def delete_event
     current_user.events.delete(params[:event_id])
     current_user.save
-    raise
     if params[:page] == 'saved'
       redirect_to saved_events_path
     else
