@@ -18,7 +18,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Edit post.</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit post</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -51,8 +51,8 @@
           <i class="fas fa-ellipsis-v"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-edit'> EDIT</i></small>".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></a>
-          <a class="dropdown-item" href="#"><%= link_to "<small><i class='fas fa-trash-alt'> DELETE</i></small>".html_safe, post_path(post), method: :delete %></a>
+          <h6 class="dropdown-item p-0" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_post_path(post), data: {toggle: "modal", target: "#exampleModalCenter2-#{post.id}" }%></h6>
+          <h6 class="dropdown-item p-0" href="#"><%= link_to "<i class='fas fa-trash-alt'></i> DELETE".html_safe, post_path(post), method: :delete %></h6>
         </div>
       </div>
     </div>
