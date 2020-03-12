@@ -60,10 +60,21 @@
  <h6 style="display: inline; font-size: 11px; color: #454545!important;"><%= link_to "<i class='far fa-comments'></i> LEAVE A COMMENT".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %></h6>
   <hr>
   <% @post.comments.reverse.each do |comment| %>
-  <h6><%=comment.user.first_name%> <%=comment.user.last_name%></h6>
-  <h5><%=comment.created_at.strftime("%b %e, %Y")%></h5>
+  <div class="comment">
+  <div class="avatar-name-wrapper align-items-center">
+    <% if comment.user.photo.attached? %>
+      <%= cl_image_tag comment.user.photo.key, class: "user-avatar" %>
+    <% else %>
+      <%= image_tag 'avatar.jpg', class: "user-avatar"%>
+    <% end %>
+   <div>
+    <h6><%=comment.user.first_name%> <%=comment.user.last_name%></h6>
+    <h5><%=comment.created_at.strftime("%b %e, %Y")%></h5>
+   </div>
+  </div>
   <small style="color: #000;"><%=comment.content%></small>
   <hr>
+  </div>
   <% end %>
 
 </div>
