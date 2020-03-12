@@ -32,7 +32,7 @@
   </div>
    <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v"></i>
+          <i class="fas fa-ellipsis-h"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <h6 class="dropdown-item p-0" href="#"><%= link_to "<i class='fas fa-edit'></i> EDIT".html_safe, edit_post_path(@post), data: {toggle: "modal", target: "#exampleModalCenter3" }%></h6>
@@ -60,9 +60,9 @@
  <h6 style="display: inline; font-size: 11px; color: #454545!important;"><%= link_to "<i class='far fa-comments'></i> LEAVE A COMMENT".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %></h6>
   <hr>
   <% @post.comments.reverse.each do |comment| %>
-  <p><strong><%=comment.user.first_name%> <%=comment.user.last_name%></strong></p>
-  <p><%=comment.created_at.strftime("%b %e, %Y")%></p>
-  <p><%=comment.content%></p>
+  <h6><%=comment.user.first_name%> <%=comment.user.last_name%></h6>
+  <h5><%=comment.created_at.strftime("%b %e, %Y")%></h5>
+  <small style="color: #000;"><%=comment.content%></small>
   <hr>
   <% end %>
 
