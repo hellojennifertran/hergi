@@ -1,0 +1,33 @@
+<div class="welcome-card">
+	<small style="color: gray;"><%= "Saved events".upcase %></small>
+</div>
+<% @saved_events.each do |e_event| %>
+  <div class="card-deck" style="display: flex;">
+    <% if current_user.events.include?(e_event['id']) %>
+      <%= link_to delete_event_users_path(event_id: e_event['id'], page: 'saved'), class:'like-cta', remote: true, method: :delete do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= link_to save_event_users_path(event_id: e_event['id']), class:'like-cta', remote: true, method: :post do %>
+        <i class="far fa-heart"></i>
+      <% end %>
+    <% end %>
+    <div class="card">
+      <img class="card-img-top mb-3" src=<%= "#{e_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
+<!--         <div class="card-deck border-0 mb-3" style="display: flex;">
+    <div class="card border-0">
+      <img class="card-img-top pb-3" src=< "#{e_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;"> 
+-->
+
+      <small class="pl-2 pr-2">
+        <p>
+        <h2><%= e_event["name"].capitalize %></h2>
+        <li class="pb-2"><%= e_event["location"]["address1"].to_s + ", " + e_event["location"]["city"].to_s.capitalize %> | 
+          <% date = DateTime.strptime(e_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
+          <%= date.strftime('%H:%M on %B %-d') %>
+          </li>
+        <li class="pb-3" style="color: #131111"><%= e_event["description"].capitalize + " read more" %></li>
+      </p></small>
+    </div>
+  </div>
+<% end %>

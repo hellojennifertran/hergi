@@ -10,11 +10,13 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <p class="dropdown-item fullname"><%= current_user.first_name %>  <%= current_user.last_name %></p>
+        <%= link_to 'Saved Events', saved_events_path, class: "dropdown-item" %>
         <% if params[:controller] == 'users' && params[:action] == 'profile' %>
           <span class="dropdown-item edit-profile">Edit Profile</span>
         <% end %>
-        <%= link_to "Edit Monthly Goals", update_goals_path, class: "dropdown-item"%>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+        <%= link_to "Edit Monthly Goals", update_goals_path, class: "dropdown-item" %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
     </div>
   <% end %>

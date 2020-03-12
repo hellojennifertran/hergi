@@ -28,11 +28,19 @@
   padding: 3px 10px 0 0;
 }
 
+.dropdown-item.fullname {
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid lightgray;
+  margin: 0 0.6rem 8px 0.6rem;
+  width: auto;
+  text-align: center;
+  font-size: 14px !important;
+}
+
 #dropdownMenuButton {
   background-color: transparent;
   color: lightgray;
   border: none;
-  &.active {
-    color: cyan;
-  }
 }
+
+
