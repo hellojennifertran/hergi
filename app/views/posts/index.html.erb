@@ -1,6 +1,9 @@
 <div class="welcome-card">
   <small class="posts-welcome" style="color: gray;"><%= "get inspired & go inspire".upcase %></small>
-  <div class="create-post" type="button" data-toggle="modal" data-target="#exampleModalCenter" >
+</div>
+
+<div class="welcome-card p-0">
+  <div class="create-post" type="button" data-toggle="modal" data-target="#exampleModalCenter">
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, class: "user-avatar" %>
     <% else %>
@@ -38,9 +41,9 @@
       <% end %>
       <%= link_to post_path(post) do %>
         <div class="user-details">
-          <h2><%= post.title %></h2>
-          <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
-          <small><%= post.created_at.strftime("%b %e, %Y") %></small>
+          <h3><%= post.title %></h3>
+          <h5><%= "by " + post.user.first_name.to_s %> <%= post.user.last_name.to_s %></h5>
+          <h5><%= post.created_at.strftime("%b %e, %Y") %></h5>
         </div>
       <% end %>
       <div class="dropdown">
@@ -67,15 +70,15 @@
       </div>
     <% end %>
   <div class="comment-teaser">
-    <small style="color: gray;">
-      <i class='far fa-comments'>
+    <i class='far fa-comments'>
+      <h6 style="display: inline; font-size: 11px">
         <% if post.comments.count.zero? %>
           <%= "no comments".upcase %>
          <% else %>
-          <%= pluralize(post.comments.count, "comment") %>
+          <%= pluralize(post.comments.count, "comment".upcase) %>
         <% end %>
-      </i>
-    </small>
+      </h6>
+    </i>
   </div>
   </div>
 <% end %>

@@ -99,9 +99,9 @@ document.addEventListener('turbolinks:load', () => {
 
         ctx.restore();
 
-        var fontSize = (height / 160).toFixed(2);
+        var fontSize = (height / 140).toFixed(2);
 
-        ctx.font = fontSize + "em sans-serif";
+        ctx.font = fontSize + "em Montserrat";
         ctx.textBaseline = "middle";
 
         var text = chart.dataset.total,

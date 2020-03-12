@@ -1,7 +1,7 @@
 <div class="welcome-card">
 	<small style="color: gray;"><%= "discover things to do".upcase %></small>
 </div>
-<div class="card text-center" id="discover-nav">
+<div class="border-0 card text-center" id="discover-nav">
   <ul class="nav nav-tabs discovery mb-2" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Health</a>
@@ -16,8 +16,9 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="text-left tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <% @events_health["events"].reverse.first(20).each do |h_event| %>
-        <div class="card-deck" style="display: flex;">
-          <div class="card">
+        <div class="card-deck border-0 mb-3" style="display: flex;">
+          <hr>
+          <div class="card border-0">
             <img class="card-img-top pb-3" src=<%= "#{h_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
               <p>
@@ -26,16 +27,16 @@
                 <% date = DateTime.strptime(h_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
                 <%= date.strftime('%H:%M on %B %-d') %>
                 </li>
-              <li class="pb-3" style="color: #131111"><%= h_event["description"].capitalize %></li>
+              <li class="pb-3" style="color: #131111"><%= h_event["description"].capitalize + " read more" %></li>
             </p></small>
           </div>
         </div>
       <% end %>
     </div>
-    <div class="text-left tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="border-0 text-left tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <% @events_exploration["events"].reverse.first(20).each do |e_event| %>
-        <div class="card-deck" style="display: flex;">
-          <div class="card">
+        <div class="card-deck border-0 mb-3" style="display: flex;">
+          <div class="card border-0">
             <img class="card-img-top pb-3" src=<%= "#{e_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
               <p>
@@ -44,7 +45,7 @@
                 <% date = DateTime.strptime(e_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
                 <%= date.strftime('%H:%M on %B %-d') %>
                 </li>
-              <li class="pb-3" style="color: #131111"><%= e_event["description"].capitalize %></li>
+              <li class="pb-3" style="color: #131111"><%= e_event["description"].capitalize + " read more" %></li>
             </p></small>
           </div>
         </div>
@@ -59,8 +60,8 @@
 
     <div class="text-left tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <% @events_relationships["events"].reverse.first(20).each do |r_event| %>
-        <div class="card-deck" style="display: flex;">
-          <div class="card">
+        <div class="card-deck border-0 mb-3" style="display: flex;">
+          <div class="card border-0">
             <img class="card-img-top pb-3" src=<%= "#{r_event["image_url"]}" %> alt="Card image cap" style="height: 200px; object-fit: cover;">
             <small class="pl-2 pr-2">
               <p>
@@ -69,7 +70,7 @@
                 <% date = DateTime.strptime(r_event['time_start'], '%Y-%m-%dT%H:%M:%S%z') %>
                 <%= date.strftime('%H:%M on %B %-d') %>
                 </li>
-              <li class="pb-3" style="color: #131111"><%= r_event["description"].capitalize %></li>
+              <li class="pb-3" style="color: #131111"><%= r_event["description"].capitalize + " read more" %></li>
             </p></small>
           </div>
         </div>

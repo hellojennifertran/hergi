@@ -25,9 +25,9 @@
         <%= image_tag 'avatar.jpg', class: "user-avatar"%>
     <% end %>
     <div class="user-details">
-      <p><strong><%= @post.title %></strong></p>
-      <p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
-      <p><%= @post.created_at.strftime("%b %e, %Y") %></p>
+      <h3><%= @post.title %></h3>
+      <h5><%= "by " + @post.user.first_name.to_s %> <%= @post.user.last_name.to_s %></h5>
+      <h5><%= @post.created_at.strftime("%b %e, %Y") %></h5>
     </div>
   </div>
    <div class="dropdown">
@@ -57,7 +57,7 @@
   </div>
 </div>
 <div class="comments">
- <small style="color: gray!important;"><%= link_to "<i class='far fa-comments'></i> LEAVE A COMMENT".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %></small>
+ <h6 style="display: inline; font-size: 11px; color: #454545!important;"><%= link_to "<i class='far fa-comments'></i> LEAVE A COMMENT".html_safe, new_post_comment_path(@post), id: "create-comment", data: {toggle: "modal", target: "#exampleModalCenterComment" } %></h6>
   <hr>
   <% @post.comments.reverse.each do |comment| %>
   <p><strong><%=comment.user.first_name%> <%=comment.user.last_name%></strong></p>
@@ -72,25 +72,23 @@
   <h6><strong><%= link_to "Return to Feed", posts_path%></strong></h6>
 </div>
 
-
-
-  <div class="modal fade" id="exampleModalCenterComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Create Comment</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= render "comments/form", post: @post, comment: Comment.new, remote: true %>
-        </div>
-        <div class="modal-footer">
-        </div>
+<div class="modal fade" id="exampleModalCenterComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="display:none;">
+        <h5 class="modal-title" id="exampleModalLongTitle">Create Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "comments/form", post: @post, comment: Comment.new, remote: true %>
+      </div>
+      <div class="modal-footer" style="display:none;">
       </div>
     </div>
   </div>
+</div>
 
 
 

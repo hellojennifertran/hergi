@@ -40,35 +40,37 @@
         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Achievements</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Blog</a>
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Inspiration</a>
       </li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <% if @goals.length >= 1 %>
-        <%= render 'user_goals' %>
-        <% else %>
-          <div class="jumbotron">
-            <h4 class="display-5">No activity yet</h4>
-            <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
-            <hr class="my-4">
-            <p>Log your first goal by clicking on +</p>
-          </div>
-        <% end %>
-      </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <% if @posts.length >= 1 %>
-        <%= render 'user_posts' %>
-        <% else %>
-          <div class="jumbotron">
-            <h4 class="display-5">No posts yet</h4>
-            <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
-            <hr class="my-4">
-            <p>Start slowly by clicking on +</p>
-          </div>
-        <% end %>
-        <%= render 'user_posts' %>
+      <div id="activity-feed" class="card pt-3 bg-white">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <% if @goals.length >= 1 %>
+          <%= render 'user_goals' %>
+          <% else %>
+<!--             <div class="jumbotron">
+              <h4 class="display-5">No activity yet</h4>
+              <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
+              <hr class="my-4">
+              <p>Log your first goal by clicking on +</p>
+            </div> -->
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <% if @posts.length >= 1 %>
+          <%= render 'user_posts' %>
+          <% else %>
+            <div class="jumbotron">
+              <h4 class="display-5">No posts yet</h4>
+              <p class="lead">A lifestyle app where you can set, track and follow your activities. Get inspired by your friends and enrich the experiences of your community  </p>
+              <hr class="my-4">
+              <p>Start slowly by clicking on +</p>
+            </div>
+          <% end %>
+          <%= render 'user_posts' %>
+        </div>
       </div>
     </div>
   <% end %>

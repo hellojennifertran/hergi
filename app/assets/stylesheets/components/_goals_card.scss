@@ -16,16 +16,16 @@
 
  #dropdownMenuButtonDashboard {
     background-color: transparent;
-    color: white;
+    color: lightgray;
     border: none;
 }
 
 }
 
 .card-product img {
-  height: 100%;
+  height: 120px;
   width: 120px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card-product h2 {
@@ -60,7 +60,7 @@
   text-align: center;
 
   i {
-    font-size: 4em;
+    font-size: 3em;
   }
 }
 
