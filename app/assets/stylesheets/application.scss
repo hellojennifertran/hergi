@@ -18,6 +18,10 @@
 @import "posts/index";
 @import "devise/devise";
 
+.dropdown-item {
+	font-size: 12px!important;
+}
+
 .active {
   color: #50c491 !important;
   border-right: 1px solid black !important;
