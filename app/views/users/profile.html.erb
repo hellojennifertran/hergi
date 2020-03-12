@@ -1,4 +1,4 @@
-<% if @user == current_user %>
+<%# if @user == current_user %>
   <%= simple_form_for @user, url: update_path(@user), method: :patch, remote: true do |f|%>
     <div class="user-profile-banner">
       <div class="profile-avatar">
@@ -78,4 +78,4 @@
       </div>
     </div>
   <% end %>
-<% end %>
+<%# end %>
