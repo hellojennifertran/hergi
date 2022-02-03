@@ -1,10 +1,25 @@
-Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker { image 'ruby' } }
+    agent any
+
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'ruby --version'
+                echo 'Building..'
+                bundle
+                brew services start postgresql
+                rails db:create
+                rails db:migrate
+                rails s -p 3006
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
