@@ -5,11 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bundle
-                brew services start postgresql
-                rails db:create
-                rails db:migrate
-                rails s -p 3006
+                sh 'bundle'
+                sh 'brew services start postgresql'
+                sh 'rails db:create'
+                sh 'rails db:migrate'
+                sh 'rails s -p 3006'
             }
         }
         stage('Test') {
