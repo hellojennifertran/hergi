@@ -9,7 +9,7 @@ pipeline {
                 sh 'brew services start postgresql'
                 sh 'rails db:create'
                 sh 'rails db:migrate'
-                sh 'rails s -p 3006'
+                echo 'Done!!'
             }
         }
         stage('Test') {
